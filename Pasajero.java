@@ -16,4 +16,12 @@ public class Pasajero{
     public String getRut(){
         return rutPasajero;
     }
+
+    public String getTipo(){
+        return tipoPasajero;
+    }
+
+    public int getAsiento(){
+        return numeroAsiento;
+    }
 }

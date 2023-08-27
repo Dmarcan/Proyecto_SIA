@@ -34,4 +34,27 @@ public class Empresa {
         System.out.println("Bus con codigo de viaje " + codigoViaje + ", ha sido eliminado.");
         return;
     }
+
+    public void agregarViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
+                                String lugarDestino, String horaInicio, String horaLlegada,
+                                int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
+                                int costoViaje,int totalAsientos)
+    {
+        int posicion = buscarViajeBus(codigoViaje);
+        if (posicion == -1) 
+        {
+            ViajeBus busAgregar = new ViajeBus(nombreChofer,codigoViaje,matricula,lugarInicio,lugarDestino,
+                                               horaInicio,horaLlegada,tarifaGeneral,tarifaTerceraEdad,
+                                               tarifaEstudiante,costoViaje,totalAsientos);
+            viajes[cantBuses] = busAgregar;
+            cantBuses++;
+            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ha sido agregado.");
+            return;
+        }
+        else
+        {
+            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ya se encuentra.");
+            return;
+        }
+    }
 }
