@@ -58,6 +58,21 @@ public class ViajeBus{
         return codigoViaje;
     }
 
+    public int getTotalAsientos()
+    {
+        return totalAsientos;
+    }
+    
+    public int getCantPasajeros()
+    {
+        return cantPasajeros;
+    }
+
+    public byte [] getAsientosDisponibles()
+    {
+        return asientosDisponibles;
+    }
+
     public void listarAsientosDisponibles()
     {
         int pasillo = 0;
@@ -71,7 +86,6 @@ public class ViajeBus{
                     System.out.println(i + "  ");
                 else
                     System.out.println(i + " ");
-
                 pasillo++;
             } 
             else 
@@ -84,64 +98,13 @@ public class ViajeBus{
         }
     }
 
-    /* David 
-    public void agregarPasajero(String nombrePasajero, String rutPasajero, String tipoPasajero,int numeroAsiento, String codigoViaje)
-    {
-        
-        Pasajero pasajeroAgregar = new Pasajero(nombrePasajero,rutPasajero,tipoPasajero,numeroAsiento,codigoViaje);
-        pasajerosNroAsiento[cantPasajeros] = pasajeroAgregar;
-        asientosDisponibles[numeroAsiento-1] = 1;
 
-        actualizarGanancia(tipoPasajero,"agregar");
+    public void agregarPasajero(Pasajero pasajero) 
+    {
+        actualizarGanancia(pasajero.getTipo(),"agregar");
+        asientosDisponibles[pasajero.getAsiento() - 1] = 0;
+        pasajerosNroAsiento[cantPasajeros - 1] = pasajero;
         cantPasajeros++;
-    }
-    */
-
-    public void agregarPasajero()throws IOException
-    {
-        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-        String codigoViaje;
-        String nombrePasajero;
-        String rutPasajero;
-        String tipoPasajero;
-        String ingresado;
-        int numeroAsiento;
-        if (cantPasajeros < totalAsientos)
-        {
-            System.out.println("Ingrese codigo del viaje.");
-            codigoViaje = lector.readLine();
-
-            System.out.println("Ingrese nombre del pasajero.");
-            nombrePasajero = lector.readLine();
-            System.out.println("Ingrese rut del pasajero.");
-            rutPasajero = lector.readLine();
-            do{
-                System.out.println("Ingrese tipo del pasajero.(estudiante-normal-terceraEdad");
-                tipoPasajero = lector.readLine();
-                
-            }while (!tipoPasajero.equals("estudiante") && !tipoPasajero.equals("normal") && !tipoPasajero.equals("tercera edad"));
-                    
-            do {
-                listarAsientosDisponibles();
-                System.out.println("Ingrese numeroAsiento del pasajero.");
-                ingresado = lector.readLine();
-                numeroAsiento = Integer.parseInt(ingresado);
-                
-            }while(asientosDisponibles[numeroAsiento - 1] != 0);
-
-            Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
-            
-            actualizarGanancia(tipoPasajero,"agregar");
-                
-            
-            asientosDisponibles[numeroAsiento - 1] = 0;
-            pasajerosNroAsiento[cantPasajeros - 1] = pasajero;
-            cantPasajeros++;
-        }
-        else
-        {
-            System.out.println("Todos los buses llenos. No se puede agregar.");
-        }
     }
     
     /* Edu
@@ -187,12 +150,12 @@ public class ViajeBus{
             pasajerosNroAsiento[posicion] = pasajerosNroAsiento[cantPasajeros - 1];
             cantPasajeros--;
 
-            System.out.println("Persona con rut: "+ rut +", ha sido eliminada.");
+            System.out.println("Persona con rut: " + rut + ", ha sido eliminada.");
             
         }
         else
         {
-            System.out.println("Persona con rut: "+ rut +", no se encuentra.");
+            System.out.println("Persona con rut: " + rut + ", no se encuentra.");
             return;
         }
     }
@@ -201,25 +164,25 @@ public class ViajeBus{
     PALABRAS CLAVES    
     accion:"agregar","eliminar"
     */
-    public void actualizarGanancia(String tipoPersona,String accion)
+    public void actualizarGanancia(String tipoPersona, String accion)
     {
          switch (tipoPersona) 
          {
             case "estudiante":
                  
-                 if (accion.equals("eliminar")) gananciaTotal-=tarifaEstudiante;
+                 if (accion.equals("eliminar")) gananciaTotal -= tarifaEstudiante;
                  else gananciaTotal+=tarifaEstudiante;
                     
                 break;
             case "terceraEdad":
                  
-                 if (accion.equals("eliminar")) gananciaTotal-=tarifaTerceraEdad;
-                 else gananciaTotal+=tarifaTerceraEdad;
+                 if (accion.equals("eliminar")) gananciaTotal -= tarifaTerceraEdad;
+                 else gananciaTotal += tarifaTerceraEdad;
                      
                 break;
             case "normal":
                  if (accion.equals("eliminar")) gananciaTotal-=tarifaGeneral;
-                 else gananciaTotal+=tarifaGeneral;
+                 else gananciaTotal += tarifaGeneral;
                 
                 break;
             default:
@@ -227,11 +190,11 @@ public class ViajeBus{
         }
         actualizarRentabilidad();
         return;
-        
     }
+    
     public void actualizarRentabilidad()
     {
-        rentabilidad = ((gananciaTotal-costoViaje)/gananciaTotal)*100;
+        rentabilidad = ((gananciaTotal - costoViaje) / gananciaTotal) * 100;
         return;
     }
 }
