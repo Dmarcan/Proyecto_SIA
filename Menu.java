@@ -116,27 +116,29 @@ public class Menu{
             
             if (cantPasajeros < totalAsientos)
             {
-                System.out.println("Ingrese codigo del viaje.");
-                codigoViaje = lector.readLine();
+                
+                codigoViaje = viajeBus.getCodigo();
 
                 System.out.println("Ingrese nombre del pasajero.");
                 nombrePasajero = lector.readLine();
                 System.out.println("Ingrese RUT del pasajero.");
                 rutPasajero = lector.readLine();
                 do{
-                    System.out.println("Ingrese tipo del pasajero.(estudiante, normal, o tercera edad)");
+                    System.out.println("Ingrese tipo del pasajero.(Estudiante, Normal, o Tercera edad)");
                     tipoPasajero = lector.readLine();
                     
-                }while (!tipoPasajero.equals("estudiante") && !tipoPasajero.equals("normal") && !tipoPasajero.equals("tercera edad"));
+                }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("Normal") && !tipoPasajero.equals("Tercera edad"));
 
                 byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
                 
                 do {
-                    viajeBus.listarAsientosDisponibles();
-                    System.out.println("Ingrese numero de asiento del pasajero.");
-                    ingresado = lector.readLine();
-                    numeroAsiento = Integer.parseInt(ingresado);
-                    
+                    do{
+                        viajeBus.listarAsientosDisponibles();
+                        System.out.println("Ingrese numero de asiento del pasajero.");
+                        ingresado = lector.readLine();
+                        numeroAsiento = Integer.parseInt(ingresado);
+                        
+                    }while(numeroAsiento > totalAsientos);
                 }while(asientosDisponibles[numeroAsiento - 1] != 0);
 
                 Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
@@ -179,11 +181,140 @@ public class Menu{
             codigoViaje = lector.readLine();
 
             ViajeBus busElegido = empresa.getViajeBus(codigoViaje);
-            if (busElegido != null)
+            if (busElegido != null){
+                if (busElegido.getTotalAsientos() == busElegido.getCantPasajeros()){
+                    System.out.println("El bus con codigo de viaje: "+ codigoViaje +"no tiene asientos disponibles");
+                    return null;
+                }
                 return busElegido;
+            }
             else
                 return null;
         }
         return null;
     }
+
+
+
+
+    public void cargaDatosInicialesTemporal(Empresa empresa){
+        
+        System.out.println("Cargando datos iniciales de manera temporal...");
+        
+        //BUS 1
+        ViajeBus viajeBus = new ViajeBus("Patricio C.","29345","OPTD3472","Quillota","Valparaíso","13:40:00","15:45:00",3500,2000,1850,15000,20);
+        empresa.agregarViajeBus(viajeBus);
+        //AGREGAR PASAJEROS BUS 1
+        
+        Pasajero pasajero = new Pasajero("Ana", "12345678-9", "General", 5, "29345");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Pedro", "98765432-1", "Tercera Edad", 12, "29345");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("María", "45678901-2", "Estudiante", 20, "29345");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Juan", "56789012-3", "General", 8, "29345");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Luisa", "34567890-4", "General", 15, "29345");
+        viajeBus.agregarPasajero(pasajero);
+        
+        //BUS 2
+        viajeBus = new ViajeBus("Juan Perez","29346","LPBY-17","Santiago","Atacama","08:00:00","16:00:00",20000,15000,15000,800000,40);
+        empresa.agregarViajeBus(viajeBus);
+        
+        //AGREGAR PASAJEROS BUS 2
+        
+        pasajero = new Pasajero("Fernando", "78901234-5", "General", 3, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Isabel", "89012345-6", "Tercera Edad", 9, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Gabriel", "90123456-7", "Estudiante", 15, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Sofía", "01234567-8", "General", 18, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Diego", "12345678-9", "General", 7, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Marta", "23456789-0", "General", 14, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Javier", "34567890-1", "Estudiante", 6, "29346");
+        viajeBus.agregarPasajero(pasajero);
+        
+
+        //BUS 3
+        viajeBus = new ViajeBus("Luis M.", "29347", "ERXG-5621", "Santiago", "Rancagua", "08:30:00", "10:45:00", 3000, 1800, 1500, 12000, 25);
+        empresa.agregarViajeBus(viajeBus);
+
+        //AGREGAR PASAJEROS BUS 3
+
+        pasajero = new Pasajero("Fernando", "78901234-5", "General", 3, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Isabel", "89012345-6", "Tercera Edad", 9, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Gabriel", "90123456-7", "Estudiante", 15, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Sofía", "01234567-8", "General", 18, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Diego", "12345678-9", "General", 7, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Marta", "23456789-0", "General", 14, "29347");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Javier", "34567890-1", "Estudiante", 6, "29347");
+        viajeBus.agregarPasajero(pasajero);
+
+        
+        //BUS 4
+        viajeBus = new ViajeBus("María R.", "29348", "TYSF-9876", "Cali", "Medellín", "09:15:00", "12:30:00", 2800, 1600, 1400, 11000, 30);
+        empresa.agregarViajeBus(viajeBus);
+        //AGREGAR PASAJEROS BUS 4
+        pasajero = new Pasajero("Juan", "98765432-1", "General", 7, "29348");
+        viajeBus.agregarPasajero(pasajero);
+        pasajero = new Pasajero("Ana", "45678901-2", "Tercera Edad", 12, "29348");
+        viajeBus.agregarPasajero(pasajero);
+        pasajero = new Pasajero("Carlos", "76543210-9", "General", 25, "29348");
+        viajeBus.agregarPasajero(pasajero);
+        pasajero = new Pasajero("María", "11223344-5", "Especial", 2, "29348");
+
+
+        
+        //BUS 5
+        viajeBus = new ViajeBus("Diego Torres", "29349", "XYZ-789", "Punta Arenas", "Torres del Paine", "06:00", "15:00", 30000, 25000, 25000, 1050000,35);
+        empresa.agregarViajeBus(viajeBus);
+        /*
+        pasajero = new Pasajero("Carolina", "45678901-2", "General", 5, "29349");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Ricardo", "56789012-3", "Estudiante", 12, "29349");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Laura", "67890123-4", "Tercera Edad", 15, "29349");
+        viajeBus.agregarPasajero(pasajero);
+        
+        pasajero = new Pasajero("Andrea", "67890123-4", "Tercera Edad", 15, "29349");
+        viajeBus.agregarPasajero(pasajero);
+        */
+
+        
+
+
+        
+  
+        }
+
+
+    
 }

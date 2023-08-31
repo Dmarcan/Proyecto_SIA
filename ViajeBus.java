@@ -111,30 +111,35 @@ public class ViajeBus{
     {
         return cantPasajeros;
     }
-
+    
     public void listarAsientosDisponibles()
     {
         if (cantPasajeros == 0)
-            return;
-        int pasillo = 0;
+            System.out.println("El bus se encuentra vacio.");
+            
+
+        byte cont = 2;
         for (byte i = 0; i < asientosDisponibles.length; i++)
         {
-            if(pasillo % 2 == 0 && (pasillo != 0 || pasillo % 3 != 0))
-                System.out.println("||  ");
-            if (asientosDisponibles[i] != 0) 
+            if(cont % 4 == 0)
+                System.out.print("|| ");
+            cont++;
+              
+            if (asientosDisponibles[i] == 0) 
             {
-                if(i < 10)
-                    System.out.println(i + "  ");
+                if(i < 9)
+                    System.out.print((i+1) + "  ");
                 else
-                    System.out.println(i + " ");
-                pasillo++;
-            } 
-            else 
-            {
-                System.out.println('X' + "  ");
+                    System.out.print((i+1) + " ");
             }
-            if(i % 3 == 0) System.out.println();           
+            else 
+                System.out.print("X  ");
+                
+            if((i+1) % 4 == 0 && i != 0) 
+                System.out.println();
+                         
         }
+        System.out.println();
     }
 
     public void agregarPasajero(Pasajero pasajero) 
@@ -142,7 +147,7 @@ public class ViajeBus{
         actualizarGanancia(pasajero.getTipo(),"agregar");
         pasajerosArray.add(pasajero);
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
-        asientosDisponibles[pasajero.getNroAsiento() - 1] = 0;
+        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
         cantPasajeros++;
     }
     
@@ -198,20 +203,20 @@ public class ViajeBus{
     {
          switch (tipoPersona) 
          {
-            case "estudiante":
+            case "Estudiante":
                  
-                 if (accion.equals("eliminar")) gananciaTotal -= tarifaEstudiante;
+                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaEstudiante;
                  else gananciaTotal+=tarifaEstudiante;
                     
                 break;
-            case "terceraEdad":
+            case "Tercera Edad":
                  
-                 if (accion.equals("eliminar")) gananciaTotal -= tarifaTerceraEdad;
+                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaTerceraEdad;
                  else gananciaTotal += tarifaTerceraEdad;
                      
                 break;
-            case "normal":
-                 if (accion.equals("eliminar")) gananciaTotal-=tarifaGeneral;
+            case "Normal":
+                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaGeneral;
                  else gananciaTotal += tarifaGeneral;
                 
                 break;

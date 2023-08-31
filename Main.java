@@ -7,6 +7,7 @@ public class Main{
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
         Empresa empresa = new Empresa();
         Menu menu = new Menu();
+        menu.cargaDatosInicialesTemporal(empresa);
         
         while (true){
             menu.mostrarFuncionalidades();
