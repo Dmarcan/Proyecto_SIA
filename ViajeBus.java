@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class ViajeBus{    
     private String nombreChofer;
@@ -18,7 +19,9 @@ public class ViajeBus{
     private int totalAsientos;
     private int cantPasajeros;
     
-    private Pasajero[] pasajerosNroAsiento;
+    private ArrayList<Pasajero> pasajerosArray;
+    private Hashtable pasajerosRutMap;
+    
     private byte[] asientosDisponibles;
     
     private int gananciaTotal;
@@ -44,8 +47,9 @@ public class ViajeBus{
         this.tarifaEstudiante = tarifaEstudiante;
         
         this.costoViaje = costoViaje;
-        
-        pasajerosNroAsiento = new Pasajero[totalAsientos];
+
+        pasajerosArray = new ArrayList<Pasajero>(totalAsientos);
+        pasajerosRutMap = new Hashtable(totalAsientos);
         asientosDisponibles = new byte[totalAsientos];
         cantPasajeros = 0;
         
@@ -102,62 +106,47 @@ public class ViajeBus{
     public void agregarPasajero(Pasajero pasajero) 
     {
         actualizarGanancia(pasajero.getTipo(),"agregar");
+        pasajerosArray.add(pasajero);
+        pasajerosRutMap.put(pasajero.getRut(), pasajero);
         asientosDisponibles[pasajero.getAsiento() - 1] = 0;
-        pasajerosNroAsiento[cantPasajeros - 1] = pasajero;
         cantPasajeros++;
     }
     
-    /* Edu
-    public void agregarPasajero()
-    {
-        // Falta: Mostrar y dar elegir el número de asiento al pasajero, ya sea con un algoritmo dentro de este método
-        // o llamando a un método auxiliar.
-        int numeroAsiento = 0;
-        
-        if (cantPasajeros < totalAsientos && asientosDisponibles[numeroAsiento - 1] != 0)
-        {
-            // Falta: Creación objeto Pasajero ya sea con un algoritmo dentro de este método o llamando a un método auxiliar.
-            asientosDisponibles[numeroAsiento - 1] = 0;
-            // pasajerosNroAsiento[numeroAsiento - 1] = pasajero;
-            cantPasajeros++;
-        }
+
+/*
+    public Pasajero buscarPasajero(String rut){
+        return pasajerosRutMap.get(rut);
     }
-    */
-    
-    public int buscarPasajero(String rut){
-        for (int i = 0; i < cantPasajeros; i++){
-            if (pasajerosNroAsiento[i] != null)
-            {
-                Pasajero pasajeroAux = pasajerosNroAsiento[i];
-                if (rut.equals(pasajeroAux.getRut())){
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-    
+*/
     public void eliminarPasajero(String rut)
     {
-        int posicion = buscarPasajero(rut);
-        if (posicion != -1)
+        if (pasajerosRutMap.remove(rut) == null)
         {
-            actualizarGanancia(pasajerosNroAsiento[posicion].getTipo(),"eliminar");
-                
-            int asientoDis = pasajerosNroAsiento[posicion].getAsiento();
-            asientosDisponibles[asientoDis + 1] = 0;
-            
-            pasajerosNroAsiento[posicion] = pasajerosNroAsiento[cantPasajeros - 1];
-            cantPasajeros--;
-
-            System.out.println("Persona con rut: " + rut + ", ha sido eliminada.");
-            
-        }
-        else
-        {
-            System.out.println("Persona con rut: " + rut + ", no se encuentra.");
+            System.out.println("Pasajero rut: "+ rut +" no fue eliminado del mapa.");
             return;
         }
+
+        System.out.println("Pasajero fue posible de eliminar de mapa de pasajeros");
+        int entro = 0;
+        for (int i = 0 ; i < pasajerosArray.size() ; i++)
+        {
+            Pasajero pasajeroCurrent = pasajerosArray.get(i);
+            if ( (pasajeroCurrent.getRut()).equals(rut) )
+            {
+                actualizarGanancia(pasajeroCurrent.getTipo(),"eliminar");
+                pasajerosArray.remove(i);
+                System.out.println("Pasajero rut: "+ rut +" fue eliminado de la lista.");
+                entro = 1;
+                break;
+                
+            }
+                                    
+        }
+        if(entro == 0)
+            System.out.println("Pasajero no fue posible de eliminar de lista");
+        return;
+ 
+
     }
 
     /*

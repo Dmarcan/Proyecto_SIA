@@ -1,10 +1,10 @@
 import java.io.*;
+import java.util.*; 
 
 public class Main{
     public static void main(String args[]) throws IOException{
         int opcion;
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-        Empresa empresa = new Empresa(null, null, 0);
         
         Menu menu = new Menu();
         
