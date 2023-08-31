@@ -3,60 +3,87 @@ import java.util.*;
 public class Empresa {
     
     private ArrayList<ViajeBus> viajesArray;
-
     private Hashtable<String, ViajeBus> viajesCodigoMap;
+    private int cantBuses;
     
-    private String[] conductores;
-
-    public Empresa(ArrayList viajesArray, Hashtable viajesCodigoMap, String[] conductores) {
-        this.viajesArray = viajesArray;
-        this.viajesCodigoMap = viajesCodigoMap;
-        this.conductores = conductores;
-        this.conductores = conductores;
+    public Empresa()
+    {
+        viajesArray =  new ArrayList<>();
+        viajesCodigoMap = new Hashtable<>();
+        cantBuses = 0;
     }
 
+    public int getCantBuses()
+    {
+        return cantBuses;
+    }
+
+    public ViajeBus getViajeBus(String codigoViaje)
+    {
+        if (cantBuses > 0)
+            return viajesCodigoMap.get(codigoViaje);
+        else
+            return null;
+    }
 
     public void agregarViajeBus(ViajeBus viajeBus)
     {
-        if (viajesArray.contains(viajeBus) != true)
+        String codigoViaje = viajeBus.getCodigo();
+
+        if (viajesCodigoMap.contains(codigoViaje) != true)
         {
-            ViajeBus busAgregar = viajeBus;
-            viajesCodigoMap.put(busAgregar.getCodigo(), viajeBus);
+            viajesCodigoMap.put(codigoViaje, viajeBus);
             viajesArray.add(viajeBus);
-            
-            System.out.println("Bus con codigo de viaje " + busAgregar.getCodigo() + ", ha sido agregado.");
+            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ha sido agregado.");
+            cantBuses++;
             return;
         }
         else
         {
-            System.out.println("Bus con codigo de viaje " + viajeBus.getCodigo() + ", ya se encuentra.");
+            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ya se encuentra.");
             return;
         }
     }
-
     
-    public void eliminarViajeBus(ViajeBus viajeBus)
+    public void eliminarViajeBus(String codigoViaje)
     {
-        Boolean flag;
-        flag = viajesArray.remove(viajeBus);
-        if (flag)
+        if (cantBuses > 0)
         {
-            viajesCodigoMap.remove(viajeBus.getCodigo());
-            System.out.println("Bus con codigo de viaje " + viajeBus.getCodigo() + ", ha sido eliminado.");
+            if (viajesCodigoMap.get(codigoViaje) != null)
+            {
+                viajesArray.remove(viajesCodigoMap.get(codigoViaje));
+                viajesCodigoMap.remove(codigoViaje);
+                System.out.println("Bus con codigo de viaje " + codigoViaje + ", ha sido eliminado.");
+            }
+            else
+                System.out.println("Bus con codigo de viaje " + codigoViaje + ", no se encuentra en el sistema.");
+            return;
         }
-        else
-            System.out.println("Bus con codigo de viaje " + viajeBus.getCodigo() + ", no se encuentra en el sistema.");
-        return;
     }
 
-    public void listarViajeBus(ViajeBus viajeBus)
+    public void listarViajesBus()
     {
+        if (cantBuses == 0)
+            return;
+
         for (int i = 0; i < viajesArray.size(); i++)
         {
             if (viajesArray.get(i) != null)
             {
                 ViajeBus viajeCurrent = viajesArray.get(i);
-                System.out.println((i+1) + "Viaje de bus con código" + viajeCurrent.getCodigo());
+                System.out.println("Viaje de bus "+ (i + 1) + ":");
+                System.out.println("Código de viaje:" + viajeCurrent.getCodigo());
+                System.out.println("Nombre del chofer:" + viajeCurrent.getNombreChofer());
+                System.out.println("Matrícula::" + viajeCurrent.getMatricula());
+                System.out.println("Lugar de inicio:" + viajeCurrent.getLugarDeInicio());
+                System.out.println("Lugar de llegada:" + viajeCurrent.getLugarDeLlegada());
+                System.out.println("Tarifa General:" + viajeCurrent.getTarifaGeneral());
+                System.out.println("Tarifa de tercera edad:" + viajeCurrent.getTarifaTerceraEdad());
+                System.out.println("Tarifa de estudiante:" + viajeCurrent.getTarifaEstudiante());
+                System.out.println("Total de asientos en el bus:" + viajeCurrent.getTotalAsientos());
+                System.out.println("Cantidad de pasajeros:" + viajeCurrent.getCantPasajeros());
+                System.out.println("Asientos libres:" + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
+                System.out.print("\n\n");
             }
         }
     }

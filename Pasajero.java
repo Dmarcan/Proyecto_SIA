@@ -13,6 +13,10 @@ public class Pasajero{
         this.codigoViaje = codigoViaje;
     }
     
+    public String getNombrePasajero(){
+        return nombrePasajero;
+    }
+
     public String getRut(){
         return rutPasajero;
     }
@@ -21,7 +25,11 @@ public class Pasajero{
         return tipoPasajero;
     }
 
-    public int getAsiento(){
+    public String getCodigoViajePasajero(){
+        return codigoViaje;
+    }
+
+    public int getNroAsiento(){
         return numeroAsiento;
     }
 }

@@ -7,7 +7,7 @@ public class ViajeBus{
     private String matricula;
     
     private String lugarInicio;
-    private String lugarDestino;
+    private String lugarLlegada;
     
     private String horaInicio;
     private String horaLlegada;
@@ -20,7 +20,7 @@ public class ViajeBus{
     private int cantPasajeros;
     
     private ArrayList<Pasajero> pasajerosArray;
-    private Hashtable pasajerosRutMap;
+    private Hashtable<String, Pasajero> pasajerosRutMap;
     
     private byte[] asientosDisponibles;
     
@@ -29,7 +29,7 @@ public class ViajeBus{
     private double rentabilidad;
     
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
-                String lugarDestino, String horaInicio, String horaLlegada,
+                String lugarLlegada, String horaInicio, String horaLlegada,
                 int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
                 int costoViaje, int totalAsientos) {
         this.totalAsientos = totalAsientos;
@@ -38,7 +38,7 @@ public class ViajeBus{
         this.matricula = matricula;
         
         this.lugarInicio = lugarInicio;
-        this.lugarDestino = lugarDestino;
+        this.lugarLlegada = lugarLlegada;
         this.horaInicio = horaInicio;
         this.horaLlegada = horaLlegada;
         
@@ -48,8 +48,8 @@ public class ViajeBus{
         
         this.costoViaje = costoViaje;
 
-        pasajerosArray = new ArrayList<Pasajero>(totalAsientos);
-        pasajerosRutMap = new Hashtable(totalAsientos);
+        pasajerosArray = new ArrayList<>(totalAsientos);
+        pasajerosRutMap = new Hashtable<>(totalAsientos);
         asientosDisponibles = new byte[totalAsientos];
         cantPasajeros = 0;
         
@@ -62,6 +62,46 @@ public class ViajeBus{
         return codigoViaje;
     }
 
+    public String getNombreChofer()
+    {
+        return nombreChofer;
+    }
+    
+    public String getMatricula()
+    {
+        return matricula;
+    }
+
+    public String getLugarDeInicio()
+    {
+        return lugarInicio;
+    }
+
+    public String getLugarDeLlegada()
+    {
+        return lugarLlegada;
+    }
+
+    public int getTarifaGeneral()
+    {
+        return tarifaGeneral;
+    }
+
+    public int getTarifaTerceraEdad()
+    {
+        return tarifaTerceraEdad;
+    }
+    
+    public int getTarifaEstudiante()
+    {
+        return tarifaEstudiante;
+    }
+
+    public byte [] getAsientosDisponibles()
+    {
+        return asientosDisponibles;
+    }
+
     public int getTotalAsientos()
     {
         return totalAsientos;
@@ -72,13 +112,10 @@ public class ViajeBus{
         return cantPasajeros;
     }
 
-    public byte [] getAsientosDisponibles()
-    {
-        return asientosDisponibles;
-    }
-
     public void listarAsientosDisponibles()
     {
+        if (cantPasajeros == 0)
+            return;
         int pasillo = 0;
         for (byte i = 0; i < asientosDisponibles.length; i++)
         {
@@ -96,57 +133,61 @@ public class ViajeBus{
             {
                 System.out.println('X' + "  ");
             }
-            if(i % 3 == 0) System.out.println();
-            
-                
+            if(i % 3 == 0) System.out.println();           
         }
     }
-
 
     public void agregarPasajero(Pasajero pasajero) 
     {
         actualizarGanancia(pasajero.getTipo(),"agregar");
         pasajerosArray.add(pasajero);
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
-        asientosDisponibles[pasajero.getAsiento() - 1] = 0;
+        asientosDisponibles[pasajero.getNroAsiento() - 1] = 0;
         cantPasajeros++;
     }
     
 
-/*
+    /*
     public Pasajero buscarPasajero(String rut){
         return pasajerosRutMap.get(rut);
     }
-*/
+    */
     public void eliminarPasajero(String rut)
     {
-        if (pasajerosRutMap.remove(rut) == null)
+        if (cantPasajeros > 0)
         {
-            System.out.println("Pasajero rut: "+ rut +" no fue eliminado del mapa.");
+            ;
+            if (pasajerosRutMap.get(rut) != null)
+            {
+                pasajerosArray.remove(pasajerosRutMap.get(rut));
+                pasajerosRutMap.remove(rut);
+                System.out.println("Pasajero con RUT " + rut + ", ha sido eliminado.");
+            }
+            else
+                System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
             return;
         }
+    }
 
-        System.out.println("Pasajero fue posible de eliminar de mapa de pasajeros");
-        int entro = 0;
-        for (int i = 0 ; i < pasajerosArray.size() ; i++)
+    public void listarPasajeros()
+    {
+        if (cantPasajeros == 0)
+            return;
+            
+        for (int i = 0; i < pasajerosArray.size(); i++)
         {
-            Pasajero pasajeroCurrent = pasajerosArray.get(i);
-            if ( (pasajeroCurrent.getRut()).equals(rut) )
+            if (pasajerosArray.get(i) != null)
             {
-                actualizarGanancia(pasajeroCurrent.getTipo(),"eliminar");
-                pasajerosArray.remove(i);
-                System.out.println("Pasajero rut: "+ rut +" fue eliminado de la lista.");
-                entro = 1;
-                break;
-                
+                Pasajero pasajeroCurrent = pasajerosArray.get(i);
+                System.out.println("Pasajero "+ (i + 1) + ":");
+                System.out.println("Nombre:" + pasajeroCurrent.getNombrePasajero());
+                System.out.println("RUT:" + pasajeroCurrent.getRut());
+                System.out.println("Tipo de pasajero:" + pasajeroCurrent.getTipo());
+                System.out.println("Codigo de su viaje:" + pasajeroCurrent.getCodigoViajePasajero());
+                System.out.println("Numero de asiento:" + pasajeroCurrent.getNroAsiento());
+                System.out.print("\n\n");
             }
-                                    
         }
-        if(entro == 0)
-            System.out.println("Pasajero no fue posible de eliminar de lista");
-        return;
- 
-
     }
 
     /*

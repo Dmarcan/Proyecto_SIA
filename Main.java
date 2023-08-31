@@ -5,41 +5,30 @@ public class Main{
     public static void main(String args[]) throws IOException{
         int opcion;
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-        
+        Empresa empresa = new Empresa();
         Menu menu = new Menu();
         
         while (true){
             menu.mostrarFuncionalidades();
-            
             opcion = Integer.parseInt(lector.readLine());
-        
             switch (opcion) {
                 case 1:
-                    menu.registrarViaje();
+                    menu.OpcionAgregarViajeBus(empresa);
                     break;
                 case 2:
-                    menu.eliminarViaje();
+                    menu.opcionEliminarViaje(empresa);
                     break;
                 case 3:
-                    menu.mostrarViajes();
+                    menu.opcionListarViajesBus(empresa);
                     break;
                 case 4:
-                    menu.mostrarViajes();
-                    
-                    //menu.agregarPasajero(menu.elegirBus());
+                    menu.opcionAgregarPasajero(menu.elegirBus(empresa));
                     break;
                 case 5:
-                    menu.mostrarPasajerosBus();
+                    menu.opcionEliminarPasajero(menu.elegirBus(empresa));
                     break;
                 case 6:
-                    menu.anularViajeBus();
-                    break;
-
-                case 7:
-                    menu.anularPasajero();
-                    break;
-                case 8:
-                    menu.verificarRentabilidadBus();
+                    menu.opcionListarPasajeros(menu.elegirBus(empresa));
                     break;
                 default: 
                     return;
