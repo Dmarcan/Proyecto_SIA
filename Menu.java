@@ -1,7 +1,9 @@
 import java.io.*;
-// import java.util.*;
 
 public class Menu{
+
+    // Métodos para mostra menús
+    
     public void mostrarFuncionalidades(){
         System.out.println("MENU DEL SISTEMA");
             System.out.println("Opcion 1 : Registrar viaje de bus en el sistema.");
@@ -12,193 +14,264 @@ public class Menu{
             System.out.println("Opcion 6 : Listar pasajeros de viaje de bus.");
             System.out.println("Opcion 0 : Salir.");
     }
+
+    public void subMenuMostrarPasajeros() {
+        System.out.println("Opcion 1 : Listar todos los pasajeros del bus.");
+        System.out.println("Opcion 2 : Listar según tipo de pasajero.");
+        System.out.println("Opcion 0 : Salir.");
+        
+    }
+    public void subMenuMostrarBuses(){
+        System.out.println("Opcion 1 : Listar todos los buses en el sistema.");
+        System.out.println("Opcion 2 : Listar los buses en base al lugar de inicio.");
+        System.out.println("Opcion 0 : Salir.");
+        
+    }
+
+    // Opciones Agregar, Eliminar y Listar para la colección de objetos ViajeBus de la clase empresa.
     
     public void OpcionAgregarViajeBus(Empresa empresa)throws IOException {
-        if (empresa != null)
-        {
-            BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        if (empresa == null)
+            return;
 
-            String nombreChofer;
-            String codigoViaje;
-            String matricula;
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+
+        String nombreChofer;
+        String codigoViaje;
+        String matricula;
+    
+        String lugarInicio;
+        String lugarLlegada;        
+        String horaInicio;
+        String horaLlegada;
         
-            String lugarInicio;
-            String lugarLlegada;        
-            String horaInicio;
-            String horaLlegada;
-            
-            int tarifaGeneral;
-            int tarifaTerceraEdad;
-            int tarifaEstudiante;
+        int tarifaGeneral;
+        int tarifaTerceraEdad;
+        int tarifaEstudiante;
+    
+        int totalAsientos;
+        int costoViaje;
         
-            int totalAsientos;
-            int costoViaje;
-            
-            System.out.println("Ingrese el nombre del chofer del viaje de bus.");
-            nombreChofer = lector.readLine();
+        System.out.println("Ingrese el nombre del chofer del viaje de bus.");
+        nombreChofer = lector.readLine();
 
-            System.out.println("Ingrese el codigo del viaje de bus.");
-            codigoViaje = lector.readLine();
+        System.out.println("Ingrese el codigo del viaje de bus.");
+        codigoViaje = lector.readLine();
 
-            System.out.println("Ingrese la matricula del bus.");
-            matricula = lector.readLine();
+        System.out.println("Ingrese la matricula del bus.");
+        matricula = lector.readLine();
 
-            System.out.println("Ingrese el lugar de inicio del viaje de bus.");
-            lugarInicio = lector.readLine();
+        System.out.println("Ingrese el lugar de inicio del viaje de bus.");
+        lugarInicio = lector.readLine();
 
-            System.out.println("Ingrese el lugar de llegada del viaje de bus.");
-            lugarLlegada = lector.readLine();
+        System.out.println("Ingrese el lugar de llegada del viaje de bus.");
+        lugarLlegada = lector.readLine();
 
-            System.out.println("Ingrese la hora hora de inicio del viaje de bus.");
-            horaInicio = lector.readLine();
+        System.out.println("Ingrese la hora hora de inicio del viaje de bus.");
+        horaInicio = lector.readLine();
 
-            System.out.println("Ingrese la hora de llegada del viaje de bus.");
-            horaLlegada = lector.readLine();
+        System.out.println("Ingrese la hora de llegada del viaje de bus.");
+        horaLlegada = lector.readLine();
 
-            System.out.println("Ingrese la tarifa para público general del viaje de bus.");
-            tarifaGeneral = Integer.parseInt(lector.readLine());
+        System.out.println("Ingrese la tarifa para público general del viaje de bus.");
+        tarifaGeneral = Integer.parseInt(lector.readLine());
 
-            System.out.println("Ingrese la tarifa para tercera edad del viaje de bus.");
-            tarifaTerceraEdad = Integer.parseInt(lector.readLine());
+        System.out.println("Ingrese la tarifa para tercera edad del viaje de bus.");
+        tarifaTerceraEdad = Integer.parseInt(lector.readLine());
 
-            System.out.println("Ingrese la tarifa para estudiante del viaje de bus.");
-            tarifaEstudiante = Integer.parseInt(lector.readLine());
+        System.out.println("Ingrese la tarifa para estudiante del viaje de bus.");
+        tarifaEstudiante = Integer.parseInt(lector.readLine());
 
-            System.out.println("Ingrese el numero total de asientos del bus.");
-            totalAsientos = Integer.parseInt(lector.readLine());
+        System.out.println("Ingrese el numero total de asientos del bus.");
+        totalAsientos = Integer.parseInt(lector.readLine());
 
-            System.out.println("Ingrese el costo del viaje de bus.");
-            costoViaje = Integer.parseInt(lector.readLine());
+        System.out.println("Ingrese el costo del viaje de bus.");
+        costoViaje = Integer.parseInt(lector.readLine());
 
-            ViajeBus viajeBus = new ViajeBus(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, 
-                                horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante, 
-                                totalAsientos, costoViaje);            
-            
-            empresa.agregarViajeBus(viajeBus);
-        }
+        ViajeBus viajeBus = new ViajeBus(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, 
+                            horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante, 
+                            totalAsientos, costoViaje);            
+        
+        empresa.agregarViajeBus(viajeBus);
     }
 
     public void opcionEliminarViaje(Empresa empresa)throws IOException {
-        if (empresa.getCantBuses() > 0)
-        {
-            opcionListarViajesBus(empresa);
+        if (empresa == null)
+            return;
+        
+        if (empresa.getCantBuses() == 0)
+            return;
+        
+        empresa.listarViajesBus(false);
 
-            BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-            System.out.println("Ingrese el código de viaje del bus a eliminar.");
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        System.out.println("Ingrese el código de viaje del bus a eliminar.");
 
-            String codigoViaje = lector.readLine();
-            empresa.eliminarViajeBus(codigoViaje);
-        }
-
+        String codigoViaje = lector.readLine();
+        empresa.eliminarViajeBus(codigoViaje);
     }
-    
-    public void opcionListarViajesBus(Empresa empresa) {
-        if (empresa.getCantBuses() > 0)
+
+    public void opcionListarViajesBus(Empresa empresa, boolean flag) throws IOException {
+        if (empresa == null)
+            return;
+        
+        if (flag == false)
         {
-            empresa.listarViajesBus();
+            empresa.listarViajesBus(flag);
+            return;
         }
+        
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        int opcion;
+        
+        do {
+            subMenuMostrarBuses();
+            opcion = Integer.parseInt(lector.readLine());
+            switch (opcion) {
+            case 1:
+                empresa.listarViajesBus(flag);
+                break;
+            case 2:
+                String lugarInicio = lector.readLine();
+                empresa.listarViajesBus(lugarInicio);
+                break;
+            default: 
+                break;
+            }
+        } while(opcion != 1 && opcion != 2 && opcion != 0);
     }
+
+
+    // Opciones Agregar, Eliminar y Listar para la colección de objetos Pasajero de la clase ViajeBus.
     
     public void opcionAgregarPasajero(ViajeBus viajeBus)throws IOException {
-        if (viajeBus != null)
-        {
-            BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-            
-            String codigoViaje;
-            String nombrePasajero;
-            String rutPasajero;
-            String tipoPasajero;
-            String ingresado;
-            int numeroAsiento;
-            
-            int cantPasajeros = viajeBus.getCantPasajeros();
-            int totalAsientos = viajeBus.getTotalAsientos();
-            
-            if (cantPasajeros < totalAsientos)
-            {
-                
-                codigoViaje = viajeBus.getCodigo();
+        if (viajeBus == null)
+            return;
+        
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        
+        String codigoViaje;
+        String nombrePasajero;
+        String rutPasajero;
+        String tipoPasajero;
+        String ingresado;
+        int numeroAsiento;
+        
+        int cantPasajeros = viajeBus.getCantPasajeros();
+        int totalAsientos = viajeBus.getTotalAsientos();
+        
+        if (cantPasajeros < totalAsientos)
+        {                
+            codigoViaje = viajeBus.getCodigo();
 
-                System.out.println("Ingrese nombre del pasajero.");
-                nombrePasajero = lector.readLine();
-                System.out.println("Ingrese RUT del pasajero.");
-                rutPasajero = lector.readLine();
+            System.out.println("Ingrese nombre del pasajero.");
+            nombrePasajero = lector.readLine();
+            System.out.println("Ingrese RUT del pasajero.");
+            rutPasajero = lector.readLine();
+            do{
+                System.out.println("Ingrese tipo del pasajero.(Estudiante, Normal, o Tercera edad)");
+                tipoPasajero = lector.readLine();
+                
+            }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("Normal") && !tipoPasajero.equals("Tercera edad"));
+
+            byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
+            
+            do {
                 do{
-                    System.out.println("Ingrese tipo del pasajero.(Estudiante, Normal, o Tercera edad)");
-                    tipoPasajero = lector.readLine();
+                    viajeBus.listarAsientosDisponibles();
+                    System.out.println("Ingrese numero de asiento del pasajero.");
+                    ingresado = lector.readLine();
+                    numeroAsiento = Integer.parseInt(ingresado);
                     
-                }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("Normal") && !tipoPasajero.equals("Tercera edad"));
+                }while(numeroAsiento > totalAsientos);
+            }while(asientosDisponibles[numeroAsiento - 1] != 0);
 
-                byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
-                
-                do {
-                    do{
-                        viajeBus.listarAsientosDisponibles();
-                        System.out.println("Ingrese numero de asiento del pasajero.");
-                        ingresado = lector.readLine();
-                        numeroAsiento = Integer.parseInt(ingresado);
-                        
-                    }while(numeroAsiento > totalAsientos);
-                }while(asientosDisponibles[numeroAsiento - 1] != 0);
+            Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
 
-                Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
-
-                viajeBus.agregarPasajero(pasajero);
-            }
+            viajeBus.agregarPasajero(pasajero);
         }
     }
 
     public void opcionEliminarPasajero(ViajeBus viajeBus)throws IOException {
-        if (viajeBus != null)
-        {
-            if (viajeBus.getCantPasajeros() > 0)
-            {
-                opcionListarPasajeros(viajeBus);
-                BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-                System.out.println("Ingrese el RUT del pasajero a eliminar del bus.");
-                String rutPasajero;
-                rutPasajero = lector.readLine();
-                viajeBus.eliminarPasajero(rutPasajero);
-            }
-        }
-    }
-    
-    public void opcionListarPasajeros(ViajeBus viajeBus)
-    {
         if (viajeBus == null)
             return;
-        viajeBus.listarPasajeros();
+        
+        opcionListarPasajeros(viajeBus, false);
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        System.out.println("Ingrese el RUT del pasajero a eliminar del bus.");
+        String rutPasajero;
+        rutPasajero = lector.readLine();
+        viajeBus.eliminarPasajero(rutPasajero);
     }
     
-
-    public ViajeBus elegirBus(Empresa empresa)throws IOException {
-        if (empresa.getCantBuses() != 0)
+    public void opcionListarPasajeros(ViajeBus viajeBus, boolean flag) throws IOException {
+        if (viajeBus == null)
+            return;
+        
+        if (viajeBus.getCantPasajeros() == 0)
+            return;
+        
+        if (flag == false)
         {
-            opcionListarViajesBus(empresa);
-            System.out.println("Ingrese el codigo de bus a elegir.");
-            BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
-            String codigoViaje;
-            codigoViaje = lector.readLine();
-
-            ViajeBus busElegido = empresa.getViajeBus(codigoViaje);
-            if (busElegido != null){
-                if (busElegido.getTotalAsientos() == busElegido.getCantPasajeros()){
-                    System.out.println("El bus con codigo de viaje: "+ codigoViaje +"no tiene asientos disponibles");
-                    return null;
-                }
-                return busElegido;
-            }
-            else
-                return null;
+            viajeBus.listarPasajeros();
+            return;
         }
-        return null;
+        
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        int opcion;
+        
+        do{
+            subMenuMostrarPasajeros();
+            opcion = Integer.parseInt(lector.readLine());
+    
+            switch(opcion) {
+                case 1:
+                    viajeBus.listarPasajeros();
+                    break;
+                case 2:
+                    String tipoPersona;
+                    do {
+                        System.out.println("Ingrese tipo de persona a buscar (Estudiante, Tercera Edad, Normal");
+                        tipoPersona = lector.readLine();
+                    } while(!tipoPersona.equals("Estudiante") && !tipoPersona.equals("Normal") && !tipoPersona.equals("Tercera edad"));
+                    viajeBus.listarPasajeros(tipoPersona);
+                    break;
+                default:
+                    break;
+            }          
+        } while(opcion != 1 && opcion != 2 && opcion != 0);
+    }
+
+    
+    // Método auxiliar para efectos del programa.
+    
+    public ViajeBus elegirBus(Empresa empresa)throws IOException {
+        if (empresa.getCantBuses() == 0)
+            return null;
+        
+        opcionListarViajesBus(empresa, false);
+        
+        System.out.println("Ingrese el codigo de bus a elegir.");
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        String codigoViaje;
+        codigoViaje = lector.readLine();
+
+        ViajeBus busElegido = empresa.getViajeBus(codigoViaje);
+        if (busElegido != null){
+            if (busElegido.getTotalAsientos() == busElegido.getCantPasajeros()){
+                System.out.println("El bus con codigo de viaje: "+ codigoViaje +"no tiene asientos disponibles");
+                return null;
+            }
+            return busElegido;
+        }
+        else
+            return null;
     }
 
 
-
-
+    // Carga de datos iniciales
+    
     public void cargaDatosInicialesTemporal(Empresa empresa){
-        
         System.out.println("Cargando datos iniciales de manera temporal...");
         
         //BUS 1
@@ -288,33 +361,9 @@ public class Menu{
         pasajero = new Pasajero("Carlos", "76543210-9", "General", 25, "29348");
         viajeBus.agregarPasajero(pasajero);
         pasajero = new Pasajero("María", "11223344-5", "Especial", 2, "29348");
-
-
         
         //BUS 5
         viajeBus = new ViajeBus("Diego Torres", "29349", "XYZ-789", "Punta Arenas", "Torres del Paine", "06:00", "15:00", 30000, 25000, 25000, 1050000,35);
         empresa.agregarViajeBus(viajeBus);
-        /*
-        pasajero = new Pasajero("Carolina", "45678901-2", "General", 5, "29349");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Ricardo", "56789012-3", "Estudiante", 12, "29349");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Laura", "67890123-4", "Tercera Edad", 15, "29349");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Andrea", "67890123-4", "Tercera Edad", 15, "29349");
-        viajeBus.agregarPasajero(pasajero);
-        */
-
-        
-
-
-        
-  
         }
-
-
-    
 }

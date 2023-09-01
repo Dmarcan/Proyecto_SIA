@@ -17,16 +17,15 @@ public class ViajeBus{
     private int tarifaEstudiante;
 
     private int totalAsientos;
-    private int cantPasajeros;
     
+    private int costoViaje;
+    private int gananciaTotal; // No tendrá setter (porque se calcula)
+    private double rentabilidad; // No tendrá setter (porque se calcula)
+
     private ArrayList<Pasajero> pasajerosArray;
     private Hashtable<String, Pasajero> pasajerosRutMap;
-    
     private byte[] asientosDisponibles;
-    
-    private int gananciaTotal;
-    private int costoViaje;
-    private double rentabilidad;
+
     
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                 String lugarLlegada, String horaInicio, String horaLlegada,
@@ -51,11 +50,73 @@ public class ViajeBus{
         pasajerosArray = new ArrayList<>(totalAsientos);
         pasajerosRutMap = new Hashtable<>(totalAsientos);
         asientosDisponibles = new byte[totalAsientos];
-        cantPasajeros = 0;
         
         gananciaTotal = 0;
         rentabilidad = 0.0;
     }
+
+    // Setters 
+    public void setNombreChofer(String nombreChofer)
+    {
+        this.nombreChofer = nombreChofer;
+    }
+
+    public void setCodigoViaje(String codigoViaje)
+    {
+        this.codigoViaje = codigoViaje;
+    }
+
+    public void setMatricula(String matricula)
+    {
+        this.matricula = matricula;
+    }
+
+    public void setLugarInicio(String lugarInicio)
+    {
+        this.lugarInicio = lugarInicio;
+    }
+
+    public void setLugarLlegada(String lugarLlegada)
+    {
+        this.lugarLlegada = lugarLlegada;
+    }
+    
+    public void setHoraInicio(String horaInicio)
+    {
+        this.horaInicio = horaInicio;
+    }
+
+    public void setHoraLlegada(String horaLlegada)
+    {
+        this.horaLlegada = horaLlegada;
+    }
+
+    public void setTarifaGeneral(int tarifaGeneral)
+    {
+        this.tarifaGeneral = tarifaGeneral;
+    }
+    
+    public void setTarifaTerceraEdad(int tarifaTerceraEdad)
+    {
+        this.tarifaTerceraEdad = tarifaTerceraEdad;
+    }
+
+    public void setTarifaEstudiante(int tarifaEstudiante)
+    {
+        this.tarifaEstudiante = tarifaEstudiante;
+    }
+
+    public void setTotalAsientos(int totalAsientos)
+    {
+        this.totalAsientos = totalAsientos;
+    }
+
+    public void setCostoViaje(int costoViaje)
+    {
+        this.costoViaje = costoViaje;
+    }
+    
+    // Getters
 
     public String getCodigo()
     {
@@ -106,41 +167,13 @@ public class ViajeBus{
     {
         return totalAsientos;
     }
-    
+
     public int getCantPasajeros()
     {
-        return cantPasajeros;
+        return pasajerosArray.size();
     }
-    
-    public void listarAsientosDisponibles()
-    {
-        if (cantPasajeros == 0)
-            System.out.println("El bus se encuentra vacio.");
-            
 
-        byte cont = 2;
-        for (byte i = 0; i < asientosDisponibles.length; i++)
-        {
-            if(cont % 4 == 0)
-                System.out.print("|| ");
-            cont++;
-              
-            if (asientosDisponibles[i] == 0) 
-            {
-                if(i < 9)
-                    System.out.print((i+1) + "  ");
-                else
-                    System.out.print((i+1) + " ");
-            }
-            else 
-                System.out.print("X  ");
-                
-            if((i+1) % 4 == 0 && i != 0) 
-                System.out.println();
-                         
-        }
-        System.out.println();
-    }
+    // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
 
     public void agregarPasajero(Pasajero pasajero) 
     {
@@ -148,53 +181,68 @@ public class ViajeBus{
         pasajerosArray.add(pasajero);
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
         asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
-        cantPasajeros++;
     }
-    
 
-    /*
-    public Pasajero buscarPasajero(String rut){
-        return pasajerosRutMap.get(rut);
-    }
-    */
     public void eliminarPasajero(String rut)
     {
-        if (cantPasajeros > 0)
-        {
-            ;
-            if (pasajerosRutMap.get(rut) != null)
-            {
-                pasajerosArray.remove(pasajerosRutMap.get(rut));
-                pasajerosRutMap.remove(rut);
-                System.out.println("Pasajero con RUT " + rut + ", ha sido eliminado.");
-            }
-            else
-                System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
+        if (pasajerosArray.size() == 0)
             return;
+        
+        if (pasajerosRutMap.get(rut) != null)
+        {
+            pasajerosArray.remove(pasajerosRutMap.get(rut));
+            pasajerosRutMap.remove(rut);
+            System.out.println("Pasajero con RUT " + rut + ", ha sido eliminado.");
         }
+        else
+            System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
     }
 
+    
+    
     public void listarPasajeros()
     {
-        if (cantPasajeros == 0)
+        if (pasajerosArray.size() == 0)
             return;
-            
+        
+        System.out.println("Lista de pasajeros del bus:");  
         for (int i = 0; i < pasajerosArray.size(); i++)
         {
-            if (pasajerosArray.get(i) != null)
-            {
                 Pasajero pasajeroCurrent = pasajerosArray.get(i);
                 System.out.println("Pasajero "+ (i + 1) + ":");
-                System.out.println("Nombre:" + pasajeroCurrent.getNombrePasajero());
-                System.out.println("RUT:" + pasajeroCurrent.getRut());
-                System.out.println("Tipo de pasajero:" + pasajeroCurrent.getTipo());
-                System.out.println("Codigo de su viaje:" + pasajeroCurrent.getCodigoViajePasajero());
-                System.out.println("Numero de asiento:" + pasajeroCurrent.getNroAsiento());
-                System.out.print("\n\n");
+                System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
+                System.out.println("RUT: " + pasajeroCurrent.getRut());
+                System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
+                System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
+                System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
+                System.out.println("\n");
+        }
+    }
+
+    public void listarPasajeros(String tipoPasajero)
+    {
+        if (pasajerosArray.size() == 0)
+            return;
+        
+        System.out.println("Lista de pasajeros de tipo: " + tipoPasajero);
+        for (int i = 0; i < pasajerosArray.size(); i++)
+        {
+            Pasajero pasajeroCurrent = pasajerosArray.get(i);
+            if ((pasajeroCurrent.getTipo()).equals(tipoPasajero))
+            {    
+                System.out.println("Pasajero "+ (i + 1) + ":");
+                System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
+                System.out.println("RUT: " + pasajeroCurrent.getRut());
+                System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
+                System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
+                System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
+                System.out.println("\n");   
             }
         }
     }
 
+    // Funcionalidades Propias
+    
     /*
     PALABRAS CLAVES    
     accion:"agregar","eliminar"
@@ -206,7 +254,7 @@ public class ViajeBus{
             case "Estudiante":
                  
                  if (accion.equals("Eliminar")) gananciaTotal -= tarifaEstudiante;
-                 else gananciaTotal+=tarifaEstudiante;
+                 else gananciaTotal += tarifaEstudiante;
                     
                 break;
             case "Tercera Edad":
@@ -232,4 +280,35 @@ public class ViajeBus{
         rentabilidad = ((gananciaTotal - costoViaje) / gananciaTotal) * 100;
         return;
     }
+
+    public void listarAsientosDisponibles()
+    {
+        if (pasajerosArray.size() == 0)
+            System.out.println("El bus se encuentra vacio.");
+        
+        byte cont = 2;
+        for (byte i = 0; i < asientosDisponibles.length; i++)
+        {
+            if(cont % 4 == 0)
+                System.out.print("|| ");
+            cont++;
+              
+            if (asientosDisponibles[i] == 0) 
+            {
+                if(i < 9)
+                    System.out.print((i+1) + "  ");
+                else
+                    System.out.print((i+1) + " ");
+            }
+            else 
+                System.out.print("X  ");
+                
+            if((i+1) % 4 == 0 && i != 0) 
+                System.out.println();
+                         
+        }
+        System.out.println();
+    }
 }
+
+

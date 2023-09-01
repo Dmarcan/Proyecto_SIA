@@ -20,7 +20,7 @@ public class Main{
                     menu.opcionEliminarViaje(empresa);
                     break;
                 case 3:
-                    menu.opcionListarViajesBus(empresa);
+                    menu.opcionListarViajesBus(empresa, true);
                     break;
                 case 4:
                     menu.opcionAgregarPasajero(menu.elegirBus(empresa));
@@ -29,7 +29,7 @@ public class Main{
                     menu.opcionEliminarPasajero(menu.elegirBus(empresa));
                     break;
                 case 6:
-                    menu.opcionListarPasajeros(menu.elegirBus(empresa));
+                    menu.opcionListarPasajeros(menu.elegirBus(empresa), true);
                     break;
                 default: 
                     return;
