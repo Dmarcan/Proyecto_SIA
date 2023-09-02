@@ -185,14 +185,11 @@ public class ViajeBus{
 
     public void eliminarPasajero(String rut)
     {
-        if (pasajerosArray.size() == 0)
-            return;
-        
         if (pasajerosRutMap.get(rut) != null)
         {
             pasajerosArray.remove(pasajerosRutMap.get(rut));
             pasajerosRutMap.remove(rut);
-            System.out.println("Pasajero con RUT " + rut + ", ha sido eliminado.");
+            System.out.println("Pasajero con RUT " + rut + " ha sido eliminado.");
         }
         else
             System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
@@ -202,9 +199,6 @@ public class ViajeBus{
     
     public void listarPasajeros()
     {
-        if (pasajerosArray.size() == 0)
-            return;
-        
         System.out.println("Lista de pasajeros del bus:");  
         for (int i = 0; i < pasajerosArray.size(); i++)
         {
@@ -222,7 +216,10 @@ public class ViajeBus{
     public void listarPasajeros(String tipoPasajero)
     {
         if (pasajerosArray.size() == 0)
+        {
+            System.out.println("No hay pasajeros coincidentes en el sistema.");
             return;
+        }
         
         System.out.println("Lista de pasajeros de tipo: " + tipoPasajero);
         for (int i = 0; i < pasajerosArray.size(); i++)
@@ -283,9 +280,6 @@ public class ViajeBus{
 
     public void listarAsientosDisponibles()
     {
-        if (pasajerosArray.size() == 0)
-            System.out.println("El bus se encuentra vacio.");
-        
         byte cont = 2;
         for (byte i = 0; i < asientosDisponibles.length; i++)
         {

@@ -23,13 +23,13 @@ public class Main{
                     menu.opcionListarViajesBus(empresa, true);
                     break;
                 case 4:
-                    menu.opcionAgregarPasajero(menu.elegirBus(empresa));
+                    menu.opcionAgregarPasajero(menu.elegirBus(empresa, true));
                     break;
                 case 5:
-                    menu.opcionEliminarPasajero(menu.elegirBus(empresa));
+                    menu.opcionEliminarPasajero(menu.elegirBus(empresa, false));
                     break;
                 case 6:
-                    menu.opcionListarPasajeros(menu.elegirBus(empresa), true);
+                    menu.opcionListarPasajeros(menu.elegirBus(empresa, false), true);
                     break;
                 default: 
                     return;

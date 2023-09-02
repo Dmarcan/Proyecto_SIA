@@ -5,7 +5,7 @@ public class Menu{
     // Métodos para mostra menús
     
     public void mostrarFuncionalidades(){
-        System.out.println("MENU DEL SISTEMA");
+        System.out.println("\nMENU DEL SISTEMA");
             System.out.println("Opcion 1 : Registrar viaje de bus en el sistema.");
             System.out.println("Opcion 2 : Eliminar viaje de bus del sistema.");
             System.out.println("Opcion 3 : Listar viajes de bus del sistema.");
@@ -93,6 +93,7 @@ public class Menu{
                             totalAsientos, costoViaje);            
         
         empresa.agregarViajeBus(viajeBus);
+        System.out.println("El viaje de bus con código " + codigoViaje + " fue agregado exitosamente.");
     }
 
     public void opcionEliminarViaje(Empresa empresa)throws IOException {
@@ -100,7 +101,10 @@ public class Menu{
             return;
         
         if (empresa.getCantBuses() == 0)
+        {
+            System.out.println("No hay viajes agendados en el sistema.");
             return;
+        }
         
         empresa.listarViajesBus(false);
 
@@ -114,6 +118,11 @@ public class Menu{
     public void opcionListarViajesBus(Empresa empresa, boolean flag) throws IOException {
         if (empresa == null)
             return;
+        
+        if (empresa.getCantBuses() == 0)
+        {
+            System.out.println("No hay viajes de bus disponibles en el sistema.");
+        }
         
         if (flag == false)
         {
@@ -132,6 +141,7 @@ public class Menu{
                 empresa.listarViajesBus(flag);
                 break;
             case 2:
+                System.out.println("Indique el lugar de inicio del viaje de bus.");
                 String lugarInicio = lector.readLine();
                 empresa.listarViajesBus(lugarInicio);
                 break;
@@ -169,10 +179,10 @@ public class Menu{
             System.out.println("Ingrese RUT del pasajero.");
             rutPasajero = lector.readLine();
             do{
-                System.out.println("Ingrese tipo del pasajero.(Estudiante, Normal, o Tercera edad)");
+                System.out.println("Ingrese tipo del pasajero.(Estudiante, General, o Tercera Edad)");
                 tipoPasajero = lector.readLine();
                 
-            }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("Normal") && !tipoPasajero.equals("Tercera edad"));
+            }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("General") && !tipoPasajero.equals("Tercera Edad"));
 
             byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
             
@@ -189,12 +199,23 @@ public class Menu{
             Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
 
             viajeBus.agregarPasajero(pasajero);
+            System.out.println("El pasajero con RUT " + rutPasajero + " fue agregado exitosamente.");
+        }
+        else
+        {
+                System.out.println("El viaje de bus con código de viaje " + viajeBus.getCodigo() + " no se encuentra con asientos disponibles.");
         }
     }
 
     public void opcionEliminarPasajero(ViajeBus viajeBus)throws IOException {
         if (viajeBus == null)
             return;
+
+        if (viajeBus.getCantPasajeros() == 0)
+        {
+            System.out.println("El viaje de bus con código " + viajeBus.getCodigo() + " no se encuentra con pasajeros disponibles.");
+            return;
+        }
         
         opcionListarPasajeros(viajeBus, false);
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
@@ -209,7 +230,10 @@ public class Menu{
             return;
         
         if (viajeBus.getCantPasajeros() == 0)
+        {
+            System.out.println("El viaje de bus con código " + viajeBus.getCodigo() + " no se encuentra con pasajeros disponibles.");
             return;
+        }
         
         if (flag == false)
         {
@@ -231,9 +255,9 @@ public class Menu{
                 case 2:
                     String tipoPersona;
                     do {
-                        System.out.println("Ingrese tipo de persona a buscar (Estudiante, Tercera Edad, Normal");
+                        System.out.println("Ingrese tipo de persona a buscar (Estudiante, Tercera Edad, General)");
                         tipoPersona = lector.readLine();
-                    } while(!tipoPersona.equals("Estudiante") && !tipoPersona.equals("Normal") && !tipoPersona.equals("Tercera edad"));
+                    } while(!tipoPersona.equals("Estudiante") && !tipoPersona.equals("General") && !tipoPersona.equals("Tercera Edad"));
                     viajeBus.listarPasajeros(tipoPersona);
                     break;
                 default:
@@ -245,27 +269,33 @@ public class Menu{
     
     // Método auxiliar para efectos del programa.
     
-    public ViajeBus elegirBus(Empresa empresa)throws IOException {
+    public ViajeBus elegirBus(Empresa empresa, boolean flag)throws IOException {
         if (empresa.getCantBuses() == 0)
+        {
+            System.out.println("No hay viajes de bus disponibles en el sistema.");
             return null;
+        }
         
         opcionListarViajesBus(empresa, false);
         
-        System.out.println("Ingrese el codigo de bus a elegir.");
+        System.out.println("Ingrese el codigo del bus a elegir.");
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
         String codigoViaje;
         codigoViaje = lector.readLine();
 
         ViajeBus busElegido = empresa.getViajeBus(codigoViaje);
         if (busElegido != null){
-            if (busElegido.getTotalAsientos() == busElegido.getCantPasajeros()){
-                System.out.println("El bus con codigo de viaje: "+ codigoViaje +"no tiene asientos disponibles");
+            if (busElegido.getTotalAsientos() == busElegido.getCantPasajeros() && flag){
+                System.out.println("El viaje de bus con código de viaje " + codigoViaje + " no se encuentra con asientos disponibles.");
                 return null;
             }
             return busElegido;
         }
         else
+        {
+            System.out.println("El bus con codigo de viaje "+ codigoViaje +" no se encuentra en el sistema.");
             return null;
+        }
     }
 
 

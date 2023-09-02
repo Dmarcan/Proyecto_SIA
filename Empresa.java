@@ -20,10 +20,7 @@ public class Empresa {
 
     public ViajeBus getViajeBus(String codigoViaje)
     {
-        if (viajesArray.size() > 0)
-            return viajesCodigoMap.get(codigoViaje);
-        else
-            return null;
+        return viajesCodigoMap.get(codigoViaje);
     }
 
     // Métodos para agregar, eliminar y listar objetos ViajeBus en su colección respectiva del objeto Empresa.
@@ -39,31 +36,25 @@ public class Empresa {
         }
         else
         {
-            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ya se encuentra.");
+            System.out.println("Bus con codigo de viaje " + codigoViaje + " ya se encuentra en el sistema.");
         }
     }
     
     public void eliminarViajeBus(String codigoViaje)
-    {
-        if (viajesArray.size() == 0)
-            return;
-        
+    {   
         if (viajesCodigoMap.get(codigoViaje) != null)
         {
             viajesArray.remove(viajesCodigoMap.get(codigoViaje));
             viajesCodigoMap.remove(codigoViaje);
-            System.out.println("Bus con codigo de viaje " + codigoViaje + ", ha sido eliminado.");
+            System.out.println("Bus con codigo de viaje " + codigoViaje + " ha sido eliminado.");
         }
         else
-            System.out.println("Bus con codigo de viaje " + codigoViaje + ", no se encuentra en el sistema.");
+            System.out.println("Bus con codigo de viaje " + codigoViaje + " no se encuentra en el sistema.");
     }
 
     public void listarViajesBus(boolean flag)
     {
-        if (viajesArray.size() == 0)
-            return;
-
-        System.out.println("Lista de buses");
+        System.out.println("Lista de todos los buses");
         for (int i = 0; i < viajesArray.size(); i++)
         {
             ViajeBus viajeCurrent = viajesArray.get(i);
@@ -81,6 +72,9 @@ public class Empresa {
                 System.out.println("Total de asientos en el bus: " + viajeCurrent.getTotalAsientos());
                 System.out.println("Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros());
                 System.out.println("Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
+                System.out.println();
+                System.out.println("Gráfico de asientos disponibles del bus " + (i + 1));
+                viajeCurrent.listarAsientosDisponibles();
             }
             System.out.println("\n");
         }
@@ -89,7 +83,10 @@ public class Empresa {
     public void listarViajesBus(String lugarDeInicio)
     {
         if (viajesArray.size() == 0)
+        {
+            System.out.println("No hay viajes de bus coincidentes en el sistema.");
             return;
+        }
         
         System.out.println("Lista de buses con lugar de origen: "+lugarDeInicio);
         int entro = 0;
@@ -111,6 +108,9 @@ public class Empresa {
                 System.out.println("Total de asientos en el bus: " + viajeCurrent.getTotalAsientos());
                 System.out.println("Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros());
                 System.out.println("Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
+                System.out.println();
+                System.out.println("Gráfico de asientos disponibles del bus " + (i + 1));
+                viajeCurrent.listarAsientosDisponibles();
                 System.out.println("\n");
             }
         }
