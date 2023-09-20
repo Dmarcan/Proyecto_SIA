@@ -2,12 +2,10 @@ import java.util.*;
 
 public class Empresa {
     
-    private ArrayList<ViajeBus> viajesArray;
     private Hashtable<String, ViajeBus> viajesCodigoMap;
     
     public Empresa()
     {
-        viajesArray =  new ArrayList<>();
         viajesCodigoMap = new Hashtable<>();
     }
 
@@ -15,7 +13,7 @@ public class Empresa {
     
     public int getCantBuses()
     {
-        return viajesArray.size();
+        return viajesCodigoMap.size();
     }
 
     public ViajeBus getViajeBus(String codigoViaje)
@@ -29,39 +27,33 @@ public class Empresa {
     {
         String codigoViaje = viajeBus.getCodigo();
 
-        if (viajesCodigoMap.contains(codigoViaje) != true)
-        {
+        if (!viajesCodigoMap.containsKey(codigoViaje)) {
             viajesCodigoMap.put(codigoViaje, viajeBus);
-            viajesArray.add(viajeBus);
-        }
-        else
-        {
+        } else {
             System.out.println("Bus con codigo de viaje " + codigoViaje + " ya se encuentra en el sistema.");
         }
     }
     
     public void eliminarViajeBus(String codigoViaje)
     {   
-        if (viajesCodigoMap.get(codigoViaje) != null)
-        {
-            viajesArray.remove(viajesCodigoMap.get(codigoViaje));
+        if (viajesCodigoMap.containsKey(codigoViaje)) {
             viajesCodigoMap.remove(codigoViaje);
             System.out.println("Bus con codigo de viaje " + codigoViaje + " ha sido eliminado.");
-        }
-        else
+        } else {
             System.out.println("Bus con codigo de viaje " + codigoViaje + " no se encuentra en el sistema.");
+        }
     }
-
+    
     public void listarViajesBus(boolean flag)
     {
         System.out.println("Lista de todos los buses");
-        for (int i = 0; i < viajesArray.size(); i++)
-        {
-            ViajeBus viajeCurrent = viajesArray.get(i);
-            System.out.println("Viaje de bus "+ (i + 1) + ":");
-            System.out.println("Código de viaje: " + viajeCurrent.getCodigo());
-            if (flag)
-            {
+        Enumeration<String> keys = viajesCodigoMap.keys();
+        int i = 0;
+        while (keys.hasMoreElements()) {
+            String codigoViaje = keys.nextElement();
+            ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
+            System.out.println("Código de viaje: " + codigoViaje);
+            if (flag) {
                 System.out.println("Nombre del chofer: " + viajeCurrent.getNombreChofer());
                 System.out.println("Matrícula: " + viajeCurrent.getMatricula());
                 System.out.println("Lugar de inicio: " + viajeCurrent.getLugarDeInicio());
@@ -77,24 +69,26 @@ public class Empresa {
                 viajeCurrent.listarAsientosDisponibles();
             }
             System.out.println("\n");
+            i++;
         }
     }
-
+    
     public void listarViajesBus(String lugarDeInicio)
     {
-        if (viajesArray.size() == 0)
+        if (viajesCodigoMap.size() == 0)
         {
             System.out.println("No hay viajes de bus coincidentes en el sistema.");
             return;
         }
         
-        System.out.println("Lista de buses con lugar de origen: "+lugarDeInicio);
+        System.out.println("Lista de buses con lugar de origen: " + lugarDeInicio);
+        Enumeration<String> keys = viajesCodigoMap.keys();
         int entro = 0;
-        for (int i = 0; i < viajesArray.size() ; i++)
-        {
-            ViajeBus viajeCurrent = viajesArray.get(i);
-            if ((viajeCurrent.getLugarDeInicio()).equals(lugarDeInicio))
-            {
+        int i = 0;
+        while (keys.hasMoreElements()) {
+            String codigoViaje = keys.nextElement();
+            ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
+            if ((viajeCurrent.getLugarDeInicio()).equals(lugarDeInicio)) {
                 entro = 1;
                 System.out.println("Viaje de bus "+ (i + 1) + ":");
                 System.out.println("Código de viaje: " + viajeCurrent.getCodigo());
@@ -113,6 +107,7 @@ public class Empresa {
                 viajeCurrent.listarAsientosDisponibles();
                 System.out.println("\n");
             }
+            i++;
         }
         if (entro == 0)
         {

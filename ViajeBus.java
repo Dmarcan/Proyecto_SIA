@@ -22,7 +22,6 @@ public class ViajeBus{
     private int gananciaTotal; // No tendrá setter (porque se calcula)
     private double rentabilidad; // No tendrá setter (porque se calcula)
 
-    private ArrayList<Pasajero> pasajerosArray;
     private Hashtable<String, Pasajero> pasajerosRutMap;
     private byte[] asientosDisponibles;
 
@@ -46,8 +45,7 @@ public class ViajeBus{
         this.tarifaEstudiante = tarifaEstudiante;
         
         this.costoViaje = costoViaje;
-
-        pasajerosArray = new ArrayList<>(totalAsientos);
+        
         pasajerosRutMap = new Hashtable<>(totalAsientos);
         asientosDisponibles = new byte[totalAsientos];
         
@@ -170,71 +168,88 @@ public class ViajeBus{
 
     public int getCantPasajeros()
     {
-        return pasajerosArray.size();
+        return pasajerosRutMap.size();
+    }
+
+    public int getGananciaTotal()
+    {
+        return gananciaTotal;
+    }
+    
+    public double getRentabilidad()
+    {
+        return rentabilidad;
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
+    
 
     public void agregarPasajero(Pasajero pasajero) 
     {
         actualizarGanancia(pasajero.getTipo(),"agregar");
-        pasajerosArray.add(pasajero);
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
         asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
     }
-
+    
     public void eliminarPasajero(String rut)
     {
         if (pasajerosRutMap.get(rut) != null)
         {
-            pasajerosArray.remove(pasajerosRutMap.get(rut));
+            actualizarGanancia(pasajerosRutMap.get(rut).getTipo(), "eliminar");
             pasajerosRutMap.remove(rut);
+            asientosDisponibles[pasajerosRutMap.get(rut).getNroAsiento() - 1] = 0;
             System.out.println("Pasajero con RUT " + rut + " ha sido eliminado.");
-        }
-        else
+        } else {
             System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
+        }
     }
-
     
     
     public void listarPasajeros()
     {
         System.out.println("Lista de pasajeros del bus:");  
-        for (int i = 0; i < pasajerosArray.size(); i++)
-        {
-                Pasajero pasajeroCurrent = pasajerosArray.get(i);
-                System.out.println("Pasajero "+ (i + 1) + ":");
-                System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
-                System.out.println("RUT: " + pasajeroCurrent.getRut());
-                System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
-                System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
-                System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
-                System.out.println("\n");
+        Enumeration<Pasajero> enumeration = pasajerosRutMap.elements();
+        int i = 0;
+        while (enumeration.hasMoreElements()) {
+            Pasajero pasajeroCurrent = enumeration.nextElement();
+            System.out.println("Pasajero " + (i+1) + ":");
+            System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
+            System.out.println("RUT: " + pasajeroCurrent.getRut());
+            System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
+            System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
+            System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
+            System.out.println("\n");
+            i++;
         }
     }
 
     public void listarPasajeros(String tipoPasajero)
     {
-        if (pasajerosArray.size() == 0)
+        if (pasajerosRutMap.size() == 0)
         {
             System.out.println("No hay pasajeros coincidentes en el sistema.");
             return;
         }
         
         System.out.println("Lista de pasajeros de tipo: " + tipoPasajero);
-        for (int i = 0; i < pasajerosArray.size(); i++)
-        {
-            Pasajero pasajeroCurrent = pasajerosArray.get(i);
-            if ((pasajeroCurrent.getTipo()).equals(tipoPasajero))
-            {    
-                System.out.println("Pasajero "+ (i + 1) + ":");
+        Enumeration<Pasajero> enumeration = pasajerosRutMap.elements();
+        int i = 0;
+        while (enumeration.hasMoreElements()) {
+            Pasajero pasajeroCurrent = enumeration.nextElement();
+            if (pasajeroCurrent.getTipo().equals(tipoPasajero)) {
+                System.out.println("Pasajero " + (i+1) + ":");
                 System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
                 System.out.println("RUT: " + pasajeroCurrent.getRut());
                 System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
                 System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
                 System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
-                System.out.println("\n");   
+                System.out.println("\n");
             }
+            i++;
+        }
+    
+        if (i == 0) {
+            System.out.println("No hay pasajeros coincidentes en el sistema.");
         }
     }
 

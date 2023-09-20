@@ -50,11 +50,13 @@ public class Pasajero{
         return tipoPasajero;
     }
 
+    public int getNroAsiento(){
+        return numeroAsiento;
+    }
+    
     public String getCodigoViajePasajero(){
         return codigoViaje;
     }
 
-    public int getNroAsiento(){
-        return numeroAsiento;
-    }
+    
 }
