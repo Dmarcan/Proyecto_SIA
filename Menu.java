@@ -6,13 +6,13 @@ public class Menu{
     
     public void mostrarFuncionalidades(){
         System.out.println("\nMENU DEL SISTEMA");
-            System.out.println("Opcion 1 : Registrar viaje de bus en el sistema.");
-            System.out.println("Opcion 2 : Eliminar viaje de bus del sistema.");
-            System.out.println("Opcion 3 : Listar viajes de bus del sistema.");
-            System.out.println("Opcion 4 : Agregar pasajero a viaje de bus.");
-            System.out.println("Opcion 5 : Eliminar pasajero de viaje de bus.");
-            System.out.println("Opcion 6 : Listar pasajeros de viaje de bus.");
-            System.out.println("Opcion 0 : Salir.");
+        System.out.println("Opcion 1 : Registrar viaje de bus en el sistema.");
+        System.out.println("Opcion 2 : Eliminar viaje de bus del sistema.");
+        System.out.println("Opcion 3 : Listar viajes de bus del sistema.");
+        System.out.println("Opcion 4 : Agregar pasajero a viaje de bus.");
+        System.out.println("Opcion 5 : Eliminar pasajero de viaje de bus.");
+        System.out.println("Opcion 6 : Listar pasajeros de viaje de bus.");
+        System.out.println("Opcion 0 : Salir.");
     }
 
     public void subMenuMostrarPasajeros() {
@@ -395,5 +395,5 @@ public class Menu{
         //BUS 5
         viajeBus = new ViajeBus("Diego Torres", "29349", "XYZ-789", "Punta Arenas", "Torres del Paine", "06:00", "15:00", 30000, 25000, 25000, 1050000,35);
         empresa.agregarViajeBus(viajeBus);
-        }
+    }
 }
