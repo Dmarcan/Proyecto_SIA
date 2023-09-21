@@ -7,8 +7,8 @@ public class Main{
         BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
         Empresa empresa = new Empresa();
         Menu menu = new Menu();
-        menu.cargaDatosInicialesTemporal(empresa);
-        
+        //menu.cargaDatosInicialesTemporal(empresa);
+        menu.importar(empresa);
         while (true){
             menu.mostrarFuncionalidades();
             opcion = Integer.parseInt(lector.readLine());
@@ -32,6 +32,7 @@ public class Main{
                     menu.opcionListarPasajeros(menu.elegirBus(empresa, false), true);
                     break;
                 default: 
+                    menu.Exportar(empresa);
                     return;
                 }
             }

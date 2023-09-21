@@ -1,0 +1,6 @@
+nombreChofer,codigoViaje,matricula,lugarInicio,lugarLlegada,horaInicio,horaLlegada,tarifaGeneral,tarifaTerceraEdad,tarifaEstudiante,totalAsientos,costoViaje
+Diego Torres,29349,XYZ-789,Punta Arenas,Torres del Paine,06:00,15:00,30000,25000,25000,35,1050000
+María R.,29348,TYSF-9876,Cali,Medellín,09:15:00,12:30:00,2800,1600,1400,30,11000
+Luis M.,29347,ERXG-5621,Santiago,Rancagua,08:30:00,10:45:00,3000,1800,1500,25,12000
+Juan Perez,29346,LPBY-17,Santiago,Atacama,08:00:00,16:00:00,20000,15000,15000,40,800000
+Patricio C.,29345,OPTD3472,Quillota,Valparaíso,13:40:00,15:45:00,3500,2000,1850,20,15000

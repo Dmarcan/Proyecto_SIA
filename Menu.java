@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Menu{
 
@@ -184,7 +185,7 @@ public class Menu{
                 
             }while (!tipoPasajero.equals("Estudiante") && !tipoPasajero.equals("General") && !tipoPasajero.equals("Tercera Edad"));
 
-            byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
+            //byte [] asientosDisponibles = viajeBus.getAsientosDisponibles();
             
             do {
                 do{
@@ -194,7 +195,7 @@ public class Menu{
                     numeroAsiento = Integer.parseInt(ingresado);
                     
                 }while(numeroAsiento > totalAsientos);
-            }while(asientosDisponibles[numeroAsiento - 1] != 0);
+            }while(!viajeBus.estaDisponible(numeroAsiento));
 
             Pasajero pasajero = new Pasajero(nombrePasajero, rutPasajero, tipoPasajero, numeroAsiento, codigoViaje);
 
@@ -395,5 +396,90 @@ public class Menu{
         //BUS 5
         viajeBus = new ViajeBus("Diego Torres", "29349", "XYZ-789", "Punta Arenas", "Torres del Paine", "06:00", "15:00", 30000, 25000, 25000, 1050000,35);
         empresa.agregarViajeBus(viajeBus);
+    }
+
+
+
+
+
+
+
+
+    public void importar(Empresa empresa){
+        String line; // Variable para almacenar cada línea del archivo
+
+        try (BufferedReader br = new BufferedReader(new FileReader("buses.csv"))) {//buses
+            // Leer el archivo línea por línea
+            while ((line = br.readLine()) != null) {
+                // Dividir la línea en campos usando el delimitador
+                String[] data = line.split(",");
+                
+                if (!data[0].equals("nombreChofer")) {
+                    ViajeBus viajeBus = new ViajeBus(data[0], data[1], data[2],  data[3], data[4], data[5],
+                                                     data[6], Integer.parseInt(data[7]), Integer.parseInt(data[8]),
+                                                     Integer.parseInt(data[9]), Integer.parseInt(data[11]), Integer.parseInt(data[10]));            
+                    
+                    empresa.agregarViajeBus(viajeBus);
+                }    
+                
+                
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader("personas.csv"))) {//personas
+            // Leer el archivo línea por línea
+            while ((line = br.readLine()) != null) {
+                // Dividir la línea en campos usando el delimitador
+                String[] data = line.split(",");
+                
+                if (!data[0].equals("nombrePasajero")) {
+                    Pasajero pasajero = new Pasajero(data[0], data[1], data[2],  Integer.parseInt(data[3]), data[4]);            
+                    ViajeBus viajeBus = empresa.obtenerViajeBus(data[4]);
+                    viajeBus.agregarPasajero(pasajero);
+                }    
+                
+                
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        
+    }
+    
+    public void Exportar(Empresa empresa)
+    {
+        String csv1 ="buses.csv";
+        String csv2 ="personas.csv";
+        try (FileWriter fileWriter1 = new FileWriter(csv1);FileWriter fileWriter2 = new FileWriter(csv2)) {
+            // Escribir la cabecera del archivo CSV pasajeros
+            fileWriter2.write("nombrePasajero,rutPasajero,tipoPasajero,numeroAsiento,codigoViaje\n");
+             // Escribir la cabecera del archivo CSV buses
+            fileWriter1.write("nombreChofer,codigoViaje,matricula,lugarInicio,lugarLlegada,");
+            fileWriter1.write("horaInicio,horaLlegada,tarifaGeneral,tarifaTerceraEdad,tarifaEstudiante,");
+            fileWriter1.write("totalAsientos,costoViaje\n");
+            ArrayList<ViajeBus> listaViajeBus = empresa.obtenerTodosViajeBus();
+
+            for (ViajeBus viajeBus : listaViajeBus) {
+                fileWriter1.write(viajeBus.getNombreChofer()+","+viajeBus.getCodigo()+","+viajeBus.getMatricula()+",");
+                fileWriter1.write(viajeBus.getLugarDeInicio()+","+viajeBus.getLugarDeLlegada()+","+viajeBus.getHoraInicio()+",");
+                fileWriter1.write(viajeBus.getHoraLlegada()+","+viajeBus.getTarifaGeneral()+","+viajeBus.getTarifaTerceraEdad()+",");
+                fileWriter1.write(viajeBus.getTarifaEstudiante()+","+viajeBus.getTotalAsientos()+","+viajeBus.getCostoViaje()+"\n");
+                //guardado de personas
+                
+                ArrayList<Pasajero> listaDePasajeros = viajeBus.obtenerListaPasajeros();
+                
+                for (Pasajero pasajero : listaDePasajeros) {
+                    fileWriter2.write(pasajero.getNombrePasajero()+","+pasajero.getRut()+","+pasajero.getTipo()+",");
+                    fileWriter2.write(pasajero.getNroAsiento()+","+pasajero.getCodigoViajePasajero()+"\n");
+                    
+                }
+                
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

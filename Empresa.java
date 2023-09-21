@@ -115,4 +115,27 @@ public class Empresa {
             return;
         }
     }
+
+
+
+
+
+
+    public ViajeBus obtenerViajeBus(String codigoViaje) {
+        return viajesCodigoMap.get(codigoViaje);
+    }
+        
+    public ArrayList<ViajeBus> obtenerTodosViajeBus() {
+        ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
+        Enumeration<String> keys = viajesCodigoMap.keys();
+    
+        while (keys.hasMoreElements()) {
+            String codigoViaje = keys.nextElement();
+            ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
+            listaViajeBus.add(viajeCurrent);
+        }
+    
+        return listaViajeBus;
+    }
+    
 }

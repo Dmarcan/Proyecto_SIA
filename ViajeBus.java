@@ -156,9 +156,10 @@ public class ViajeBus{
         return tarifaEstudiante;
     }
 
-    public byte [] getAsientosDisponibles()
+    public boolean estaDisponible(int numeroAsiento)
     {
-        return asientosDisponibles;
+        if(asientosDisponibles[numeroAsiento-1] == 0 )return true;
+        return false;
     }
 
     public int getTotalAsientos()
@@ -317,6 +318,34 @@ public class ViajeBus{
                          
         }
         System.out.println();
+    }
+
+
+    public ArrayList<Pasajero> obtenerListaPasajeros() {
+        
+        ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
+        Enumeration<Pasajero> keys = pasajerosRutMap.elements();
+        while (keys.hasMoreElements()) {
+            Pasajero pasajero = keys.nextElement();
+            listaPasajeros.add(pasajero);
+        }
+        
+        return listaPasajeros;
+    }
+    
+    public String getHoraLlegada()
+    {
+        return horaLlegada;
+    }
+    
+    public String getHoraInicio()
+    {
+        return horaInicio;
+    }
+
+    public int getCostoViaje()
+    {
+        return costoViaje;
     }
 }
 
