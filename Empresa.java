@@ -52,18 +52,18 @@ public class Empresa {
     }
 
     public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) {
-        if(!viajesCodigoMap.contains(codigoBus))
+        if(!viajesCodigoMap.contains(codigoViajeBus))
             return null;
         
-        ViajeBus viajeBus = viajesCodigoMap.get(codigoBus);
-        Pasajero pasajeroEliminado = viajeBus.eliminarPasajero();
+        ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
+        Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
         
         if(pasajeroEliminado != null)
             return pasajeroEliminado;
         return null;
     }
     
-    /*public void listarViajesBus(boolean flag)
+    public void listarViajesBus(boolean flag)
     {
         System.out.println("Lista de todos los buses");
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -133,7 +133,7 @@ public class Empresa {
             System.out.println("No se encuentran buses con origen " + lugarDeInicio);
             return;
         }
-    }*/
+    }
 
 
     public ViajeBus obtenerViajeBus(String codigoViaje) {
@@ -162,5 +162,4 @@ public class Empresa {
         }
         return listaViajeBus;
     }
-    
 }

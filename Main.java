@@ -1,11 +1,14 @@
-import java.io.*;
 import java.util.*; 
+import java.io.*;
 
 public class Main{
-    public static void main(String args[]) throws IOException{
-        int opcion;
-        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+    public static void main(String args[])throws IOException{
         Empresa empresa = new Empresa();
+        //VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(empresa);
+        //ventanaPrincipal.setVisible(true);
+        
+        BufferedReader lector = new BufferedReader(new InputStreamReader (System.in));
+        int opcion;
         Menu menu = new Menu();
         //menu.cargaDatosInicialesTemporal(empresa);
         menu.importar(empresa);
@@ -36,5 +39,5 @@ public class Main{
                     return;
                 }
             }
-        }
     }
+}

@@ -469,7 +469,7 @@ public class Menu{
                 fileWriter1.write(viajeBus.getNombreChofer()+","+viajeBus.getCodigo()+","+viajeBus.getMatricula()+",");
                 fileWriter1.write(viajeBus.getLugarDeInicio()+","+viajeBus.getLugarDeLlegada()+","+viajeBus.getHoraInicio()+",");
                 fileWriter1.write(viajeBus.getHoraLlegada()+","+viajeBus.getTarifaGeneral()+","+viajeBus.getTarifaTerceraEdad()+",");
-                fileWriter1.write(viajeBus.getTarifaEstudiante()+","+viajeBus.getTotalAsientos()+","+viajeBus.getCostoViaje()+"\n");
+                fileWriter1.write(viajeBus.getTarifaEstudiante()+","+viajeBus.getTotalAsientos()+","+viajeBus.getCostoTotal()+"\n");
                 //guardado de personas
                 
                 ArrayList<Pasajero> listaDePasajeros = viajeBus.obtenerListaPasajeros();

@@ -1,94 +1,30 @@
 import java.io.*;
 import java.util.*;
 
-public class ViajeBus{    
-    private String nombreChofer;
-    private String codigoViaje;
-    private String matricula;
-    
-    private String lugarInicio;
-    private String lugarLlegada;
-    
-    private String horaInicio;
-    private String horaLlegada;
-    
+public class ViajeBus extends ViajeComercial{    
     private int tarifaGeneral;
     private int tarifaTerceraEdad;
     private int tarifaEstudiante;
 
-    private int totalAsientos;
-    
-    private int costoViaje;
-    private int gananciaTotal; // No tendrá setter (porque se calcula)
-    private double rentabilidad; // No tendrá setter (porque se calcula)
+    private int costoTotal;
+    private int gananciaTotal;
+    private double rentabilidad;
 
-    private Hashtable<String, Pasajero> pasajerosRutMap;
-    private byte[] asientosDisponibles;
-
-    
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
-                String lugarLlegada, String horaInicio, String horaLlegada,
-                int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
-                int costoViaje, int totalAsientos) {
-        this.totalAsientos = totalAsientos;
-        this.nombreChofer = nombreChofer;
-        this.codigoViaje = codigoViaje;
-        this.matricula = matricula;
-        
-        this.lugarInicio = lugarInicio;
-        this.lugarLlegada = lugarLlegada;
-        this.horaInicio = horaInicio;
-        this.horaLlegada = horaLlegada;
-        
+                    String lugarLlegada, String horaInicio, String horaLlegada,
+                    int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
+                    int costoTotal, int totalAsientos){
+        super(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, horaInicio, horaLlegada, totalAsientos);
         this.tarifaGeneral = tarifaGeneral;
         this.tarifaTerceraEdad = tarifaTerceraEdad;
         this.tarifaEstudiante = tarifaEstudiante;
         
-        this.costoViaje = costoViaje;
-        
-        pasajerosRutMap = new Hashtable<>(totalAsientos);
-        asientosDisponibles = new byte[totalAsientos];
-        
+        this.costoTotal = costoTotal;
         gananciaTotal = 0;
         rentabilidad = 0.0;
     }
 
-    // Setters 
-    public void setNombreChofer(String nombreChofer)
-    {
-        this.nombreChofer = nombreChofer;
-    }
-
-    public void setCodigoViaje(String codigoViaje)
-    {
-        this.codigoViaje = codigoViaje;
-    }
-
-    public void setMatricula(String matricula)
-    {
-        this.matricula = matricula;
-    }
-
-    public void setLugarInicio(String lugarInicio)
-    {
-        this.lugarInicio = lugarInicio;
-    }
-
-    public void setLugarLlegada(String lugarLlegada)
-    {
-        this.lugarLlegada = lugarLlegada;
-    }
-    
-    public void setHoraInicio(String horaInicio)
-    {
-        this.horaInicio = horaInicio;
-    }
-
-    public void setHoraLlegada(String horaLlegada)
-    {
-        this.horaLlegada = horaLlegada;
-    }
-
+    // Setters
     public void setTarifaGeneral(int tarifaGeneral)
     {
         this.tarifaGeneral = tarifaGeneral;
@@ -104,43 +40,22 @@ public class ViajeBus{
         this.tarifaEstudiante = tarifaEstudiante;
     }
 
-    public void setTotalAsientos(int totalAsientos)
+    public void setCostoTotal(int costoTotal)
     {
-        this.totalAsientos = totalAsientos;
+        this.costoTotal = costoTotal;
+    }
+    
+    public void setGananciaTotal(int gananciaTotal) {
+        this.gananciaTotal = gananciaTotal;
+        actualizarRentabilidad();
     }
 
-    public void setCostoViaje(int costoViaje)
+    public void setRentabilidad(int rentabilidad)
     {
-        this.costoViaje = costoViaje;
+        this.rentabilidad = rentabilidad;
     }
     
     // Getters
-
-    public String getCodigo()
-    {
-        return codigoViaje;
-    }
-
-    public String getNombreChofer()
-    {
-        return nombreChofer;
-    }
-    
-    public String getMatricula()
-    {
-        return matricula;
-    }
-
-    public String getLugarDeInicio()
-    {
-        return lugarInicio;
-    }
-
-    public String getLugarDeLlegada()
-    {
-        return lugarLlegada;
-    }
-
     public int getTarifaGeneral()
     {
         return tarifaGeneral;
@@ -156,25 +71,14 @@ public class ViajeBus{
         return tarifaEstudiante;
     }
 
-    public boolean estaDisponible(int numeroAsiento)
-    {
-        if(asientosDisponibles[numeroAsiento-1] == 0 )return true;
-        return false;
-    }
-
-    public int getTotalAsientos()
-    {
-        return totalAsientos;
-    }
-
-    public int getCantPasajeros()
-    {
-        return pasajerosRutMap.size();
-    }
-
     public int getGananciaTotal()
     {
         return gananciaTotal;
+    }
+
+    public int getCostoTotal()
+    {
+        return costoTotal;
     }
     
     public double getRentabilidad()
@@ -183,77 +87,24 @@ public class ViajeBus{
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
-    
-
     public boolean agregarPasajero(Pasajero pasajero) 
     {
-        actualizarGanancia(pasajero.getTipo(),"agregar");
-        if(pasajerosRutMap.contains(Pasajero.getRut()))
+        boolean flag = super.agregarPasajero(pasajero);
+        if (flag == false)
             return false;
-        pasajerosRutMap.put(pasajero.getRut(), pasajero);
-        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
+        actualizarGanancia(pasajero.getTipo(), "Agregar");
         return true;
     }
-    
-
 
     public Pasajero eliminarPasajero(String rutPasajero) {
-        if(!pasajerosRutMap.contains(rutPasajero))
+        Pasajero aux = (Pasajero) super.eliminarPasajero(rutPasajero);
+        if (aux == null)
             return null;
-        return pasajerosRutMap.remove(rutPasajero);
+        actualizarGanancia(aux.getTipo(), "Eliminar");
+        return aux;
     }
     
-    
-    /*public void listarPasajeros()
-    {
-        System.out.println("Lista de pasajeros del bus:");  
-        Enumeration<Pasajero> enumeration = pasajerosRutMap.elements();
-        int i = 0;
-        while (enumeration.hasMoreElements()) {
-            Pasajero pasajeroCurrent = enumeration.nextElement();
-            System.out.println("Pasajero " + (i+1) + ":");
-            System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
-            System.out.println("RUT: " + pasajeroCurrent.getRut());
-            System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
-            System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
-            System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
-            System.out.println("\n");
-            i++;
-        }
-    }
-
-    public void listarPasajeros(String tipoPasajero)
-    {
-        if (pasajerosRutMap.size() == 0)
-        {
-            System.out.println("No hay pasajeros coincidentes en el sistema.");
-            return;
-        }
-        
-        System.out.println("Lista de pasajeros de tipo: " + tipoPasajero);
-        Enumeration<Pasajero> enumeration = pasajerosRutMap.elements();
-        int i = 0;
-        while (enumeration.hasMoreElements()) {
-            Pasajero pasajeroCurrent = enumeration.nextElement();
-            if (pasajeroCurrent.getTipo().equals(tipoPasajero)) {
-                System.out.println("Pasajero " + (i+1) + ":");
-                System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
-                System.out.println("RUT: " + pasajeroCurrent.getRut());
-                System.out.println("Tipo de pasajero: " + pasajeroCurrent.getTipo());
-                System.out.println("Codigo de su viaje: " + pasajeroCurrent.getCodigoViajePasajero());
-                System.out.println("Numero de asiento: " + pasajeroCurrent.getNroAsiento());
-                System.out.println("\n");
-            }
-            i++;
-        }
-    
-        if (i == 0) {
-            System.out.println("No hay pasajeros coincidentes en el sistema.");
-        }
-    }*/
-
     // Funcionalidades Propias
-    
     /*
     PALABRAS CLAVES    
     accion:"agregar","eliminar"
@@ -263,20 +114,18 @@ public class ViajeBus{
          switch (tipoPersona) 
          {
             case "Estudiante":
-                 
-                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaEstudiante;
-                 else gananciaTotal += tarifaEstudiante;
-                    
+                if (accion.equals("Agregar")) gananciaTotal += tarifaEstudiante;
+                else gananciaTotal -= tarifaEstudiante;
                 break;
             case "Tercera Edad":
                  
-                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaTerceraEdad;
-                 else gananciaTotal += tarifaTerceraEdad;
+                if (accion.equals("Agregar")) gananciaTotal += tarifaTerceraEdad;
+                else gananciaTotal -= tarifaTerceraEdad;
                      
                 break;
             case "Normal":
-                 if (accion.equals("Eliminar")) gananciaTotal -= tarifaGeneral;
-                 else gananciaTotal += tarifaGeneral;
+                if (accion.equals("Agregar")) gananciaTotal += tarifaGeneral;
+                else gananciaTotal -= tarifaGeneral;
                 
                 break;
             default:
@@ -288,75 +137,7 @@ public class ViajeBus{
     
     public void actualizarRentabilidad()
     {
-        rentabilidad = ((gananciaTotal - costoViaje) / gananciaTotal) * 100;
+        rentabilidad = ((gananciaTotal - costoTotal) / gananciaTotal) * 100;
         return;
-    }
-
-    public void listarAsientosDisponibles()
-    {
-        byte cont = 2;
-        for (byte i = 0; i < asientosDisponibles.length; i++)
-        {
-            if(cont % 4 == 0)
-                System.out.print("|| ");
-            cont++;
-              
-            if (asientosDisponibles[i] == 0) 
-            {
-                if(i < 9)
-                    System.out.print((i+1) + "  ");
-                else
-                    System.out.print((i+1) + " ");
-            }
-            else 
-                System.out.print("X  ");
-                
-            if((i+1) % 4 == 0 && i != 0) 
-                System.out.println();
-                         
-        }
-        System.out.println();
-    }
-
-
-    public ArrayList<Pasajero> obtenerListaPasajeros() {
-        
-        ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
-        Enumeration<Pasajero> keys = pasajerosRutMap.elements();
-        while (keys.hasMoreElements()) {
-            Pasajero pasajero = keys.nextElement();
-            listaPasajeros.add(pasajero);
-        }
-        
-        return listaPasajeros;
-    }
-
-    public ArrayList<Pasajero> obtenerListaPasajeros(String tipoPasajero) {
-        
-        ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
-        Enumeration<Pasajero> keys = pasajerosRutMap.elements();
-        while (keys.hasMoreElements()) {
-            Pasajero pasajero = keys.nextElement();
-            if(pasajero.getTipo().equals(tipoPasajero)) listaPasajeros.add(pasajero);
-        }
-        
-        return listaPasajeros;
-    }
-    
-    public String getHoraLlegada()
-    {
-        return horaLlegada;
-    }
-    
-    public String getHoraInicio()
-    {
-        return horaInicio;
-    }
-
-    public int getCostoViaje()
-    {
-        return costoViaje;
-    }
+    }  
 }
-
-
