@@ -185,28 +185,26 @@ public class ViajeBus{
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
     
 
-    public void agregarPasajero(Pasajero pasajero) 
+    public boolean agregarPasajero(Pasajero pasajero) 
     {
         actualizarGanancia(pasajero.getTipo(),"agregar");
+        if(pasajerosRutMap.contains(Pasajero.getRut()))
+            return false;
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
         asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
+        return true;
     }
     
-    public void eliminarPasajero(String rut)
-    {
-        if (pasajerosRutMap.get(rut) != null)
-        {
-            actualizarGanancia(pasajerosRutMap.get(rut).getTipo(), "eliminar");
-            pasajerosRutMap.remove(rut);
-            asientosDisponibles[pasajerosRutMap.get(rut).getNroAsiento() - 1] = 0;
-            System.out.println("Pasajero con RUT " + rut + " ha sido eliminado.");
-        } else {
-            System.out.println("Pasajero con RUT " + rut + " no se encuentra en el sistema.");
-        }
+
+
+    public Pasajero eliminarPasajero(String rutPasajero) {
+        if(!pasajerosRutMap.contains(rutPasajero))
+            return null;
+        return pasajerosRutMap.remove(rutPasajero);
     }
     
     
-    public void listarPasajeros()
+    /*public void listarPasajeros()
     {
         System.out.println("Lista de pasajeros del bus:");  
         Enumeration<Pasajero> enumeration = pasajerosRutMap.elements();
@@ -252,7 +250,7 @@ public class ViajeBus{
         if (i == 0) {
             System.out.println("No hay pasajeros coincidentes en el sistema.");
         }
-    }
+    }*/
 
     // Funcionalidades Propias
     
@@ -328,6 +326,18 @@ public class ViajeBus{
         while (keys.hasMoreElements()) {
             Pasajero pasajero = keys.nextElement();
             listaPasajeros.add(pasajero);
+        }
+        
+        return listaPasajeros;
+    }
+
+    public ArrayList<Pasajero> obtenerListaPasajeros(String tipoPasajero) {
+        
+        ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
+        Enumeration<Pasajero> keys = pasajerosRutMap.elements();
+        while (keys.hasMoreElements()) {
+            Pasajero pasajero = keys.nextElement();
+            if(pasajero.getTipo().equals(tipoPasajero)) listaPasajeros.add(pasajero);
         }
         
         return listaPasajeros;

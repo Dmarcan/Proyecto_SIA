@@ -22,29 +22,48 @@ public class Empresa {
     }
 
     // Métodos para agregar, eliminar y listar objetos ViajeBus en su colección respectiva del objeto Empresa.
+
+    public ViajeBus eliminarViajeBus(String codigo){
+        if(!viajesCodigoMap.contains(codigo))
+            return null;
+        return (ViajeBus) viajesCodigoMap.remove(codigo);
+    }
+
+    public boolean agregarPasajero(String codigo, Pasajero pasajero) {
+        if(viajesCodigoMap.contains(codigo) ) { // Si existe el viaje de bus
+            ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
+            if(viajeBus.agregarPasajero(pasajero)) 
+                return true;
+            return false;
+        } 
+        return false;
+    }
     
-    public void agregarViajeBus(ViajeBus viajeBus)
+    
+    public boolean agregarViajeBus(ViajeBus viajeBus)
     {
         String codigoViaje = viajeBus.getCodigo();
 
         if (!viajesCodigoMap.containsKey(codigoViaje)) {
             viajesCodigoMap.put(codigoViaje, viajeBus);
-        } else {
-            System.out.println("Bus con codigo de viaje " + codigoViaje + " ya se encuentra en el sistema.");
+            return true;
         }
+        return false;
+    }
+
+    public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) {
+        if(!viajesCodigoMap.contains(codigoBus))
+            return null;
+        
+        ViajeBus viajeBus = viajesCodigoMap.get(codigoBus);
+        Pasajero pasajeroEliminado = viajeBus.eliminarPasajero();
+        
+        if(pasajeroEliminado != null)
+            return pasajeroEliminado;
+        return null;
     }
     
-    public void eliminarViajeBus(String codigoViaje)
-    {   
-        if (viajesCodigoMap.containsKey(codigoViaje)) {
-            viajesCodigoMap.remove(codigoViaje);
-            System.out.println("Bus con codigo de viaje " + codigoViaje + " ha sido eliminado.");
-        } else {
-            System.out.println("Bus con codigo de viaje " + codigoViaje + " no se encuentra en el sistema.");
-        }
-    }
-    
-    public void listarViajesBus(boolean flag)
+    /*public void listarViajesBus(boolean flag)
     {
         System.out.println("Lista de todos los buses");
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -114,11 +133,7 @@ public class Empresa {
             System.out.println("No se encuentran buses con origen " + lugarDeInicio);
             return;
         }
-    }
-
-
-
-
+    }*/
 
 
     public ViajeBus obtenerViajeBus(String codigoViaje) {
@@ -134,7 +149,17 @@ public class Empresa {
             ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
             listaViajeBus.add(viajeCurrent);
         }
+        return listaViajeBus;
+    }
+    public ArrayList<ViajeBus> obtenerTodosViajeBus(String lugarDeInicio){
+        ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
+        Enumeration<String> keys = viajesCodigoMap.keys();
     
+        while (keys.hasMoreElements()) {
+            String codigoViaje = keys.nextElement();
+            ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
+            if (viajeCurrent.getLugarDeInicio().equals(lugarDeInicio)) listaViajeBus.add(viajeCurrent);
+        }
         return listaViajeBus;
     }
     

@@ -93,8 +93,11 @@ public class Menu{
                             horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante, 
                             totalAsientos, costoViaje);            
         
-        empresa.agregarViajeBus(viajeBus);
-        System.out.println("El viaje de bus con código " + codigoViaje + " fue agregado exitosamente.");
+        if (empresa.agregarViajeBus(viajeBus)){
+            System.out.println("El viaje de bus con código " + codigoViaje + " fue agregado exitosamente.");
+        }else{
+            System.out.println("Bus con codigo de viaje " + codigoViaje + " ya se encuentra en el sistema.");
+        }
     }
 
     public void opcionEliminarViaje(Empresa empresa)throws IOException {

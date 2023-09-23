@@ -132,7 +132,7 @@ public class Opcion3Jframe extends javax.swing.JFrame {
 
     private void listarLugarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarLugarInicioActionPerformed
         // TODO add your handling code here:
-        elegirOrigenBus_pane ventanaEleccion = new elegirOrigenBus_pane();
+        ElegirOrigenBusJframe ventanaEleccion = new ElegirOrigenBusJframe();
         ventanaEleccion.setVisible(true);
     }//GEN-LAST:event_listarLugarInicioActionPerformed
 

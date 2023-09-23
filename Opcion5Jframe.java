@@ -133,7 +133,7 @@ public class Opcion5Jframe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        opcion3_pane mostrarBuses = new opcion3_pane();
+        Opcion3Jframe mostrarBuses = new Opcion3Jframe();
         mostrarBuses.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
