@@ -26,7 +26,6 @@ public class Menu{
         System.out.println("Opcion 1 : Listar todos los buses en el sistema.");
         System.out.println("Opcion 2 : Listar los buses en base al lugar de inicio.");
         System.out.println("Opcion 0 : Salir.");
-        
     }
 
     // Opciones Agregar, Eliminar y Listar para la colección de objetos ViajeBus de la clase empresa.

@@ -2,16 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class ViajeComercial{
-    private String nombreChofer;
-    private String matricula;
-    private String codigoViaje;
-    private String lugarInicio;
-    private String lugarLlegada;
-    private String horaInicio;
-    private String horaLlegada;
-    private int totalAsientos;
-    private Hashtable<String, Pasajero> pasajerosRutMap;
-    private byte[] asientosDisponibles;
+    protected String nombreChofer;
+    protected String matricula;
+    protected String codigoViaje;
+    protected String lugarInicio;
+    protected String lugarLlegada;
+    protected String horaInicio;
+    protected String horaLlegada;
+    protected int totalAsientos;
+    protected Hashtable<String, Pasajero> pasajerosRutMap;
+    protected byte[] asientosDisponibles;
     
     public ViajeComercial(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                           String lugarLlegada, String horaInicio, String horaLlegada, int totalAsientos) {

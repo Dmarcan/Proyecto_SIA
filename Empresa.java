@@ -38,6 +38,43 @@ public class Empresa {
         } 
         return false;
     }
+
+    public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
+        if(!viajesCodigoMap.containsKey(numeroViaje))
+            return false;
+        
+        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        if(viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero))
+            return true;
+        return false;
+    }
+    
+    public boolean modificarTipoPasajero(String numeroViaje, String tipoPasajero, String rutPasajero) {
+        if(!viajesCodigoMap.containsKey(numeroViaje))
+            return false;
+        
+        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        if(viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero))
+            return true;
+        return false;
+    }
+    
+    // rutPasajero -> A: antiguo : N: nuevo
+    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) {
+        if(!viajesCodigoMap.containsKey(numeroViaje))
+            return false;
+        
+        Pasajero pasajeroAux = eliminarPasajero(numeroViaje,rutPasajeroA);
+        if(pasajeroAux == null)
+            return false;
+        
+        Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(),rutPasajeroN,pasajeroAux.getTipo(),pasajeroAux.getNroAsiento(),numeroViaje);
+        
+        if(agregarPasajero(numeroViaje,pasajero))
+            return true;
+        return false;
+       
+    }
     
     
     public boolean agregarViajeBus(ViajeBus viajeBus)

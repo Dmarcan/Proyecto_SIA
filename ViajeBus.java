@@ -85,6 +85,25 @@ public class ViajeBus extends ViajeComercial{
     {
         return rentabilidad;
     }
+    
+    public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero) {
+        if(!pasajerosRutMap.containsKey(rutPasajero))
+            return false;
+        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        pasajero.setNombrePasajero(nombrePasajero);
+        return true;
+    }
+    
+    
+    public boolean modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
+        if(!pasajerosRutMap.containsKey(rutPasajero))
+            return false;
+        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        actualizarGanancia(pasajero.getTipo(),"eliminar");
+        pasajero.setTipoPasajero(tipoPasajero);
+        actualizarGanancia(tipoPasajero,"agregar");
+        return true;
+    }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
     public boolean agregarPasajero(Pasajero pasajero) 
@@ -123,7 +142,7 @@ public class ViajeBus extends ViajeComercial{
                 else gananciaTotal -= tarifaTerceraEdad;
                      
                 break;
-            case "Normal":
+            case "General":
                 if (accion.equals("Agregar")) gananciaTotal += tarifaGeneral;
                 else gananciaTotal -= tarifaGeneral;
                 
