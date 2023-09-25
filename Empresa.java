@@ -23,6 +23,17 @@ public class Empresa {
 
     // Métodos para agregar, eliminar y listar objetos ViajeBus en su colección respectiva del objeto Empresa.
 
+    public ArrayList<ViajeBus> obtenerTodosViajeBus(double rentabilidad) {
+        ArrayList<ViajeBus> listaViajesBuses = new ArrayList<>();
+        Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
+        while (keys.hasMoreElements()) {
+            ViajeBus viajeBus = keys.nextElement();
+            if(viajeBus.getRentabilidad() <= rentabilidad);
+                listaViajesBuses.add(viajeBus);
+        }
+        return listaViajesBuses;
+    }
+
     public ViajeBus eliminarViajeBus(String codigo){
         if(!viajesCodigoMap.contains(codigo))
             return null;
@@ -54,7 +65,7 @@ public class Empresa {
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if(viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero))
+        if(viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null)
             return true;
         return false;
     }

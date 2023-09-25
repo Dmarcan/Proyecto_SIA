@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ViajeBus extends ViajeComercial{    
+public class ViajeBus extends ViajeComercial{
     private int tarifaGeneral;
     private int tarifaTerceraEdad;
     private int tarifaEstudiante;
@@ -86,23 +86,20 @@ public class ViajeBus extends ViajeComercial{
         return rentabilidad;
     }
     
-    public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero) {
-        if(!pasajerosRutMap.containsKey(rutPasajero))
-            return false;
-        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
-        pasajero.setNombrePasajero(nombrePasajero);
-        return true;
+    public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
+        return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
     
     
-    public boolean modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
-        if(!pasajerosRutMap.containsKey(rutPasajero))
-            return false;
-        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
-        actualizarGanancia(pasajero.getTipo(),"eliminar");
-        pasajero.setTipoPasajero(tipoPasajero);
-        actualizarGanancia(tipoPasajero,"agregar");
-        return true;
+    public String modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
+        String tipo = super.modificarTipoPasajero(tipoPasajero,rutPasajero);
+        if (tipo != null)
+        {
+            actualizarGanancia(tipo, "eliminar");
+            actualizarGanancia(tipoPasajero, "agregar");
+            return tipoPasajero;
+        }
+        return null;
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
@@ -158,5 +155,5 @@ public class ViajeBus extends ViajeComercial{
     {
         rentabilidad = ((gananciaTotal - costoTotal) / gananciaTotal) * 100;
         return;
-    }  
+    }
 }

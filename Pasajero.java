@@ -57,6 +57,4 @@ public class Pasajero{
     public String getCodigoViajePasajero(){
         return codigoViaje;
     }
-
-    
 }

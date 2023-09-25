@@ -2,16 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class ViajeComercial{
-    protected String nombreChofer;
-    protected String matricula;
-    protected String codigoViaje;
-    protected String lugarInicio;
-    protected String lugarLlegada;
-    protected String horaInicio;
-    protected String horaLlegada;
-    protected int totalAsientos;
-    protected Hashtable<String, Pasajero> pasajerosRutMap;
-    protected byte[] asientosDisponibles;
+    private String nombreChofer;
+    private String matricula;
+    private String codigoViaje;
+    private String lugarInicio;
+    private String lugarLlegada;
+    private String horaInicio;
+    private String horaLlegada;
+    private int totalAsientos;
+    private Hashtable<String, Pasajero> pasajerosRutMap;
+    private byte[] asientosDisponibles;
     
     public ViajeComercial(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                           String lugarLlegada, String horaInicio, String horaLlegada, int totalAsientos) {
@@ -109,7 +109,6 @@ public class ViajeComercial{
     }
 
     // Funcionalidades
-    
     public boolean agregarPasajero(Pasajero pasajero) 
     {
         if(pasajerosRutMap.containsKey(pasajero.getRut()))
@@ -125,7 +124,22 @@ public class ViajeComercial{
         return pasajerosRutMap.remove(rutPasajero);
     }
 
-
+    public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
+        if(!pasajerosRutMap.containsKey(rutPasajero))
+            return false;
+        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        pasajero.setNombrePasajero(nombrePasajero);
+        return true;
+    }
+    
+    public String modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
+        if(!pasajerosRutMap.containsKey(rutPasajero))
+            return null;
+        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        pasajero.setTipoPasajero(tipoPasajero);
+        return pasajero.getTipo();
+    }
+    
     public void mostrarPasajero(Pasajero pasajeroCurrent)
     {
         System.out.println("Nombre: " + pasajeroCurrent.getNombrePasajero());
@@ -227,5 +241,17 @@ public class ViajeComercial{
         }
         
         return listaPasajeros;
-    }  
+    }
+
+    /*
+    public ArrayList<Pasajero> obtenerListaPasajeros(int rentabilidad) {
+        ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
+        Enumeration<Pasajero> keys = pasajerosRutMap.elements();
+        while (keys.hasMoreElements()) {
+            Pasajero pasajero = keys.nextElement();
+            if(pasajero.getTipo().equals(tipoPasajero)) listaPasajeros.add(pasajero);
+        }
+        return listaPasajeros;
+    }
+    */
 }
