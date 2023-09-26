@@ -4,7 +4,7 @@ import java.util.*;
 public class Menu{
 
     // Métodos para mostra menús
-    
+    /*
     public void mostrarFuncionalidades(){
         System.out.println("\nMENU DEL SISTEMA");
         System.out.println("Opcion 1 : Registrar viaje de bus en el sistema.");
@@ -483,5 +483,5 @@ public class Menu{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

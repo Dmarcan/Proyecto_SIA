@@ -130,7 +130,7 @@ public class Opcion2Jframe extends javax.swing.JFrame {
         if(empresa.eliminarViajeBus(codigoViajeBus) != null) {
             jLabel5.setText("Bus eliminado.");
         } else {
-            jLabel5.setText("Bus no eliminado.");
+            jLabel5.setText("Bus ingresado no existe.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

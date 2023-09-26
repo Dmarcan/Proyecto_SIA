@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-// package entrega_final.entrega_final;
 
 import java.util.ArrayList;
 
@@ -10,18 +9,18 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
+public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
 
     /**
-     * Creates new form elegirOrigenBus_pane
+     * Creates new form Opcion3FiltrarRentabilidadJframe
      */
     Empresa empresa;
-    public Opcion3FiltrarOrigenJframe(Empresa empresa) {
+    public Opcion3FiltrarRentabilidadJframe(Empresa empresa) {
         initComponents();
         this.empresa = empresa;
     }
 
-    private Opcion3FiltrarOrigenJframe() {
+    private Opcion3FiltrarRentabilidadJframe() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -41,13 +40,12 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Origen de Buses a Filtrar");
-
         jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jLabel2.setText("LISTAR SEGÚN ORIGEN DE VIAJE DE BUS");
+        jLabel2.setText("LISTAR SEGÚN RENTABILIDAD");
         jLabel2.setToolTipText("");
 
         jScrollPane1.setViewportView(jTextField1);
@@ -65,18 +63,24 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Symbol", 1, 16)); // NOI18N
         jLabel4.setText("Rellene los campos");
 
+        jLabel5.setText("Rentabilidad a filtrar (menores que ingresado)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGap(123, 123, 123)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addGap(107, 107, 107))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,33 +99,40 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(54, 54, 54)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(52, 52, 52))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(30, 30, 30)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)))
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
+    }// </editor-fold>                        
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here
-        String origen = this.jTextField1.getText();
-        ArrayList<ViajeBus> listaEnviar = empresa.obtenerTodosViajeBus(origen);
-        if (listaEnviar.isEmpty()) jLabel4.setText("No existen viajes bus con origen " + origen);
+        double rentabilidad = Double.parseDouble(this.jTextField1.getText());
+        ArrayList<ViajeBus> listaEnviar = empresa.obtenerTodosViajeBus(rentabilidad);
+        if (listaEnviar.isEmpty()) jLabel4.setText("No existen viajes bus con rentabilidad menor a "+rentabilidad);
         else{
             Opcion3ListarTodos listar = new  Opcion3ListarTodos(listaEnviar);
-            jLabel4.setText("Mostrando viajes bus con origen " + origen);
+            jLabel4.setText("Mostrando viajes bus con rentabilidad menor a "+rentabilidad);
             listar.setVisible(true);
         }
-            
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -141,21 +152,20 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Opcion3FiltrarOrigenJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Opcion3FiltrarRentabilidadJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Opcion3FiltrarOrigenJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Opcion3FiltrarRentabilidadJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Opcion3FiltrarOrigenJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Opcion3FiltrarRentabilidadJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Opcion3FiltrarOrigenJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Opcion3FiltrarRentabilidadJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Opcion3FiltrarOrigenJframe().setVisible(true);
+                new Opcion3FiltrarRentabilidadJframe().setVisible(true);
             }
         });
     }
@@ -166,6 +176,7 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextField1;
     // End of variables declaration//GEN-END:variables

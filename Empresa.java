@@ -30,7 +30,7 @@ public class Empresa {
         Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
         while (keys.hasMoreElements()) {
             ViajeBus viajeBus = keys.nextElement();
-            if(viajeBus.getRentabilidad() <= rentabilidad);
+            if(viajeBus.getRentabilidad() <= rentabilidad)
                 listaViajesBuses.add(viajeBus);
         }
         return listaViajesBuses;
@@ -43,7 +43,7 @@ public class Empresa {
     }
 
     public boolean agregarPasajero(String codigo, Pasajero pasajero) {
-        if(viajesCodigoMap.contains(codigo) ) { // Si existe el viaje de bus
+        if(viajesCodigoMap.containsKey(codigo) ) { // Si existe el viaje de bus
             ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
             if(viajeBus.agregarPasajero(pasajero)) 
                 return true;

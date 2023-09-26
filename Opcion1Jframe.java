@@ -329,7 +329,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         }
         else
         {
-            jLabel15.setText("Viaje bus NO agregado");
+            jLabel15.setText("Viaje bus ya existe");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

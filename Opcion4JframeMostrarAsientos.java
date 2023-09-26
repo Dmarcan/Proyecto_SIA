@@ -19,6 +19,12 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
     public Opcion4JframeMostrarAsientos(ViajeBus bus) {
         initComponents();
         this.bus = bus;
+        initTable(bus);
+        
+    }
+
+    public void initTable(ViajeBus bus) {
+        
         modelo.addColumn("");
         modelo.addColumn("");
         modelo.addColumn("PASILLO");
@@ -32,10 +38,9 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
         byte cont = -1;
         byte asiento = 1;
         int cantidadAsientos = bus.getTotalAsientos();
-        Object a[]=new Object[5];
-        for (int i = 0;i < cantidadAsientos;i++){
+        Object a[] = new Object[5];
+        for (int i = 0 ; i < cantidadAsientos ; i++){
             cont++;
-            
             if (cont == 0)
             {
                 if (!bus.estaDisponible(asiento)) a[0] = "X";
@@ -71,7 +76,7 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
             asiento++;
         }
     }
-
+    
     private Opcion4JframeMostrarAsientos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

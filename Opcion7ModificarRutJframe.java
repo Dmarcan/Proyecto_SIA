@@ -133,10 +133,10 @@ public class Opcion7ModificarRutJframe extends javax.swing.JFrame {
         String rutPasajero = jTextField3.getText();
         String nuevoRutPasajero = jTextField2.getText();
         
-        if(empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero))
+        /*if(empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero))
             jLabel5.setText("Rut modificado");
         else
-            jLabel5.setText("Rut no modificado");
+            jLabel5.setText("Rut no modificado");*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

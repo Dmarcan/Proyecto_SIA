@@ -6,8 +6,8 @@ public class ViajeBus extends ViajeComercial{
     private int tarifaTerceraEdad;
     private int tarifaEstudiante;
 
-    private int costoTotal;
-    private int gananciaTotal;
+    private double costoTotal;
+    private double gananciaTotal;
     private double rentabilidad;
 
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
@@ -71,12 +71,12 @@ public class ViajeBus extends ViajeComercial{
         return tarifaEstudiante;
     }
 
-    public int getGananciaTotal()
+    public double getGananciaTotal()
     {
         return gananciaTotal;
     }
 
-    public int getCostoTotal()
+    public double getCostoTotal()
     {
         return costoTotal;
     }
@@ -85,6 +85,7 @@ public class ViajeBus extends ViajeComercial{
     {
         return rentabilidad;
     }
+    
     
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
@@ -103,11 +104,11 @@ public class ViajeBus extends ViajeComercial{
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
-    public boolean agregarPasajero(Pasajero pasajero) 
-    {
+    public boolean agregarPasajero(Pasajero pasajero){
         boolean flag = super.agregarPasajero(pasajero);
-        if (flag == false)
+        if (flag == false){
             return false;
+        }
         actualizarGanancia(pasajero.getTipo(), "Agregar");
         return true;
     }
@@ -151,9 +152,8 @@ public class ViajeBus extends ViajeComercial{
         return;
     }
     
-    public void actualizarRentabilidad()
-    {
-        rentabilidad = ((gananciaTotal - costoTotal) / gananciaTotal) * 100;
+    public void actualizarRentabilidad(){
+        rentabilidad = ((gananciaTotal - costoTotal) / costoTotal) * 100;
         return;
     }
 }

@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-// package entrega_final.entrega_final;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -34,13 +33,14 @@ public class Opcion3ListarTodos extends javax.swing.JFrame {
         modelo.addColumn("Total asientos");
         modelo.addColumn("Cantidad pasajeros");
         modelo.addColumn("Asientos libres");
+        modelo.addColumn("Rentabilidad");
         jTable1.setModel(modelo);
         while (modelo.getRowCount()>0){
             modelo.removeRow(0);
         }
         for (int i = 0;i < listaMostrar.size();i++){
             ViajeBus busCurrent = listaMostrar.get(i);
-            Object a[]=new Object[13];
+            Object a[]=new Object[14];
             a[0] = busCurrent.getNombreChofer();
             a[1] = busCurrent.getCodigo();
             a[2] = busCurrent.getMatricula();
@@ -55,6 +55,10 @@ public class Opcion3ListarTodos extends javax.swing.JFrame {
             a[11] = busCurrent.getCantPasajeros();
             int asieLibres = busCurrent.getTotalAsientos()- busCurrent.getCantPasajeros();
             a[12] = asieLibres;
+            String rentabilidad;
+            if (busCurrent.getCantPasajeros() == 0) rentabilidad = "-100.00";
+            else rentabilidad = String.format("%.2f", busCurrent.getRentabilidad());
+            a[13] = rentabilidad;
             modelo.addRow(a);
         }
     }

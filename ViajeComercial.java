@@ -109,8 +109,7 @@ public class ViajeComercial{
     }
 
     // Funcionalidades
-    public boolean agregarPasajero(Pasajero pasajero) 
-    {
+    public boolean agregarPasajero(Pasajero pasajero){
         if(pasajerosRutMap.containsKey(pasajero.getRut()))
             return false;
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
