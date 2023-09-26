@@ -18,6 +18,8 @@ public class Empresa {
 
     public ViajeBus getViajeBus(String codigoViaje)
     {
+        if(!viajesCodigoMap.containsKey(codigoViaje))
+            return null;
         return viajesCodigoMap.get(codigoViaje);
     }
 
@@ -35,7 +37,7 @@ public class Empresa {
     }
 
     public ViajeBus eliminarViajeBus(String codigo){
-        if(!viajesCodigoMap.contains(codigo))
+        if(!viajesCodigoMap.containsKey(codigo))
             return null;
         return (ViajeBus) viajesCodigoMap.remove(codigo);
     }

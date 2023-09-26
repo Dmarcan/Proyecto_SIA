@@ -167,6 +167,15 @@ public class Opcion4Jframe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String codigoViaje = textField1.getText();
+        ViajeBus bus = empresa.getViajeBus(codigoViaje);
+        if (bus == null)jLabel8.setText("Ingrese Viaje Bus valido");
+        else
+        {
+            jLabel8.setText("Mostrando asientos...");
+            Opcion4JframeMostrarAsientos op4M = new Opcion4JframeMostrarAsientos(bus);
+            op4M.setVisible(true);      
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

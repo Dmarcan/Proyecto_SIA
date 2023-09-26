@@ -157,7 +157,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 
                 if (!data[0].equals("nombrePasajero")) {
                     Pasajero pasajero = new Pasajero(data[0], data[1], data[2],  Integer.parseInt(data[3]), data[4]);            
-                    ViajeBus viajeBus = empresa.obtenerViajeBus(data[4]);
+                    ViajeBus viajeBus = empresa.getViajeBus(data[4]);
                     viajeBus.agregarPasajero(pasajero);
                 }    
                 
