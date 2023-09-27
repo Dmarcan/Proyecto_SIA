@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Empresa {
     
@@ -112,6 +113,85 @@ public class Empresa {
             return pasajeroEliminado;
         return null;
     }
+
+    public void exportarReporte(String csv1)
+    {
+        try (FileWriter fileWriter1 = new FileWriter(csv1)) {
+            
+            fileWriter1.write("REPORTE DE DATOS PROYECTO\n\n");
+            fileWriter1.write("Cantidad de buses en sistema: "+viajesCodigoMap.size()+"\n");
+            fileWriter1.write("Lista de todos los buses\n");
+            //IMPRIMIR BUSES
+            Enumeration<String> keys = viajesCodigoMap.keys();
+            int i = 0;
+            while (keys.hasMoreElements()) {
+                fileWriter1.write("┌────────────────────────────────────────────┐\n");
+                fileWriter1.write("                BUS NUMERO "+(i+1)+"\n");
+                String codigoViaje = keys.nextElement();
+                ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
+                fileWriter1.write(" Código de viaje: " + codigoViaje+"\n");
+                fileWriter1.write(" Nombre del chofer: " + viajeCurrent.getNombreChofer()+"\n");
+                fileWriter1.write(" Matrícula: " + viajeCurrent.getMatricula()+"\n");
+                fileWriter1.write(" Lugar de inicio: " + viajeCurrent.getLugarDeInicio()+"\n");
+                fileWriter1.write(" Lugar de llegada: " + viajeCurrent.getLugarDeLlegada()+"\n");
+                fileWriter1.write(" Tarifa General: " + viajeCurrent.getTarifaGeneral()+"\n");
+                fileWriter1.write(" Tarifa de tercera edad: " + viajeCurrent.getTarifaTerceraEdad()+"\n");
+                fileWriter1.write(" Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante()+"\n");
+                fileWriter1.write(" Total de asientos en el bus: " + viajeCurrent.getTotalAsientos()+"\n");
+                fileWriter1.write(" Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros()+"\n");
+                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n\n");
+                fileWriter1.write(" Gráfico de asientos disponibles del bus " + (i + 1)+"\n");
+                //IMPRIMIR ASIENTOS
+                int cantAsiento = viajeCurrent.getTotalAsientos();
+                byte cont = 2;
+                for (byte j = 0; j < cantAsiento; j++)
+                {
+                    if(cont % 4 == 0)
+                        fileWriter1.write("|| ");
+                    cont++;
+                      
+                    if (viajeCurrent.estaDisponible(j+1)) 
+                    {
+                        if(j < 9)
+                            fileWriter1.write((j+1) + "  ");
+                        else
+                            fileWriter1.write((j+1) + " ");
+                    }
+                    else 
+                        fileWriter1.write("X  ");
+                        
+                    if((j+1) % 4 == 0 && j != 0) 
+                        fileWriter1.write("\n");
+                                 
+                }
+                fileWriter1.write("\n");
+                
+                //IMPRIMIR PASAJEROS
+                ArrayList<Pasajero> listaMostrar = viajeCurrent.obtenerListaPasajeros();
+                if (!listaMostrar.isEmpty())
+                {
+                    fileWriter1.write(" Lista de pasajeros del bus:\n");
+                    for (int h = 0;h < listaMostrar.size();h++){
+                        Pasajero pasajeroCurrent = listaMostrar.get(h);
+                        fileWriter1.write(" Pasajero " + (h+1)+ ":"+"\n");
+                        fileWriter1.write(" Nombre: " + pasajeroCurrent.getNombrePasajero()+"\n");
+                        fileWriter1.write(" RUT: " + pasajeroCurrent.getRut()+"\n");
+                        fileWriter1.write(" Tipo de pasajero: " + pasajeroCurrent.getTipo()+"\n");
+                        fileWriter1.write(" Numero de asiento: " + pasajeroCurrent.getNroAsiento()+"\n");
+                        fileWriter1.write("\n");
+                    }
+                }
+
+                
+                fileWriter1.write("└────────────────────────────────────────────┘\n");
+                i++;
+            }
+            
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     public void listarViajesBus(boolean flag)
     {
@@ -122,68 +202,26 @@ public class Empresa {
             String codigoViaje = keys.nextElement();
             ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
             System.out.println("Código de viaje: " + codigoViaje);
-            if (flag) {
-                System.out.println("Nombre del chofer: " + viajeCurrent.getNombreChofer());
-                System.out.println("Matrícula: " + viajeCurrent.getMatricula());
-                System.out.println("Lugar de inicio: " + viajeCurrent.getLugarDeInicio());
-                System.out.println("Lugar de llegada: " + viajeCurrent.getLugarDeLlegada());
-                System.out.println("Tarifa General: " + viajeCurrent.getTarifaGeneral());
-                System.out.println("Tarifa de tercera edad: " + viajeCurrent.getTarifaTerceraEdad());
-                System.out.println("Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante());
-                System.out.println("Total de asientos en el bus: " + viajeCurrent.getTotalAsientos());
-                System.out.println("Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros());
-                System.out.println("Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
-                System.out.println();
-                System.out.println("Gráfico de asientos disponibles del bus " + (i + 1));
-                viajeCurrent.listarAsientosDisponibles();
-            }
+            System.out.println("Nombre del chofer: " + viajeCurrent.getNombreChofer());
+            System.out.println("Matrícula: " + viajeCurrent.getMatricula());
+            System.out.println("Lugar de inicio: " + viajeCurrent.getLugarDeInicio());
+            System.out.println("Lugar de llegada: " + viajeCurrent.getLugarDeLlegada());
+            System.out.println("Tarifa General: " + viajeCurrent.getTarifaGeneral());
+            System.out.println("Tarifa de tercera edad: " + viajeCurrent.getTarifaTerceraEdad());
+            System.out.println("Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante());
+            System.out.println("Total de asientos en el bus: " + viajeCurrent.getTotalAsientos());
+            System.out.println("Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros());
+            System.out.println("Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
+            System.out.println();
+            System.out.println("Gráfico de asientos disponibles del bus " + (i + 1));
+            viajeCurrent.listarAsientosDisponibles();
+
             System.out.println("\n");
             i++;
         }
     }
     
-    public void listarViajesBus(String lugarDeInicio)
-    {
-        if (viajesCodigoMap.size() == 0)
-        {
-            System.out.println("No hay viajes de bus coincidentes en el sistema.");
-            return;
-        }
-        
-        System.out.println("Lista de buses con lugar de origen: " + lugarDeInicio);
-        Enumeration<String> keys = viajesCodigoMap.keys();
-        int entro = 0;
-        int i = 0;
-        while (keys.hasMoreElements()) {
-            String codigoViaje = keys.nextElement();
-            ViajeBus viajeCurrent = viajesCodigoMap.get(codigoViaje);
-            if ((viajeCurrent.getLugarDeInicio()).equals(lugarDeInicio)) {
-                entro = 1;
-                System.out.println("Viaje de bus "+ (i + 1) + ":");
-                System.out.println("Código de viaje: " + viajeCurrent.getCodigo());
-                System.out.println("Nombre del chofer: " + viajeCurrent.getNombreChofer());
-                System.out.println("Matrícula: " + viajeCurrent.getMatricula());
-                System.out.println("Lugar de inicio: " + viajeCurrent.getLugarDeInicio());
-                System.out.println("Lugar de llegada: " + viajeCurrent.getLugarDeLlegada());
-                System.out.println("Tarifa General: " + viajeCurrent.getTarifaGeneral());
-                System.out.println("Tarifa de tercera edad: " + viajeCurrent.getTarifaTerceraEdad());
-                System.out.println("Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante());
-                System.out.println("Total de asientos en el bus: " + viajeCurrent.getTotalAsientos());
-                System.out.println("Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros());
-                System.out.println("Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros()));
-                System.out.println();
-                System.out.println("Gráfico de asientos disponibles del bus " + (i + 1));
-                viajeCurrent.listarAsientosDisponibles();
-                System.out.println("\n");
-            }
-            i++;
-        }
-        if (entro == 0)
-        {
-            System.out.println("No se encuentran buses con origen " + lugarDeInicio);
-            return;
-        }
-    }
+    
 
 
     public ViajeBus obtenerViajeBus(String codigoViaje) {

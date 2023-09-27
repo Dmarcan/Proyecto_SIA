@@ -13,7 +13,7 @@ public class ViajeBus extends ViajeComercial{
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                     String lugarLlegada, String horaInicio, String horaLlegada,
                     int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
-                    int costoTotal, int totalAsientos){
+                    double costoTotal, int totalAsientos){
         super(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, horaInicio, horaLlegada, totalAsientos);
         this.tarifaGeneral = tarifaGeneral;
         this.tarifaTerceraEdad = tarifaTerceraEdad;

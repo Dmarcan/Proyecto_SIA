@@ -1,0 +1,1962 @@
+REPORTE DE DATOS PROYECTO
+
+Cantidad de buses en sistema: 63
+Lista de todos los buses
+┌────────────────────────────────────────────┐
+                BUS NUMERO 1
+ Código de viaje: 29350
+ Nombre del chofer: Ana Sánchez
+ Matrícula: JJKL-123
+ Lugar de inicio: Puerto Montt
+ Lugar de llegada: Santiago
+ Tarifa General: 40000
+ Tarifa de tercera edad: 32000
+ Tarifa de estudiante: 28000
+ Total de asientos en el bus: 50
+ Cantidad de pasajeros: 20
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 1
+X  X  || X  X  
+X  X  || X  X  
+X  X  || X  X  
+X  X  || X  X  
+X  X  || X  X  
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+41 42 || 43 44 
+45 46 || 47 48 
+49 50 
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Catalina
+ RUT: 90123456-8
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 19
+
+ Pasajero 2:
+ Nombre: Fernanda
+ RUT: 90123456-7
+ Tipo de pasajero: General
+ Numero de asiento: 9
+
+ Pasajero 3:
+ Nombre: Camilo
+ RUT: 12345678-9
+ Tipo de pasajero: General
+ Numero de asiento: 1
+
+ Pasajero 4:
+ Nombre: Lorena
+ RUT: 12345678-0
+ Tipo de pasajero: General
+ Numero de asiento: 11
+
+ Pasajero 5:
+ Nombre: Antonia
+ RUT: 45678901-3
+ Tipo de pasajero: General
+ Numero de asiento: 14
+
+ Pasajero 6:
+ Nombre: Eduardo
+ RUT: 45678901-2
+ Tipo de pasajero: General
+ Numero de asiento: 4
+
+ Pasajero 7:
+ Nombre: Gabriela
+ RUT: 89012345-7
+ Tipo de pasajero: General
+ Numero de asiento: 18
+
+ Pasajero 8:
+ Nombre: Martín
+ RUT: 89012345-6
+ Tipo de pasajero: General
+ Numero de asiento: 8
+
+ Pasajero 9:
+ Nombre: Diego
+ RUT: 34567890-2
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 13
+
+ Pasajero 10:
+ Nombre: Simón
+ RUT: 01234567-9
+ Tipo de pasajero: General
+ Numero de asiento: 20
+
+ Pasajero 11:
+ Nombre: Mariana
+ RUT: 34567890-1
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 3
+
+ Pasajero 12:
+ Nombre: Javier
+ RUT: 01234567-8
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 10
+
+ Pasajero 13:
+ Nombre: Andrés
+ RUT: 78901234-6
+ Tipo de pasajero: General
+ Numero de asiento: 17
+
+ Pasajero 14:
+ Nombre: Isabella
+ RUT: 78901234-5
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 15:
+ Nombre: Lucas
+ RUT: 67890123-5
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 16
+
+ Pasajero 16:
+ Nombre: Pedro
+ RUT: 67890123-4
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 6
+
+ Pasajero 17:
+ Nombre: Valentina
+ RUT: 23456789-1
+ Tipo de pasajero: General
+ Numero de asiento: 12
+
+ Pasajero 18:
+ Nombre: Luisa
+ RUT: 23456789-0
+ Tipo de pasajero: General
+ Numero de asiento: 2
+
+ Pasajero 19:
+ Nombre: Sebastián
+ RUT: 56789012-4
+ Tipo de pasajero: General
+ Numero de asiento: 15
+
+ Pasajero 20:
+ Nombre: Sofía
+ RUT: 56789012-3
+ Tipo de pasajero: General
+ Numero de asiento: 5
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 2
+ Código de viaje: 29382
+ Nombre del chofer: Luis Martínez
+ Matrícula: POIU-567
+ Lugar de inicio: Santiago
+ Lugar de llegada: Melipilla
+ Tarifa General: 2600
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 2
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 3
+ Código de viaje: 29381
+ Nombre del chofer: Pedro Ramírez
+ Matrícula: QWER-234
+ Lugar de inicio: Copiapó
+ Lugar de llegada: Calama
+ Tarifa General: 3800
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 1900
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 3
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 4
+ Código de viaje: 29380
+ Nombre del chofer: Natalia Soto
+ Matrícula: ASDF-789
+ Lugar de inicio: La Serena
+ Lugar de llegada: Coquimbo
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 10
+ Asientos libres: 15
+
+ Gráfico de asientos disponibles del bus 4
+X  X  || X  X  
+X  X  || X  X  
+X  X  || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Ricardo
+ RUT: 34567890-1
+ Tipo de pasajero: General
+ Numero de asiento: 1
+
+ Pasajero 2:
+ Nombre: Carolina
+ RUT: 12345678-9
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 9
+
+ Pasajero 3:
+ Nombre: Luis
+ RUT: 01234567-8
+ Tipo de pasajero: General
+ Numero de asiento: 8
+
+ Pasajero 4:
+ Nombre: Carmen
+ RUT: 90123456-7
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 5:
+ Nombre: Andrea
+ RUT: 78901234-5
+ Tipo de pasajero: General
+ Numero de asiento: 5
+
+ Pasajero 6:
+ Nombre: Patricia
+ RUT: 67890123-4
+ Tipo de pasajero: General
+ Numero de asiento: 4
+
+ Pasajero 7:
+ Nombre: Alejandra
+ RUT: 45678901-2
+ Tipo de pasajero: General
+ Numero de asiento: 2
+
+ Pasajero 8:
+ Nombre: Marta
+ RUT: 23456789-0
+ Tipo de pasajero: General
+ Numero de asiento: 10
+
+ Pasajero 9:
+ Nombre: Federico
+ RUT: 89012345-6
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 6
+
+ Pasajero 10:
+ Nombre: José
+ RUT: 56789012-3
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 3
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 5
+ Código de viaje: 29349
+ Nombre del chofer: Diego Torres
+ Matrícula: XYZ-789
+ Lugar de inicio: Punta Arenas
+ Lugar de llegada: Torres del Paine
+ Tarifa General: 30000
+ Tarifa de tercera edad: 25000
+ Tarifa de estudiante: 25000
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 11
+ Asientos libres: 24
+
+ Gráfico de asientos disponibles del bus 5
+X  X  || X  X  
+X  X  || X  X  
+X  10 || X  X  
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Simón
+ RUT: 78901234-5
+ Tipo de pasajero: General
+ Numero de asiento: 9
+
+ Pasajero 2:
+ Nombre: Lorena
+ RUT: 12345678-9
+ Tipo de pasajero: General
+ Numero de asiento: 5
+
+ Pasajero 3:
+ Nombre: Javier
+ RUT: 56789012-3
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 4:
+ Nombre: Andrés
+ RUT: 23456789-0
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 2
+
+ Pasajero 5:
+ Nombre: Valentina
+ RUT: 45678901-2
+ Tipo de pasajero: General
+ Numero de asiento: 6
+
+ Pasajero 6:
+ Nombre: Fernanda
+ RUT: 67890123-4
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 8
+
+ Pasajero 7:
+ Nombre: Antonia
+ RUT: 01234567-8
+ Tipo de pasajero: General
+ Numero de asiento: 12
+
+ Pasajero 8:
+ Nombre: Lucas
+ RUT: 90123456-7
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 11
+
+ Pasajero 9:
+ Nombre: Gabriela
+ RUT: 89012345-6
+ Tipo de pasajero: Tercera Edad
+ Numero de asiento: 3
+
+ Pasajero 10:
+ Nombre: Pedro
+ RUT: 34567890-1
+ Tipo de pasajero: General
+ Numero de asiento: 4
+
+ Pasajero 11:
+ Nombre: Elena
+ RUT: 65432109-8
+ Tipo de pasajero: General
+ Numero de asiento: 1
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 6
+ Código de viaje: 29348
+ Nombre del chofer: María R.
+ Matrícula: TYSF-9876
+ Lugar de inicio: Cali
+ Lugar de llegada: Medellín
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 3
+ Asientos libres: 27
+
+ Gráfico de asientos disponibles del bus 6
+1  2  || 3  4  
+5  6  || X  8  
+9  10 || 11 X  
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+X  26 || 27 28 
+29 30 
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Carlos
+ RUT: 76543210-9
+ Tipo de pasajero: General
+ Numero de asiento: 25
+
+ Pasajero 2:
+ Nombre: Juan
+ RUT: 98765432-1
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 3:
+ Nombre: Ana
+ RUT: 45678901-2
+ Tipo de pasajero: Tercera Edad
+ Numero de asiento: 12
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 7
+ Código de viaje: 29347
+ Nombre del chofer: Luis M.
+ Matrícula: ERXG-5621
+ Lugar de inicio: Santiago
+ Lugar de llegada: Rancagua
+ Tarifa General: 3000
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 7
+ Asientos libres: 18
+
+ Gráfico de asientos disponibles del bus 7
+1  2  || X  4  
+5  X  || X  8  
+X  10 || 11 12 
+13 X  || X  16 
+17 X  || 19 20 
+21 22 || 23 24 
+25 
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Javier
+ RUT: 34567890-1
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 6
+
+ Pasajero 2:
+ Nombre: Diego
+ RUT: 12345678-9
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 3:
+ Nombre: Sofía
+ RUT: 01234567-8
+ Tipo de pasajero: General
+ Numero de asiento: 18
+
+ Pasajero 4:
+ Nombre: Gabriel
+ RUT: 90123456-7
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 15
+
+ Pasajero 5:
+ Nombre: Fernando
+ RUT: 78901234-5
+ Tipo de pasajero: General
+ Numero de asiento: 3
+
+ Pasajero 6:
+ Nombre: Marta
+ RUT: 23456789-0
+ Tipo de pasajero: General
+ Numero de asiento: 14
+
+ Pasajero 7:
+ Nombre: Isabel
+ RUT: 89012345-6
+ Tipo de pasajero: Tercera Edad
+ Numero de asiento: 9
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 8
+ Código de viaje: 29379
+ Nombre del chofer: Laura Pérez
+ Matrícula: ZXCV-123
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1600
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 8
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 9
+ Código de viaje: 29346
+ Nombre del chofer: Juan Perez
+ Matrícula: LPBY-17
+ Lugar de inicio: Santiago
+ Lugar de llegada: Atacama
+ Tarifa General: 20000
+ Tarifa de tercera edad: 15000
+ Tarifa de estudiante: 15000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 7
+ Asientos libres: 33
+
+ Gráfico de asientos disponibles del bus 9
+1  2  || X  4  
+5  X  || X  8  
+X  10 || 11 12 
+13 X  || X  16 
+17 X  || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Marta
+ RUT: 23456789-0
+ Tipo de pasajero: General
+ Numero de asiento: 14
+
+ Pasajero 2:
+ Nombre: Gabriel
+ RUT: 90123456-7
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 15
+
+ Pasajero 3:
+ Nombre: Sofía
+ RUT: 01234567-8
+ Tipo de pasajero: General
+ Numero de asiento: 18
+
+ Pasajero 4:
+ Nombre: Javier
+ RUT: 34567890-1
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 6
+
+ Pasajero 5:
+ Nombre: Fernando
+ RUT: 78901234-5
+ Tipo de pasajero: General
+ Numero de asiento: 3
+
+ Pasajero 6:
+ Nombre: Diego
+ RUT: 12345678-9
+ Tipo de pasajero: General
+ Numero de asiento: 7
+
+ Pasajero 7:
+ Nombre: Isabel
+ RUT: 89012345-6
+ Tipo de pasajero: Tercera Edad
+ Numero de asiento: 9
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 10
+ Código de viaje: 29378
+ Nombre del chofer: Carlos González
+ Matrícula: KIOL-456
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 10
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 11
+ Código de viaje: 29345
+ Nombre del chofer: Patricio C.
+ Matrícula: OPTD3472
+ Lugar de inicio: Quillota
+ Lugar de llegada: Valparaíso
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2000
+ Tarifa de estudiante: 1850
+ Total de asientos en el bus: 20
+ Cantidad de pasajeros: 5
+ Asientos libres: 15
+
+ Gráfico de asientos disponibles del bus 11
+1  2  || 3  4  
+X  6  || 7  X  
+9  10 || 11 X  
+13 14 || X  16 
+17 18 || 19 X  
+
+ Lista de pasajeros del bus:
+ Pasajero 1:
+ Nombre: Pedro
+ RUT: 98765432-1
+ Tipo de pasajero: Tercera Edad
+ Numero de asiento: 12
+
+ Pasajero 2:
+ Nombre: Ana
+ RUT: 12345678-9
+ Tipo de pasajero: General
+ Numero de asiento: 5
+
+ Pasajero 3:
+ Nombre: Luisa
+ RUT: 34567890-4
+ Tipo de pasajero: General
+ Numero de asiento: 15
+
+ Pasajero 4:
+ Nombre: María
+ RUT: 45678901-2
+ Tipo de pasajero: Estudiante
+ Numero de asiento: 20
+
+ Pasajero 5:
+ Nombre: Juan
+ RUT: 56789012-3
+ Tipo de pasajero: General
+ Numero de asiento: 8
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 12
+ Código de viaje: 29377
+ Nombre del chofer: Daniela Pérez
+ Matrícula: LPOI-890
+ Lugar de inicio: Talcahuano
+ Lugar de llegada: Concepción
+ Tarifa General: 2300
+ Tarifa de tercera edad: 1400
+ Tarifa de estudiante: 1200
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 12
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 13
+ Código de viaje: 29376
+ Nombre del chofer: Fernando Torres
+ Matrícula: POIU-567
+ Lugar de inicio: Santiago
+ Lugar de llegada: Valparaíso
+ Tarifa General: 2500
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 13
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 14
+ Código de viaje: 29375
+ Nombre del chofer: Gabriela Martínez
+ Matrícula: QWER-234
+ Lugar de inicio: Santiago
+ Lugar de llegada: Puerto Montt
+ Tarifa General: 4200
+ Tarifa de tercera edad: 2800
+ Tarifa de estudiante: 2500
+ Total de asientos en el bus: 50
+ Cantidad de pasajeros: 0
+ Asientos libres: 50
+
+ Gráfico de asientos disponibles del bus 14
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+41 42 || 43 44 
+45 46 || 47 48 
+49 50 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 15
+ Código de viaje: 29374
+ Nombre del chofer: Javier Ramírez
+ Matrícula: ASDF-789
+ Lugar de inicio: Concepción
+ Lugar de llegada: Los Ángeles
+ Tarifa General: 2700
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 15
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 16
+ Código de viaje: 29373
+ Nombre del chofer: Romina López
+ Matrícula: ZXCV-123
+ Lugar de inicio: Iquique
+ Lugar de llegada: Antofagasta
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1600
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 16
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 17
+ Código de viaje: 29372
+ Nombre del chofer: Carlos González
+ Matrícula: KIOL-456
+ Lugar de inicio: Santiago
+ Lugar de llegada: Melipilla
+ Tarifa General: 2600
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 17
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 18
+ Código de viaje: 29371
+ Nombre del chofer: Patricia Soto
+ Matrícula: PLKM-789
+ Lugar de inicio: Copiapó
+ Lugar de llegada: Calama
+ Tarifa General: 3800
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 1900
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 18
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 19
+ Código de viaje: 29370
+ Nombre del chofer: Eduardo Pérez
+ Matrícula: LPOI-890
+ Lugar de inicio: La Serena
+ Lugar de llegada: Coquimbo
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 19
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 20
+ Código de viaje: 29407
+ Nombre del chofer: Marta López
+ Matrícula: KIOL-456
+ Lugar de inicio: Copiapó
+ Lugar de llegada: Calama
+ Tarifa General: 3800
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 1900
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 20
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 21
+ Código de viaje: 29406
+ Nombre del chofer: Laura Torres
+ Matrícula: POIU-567
+ Lugar de inicio: La Serena
+ Lugar de llegada: Coquimbo
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 21
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 22
+ Código de viaje: 29405
+ Nombre del chofer: Javier Martínez
+ Matrícula: QWER-234
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 22
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 23
+ Código de viaje: 29404
+ Nombre del chofer: Valeria Soto
+ Matrícula: ASDF-789
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 23
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 24
+ Código de viaje: 29403
+ Nombre del chofer: Camila González
+ Matrícula: ZXCV-123
+ Lugar de inicio: Santiago
+ Lugar de llegada: Rancagua
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1700
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 24
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 25
+ Código de viaje: 29402
+ Nombre del chofer: Juan Rodríguez
+ Matrícula: KIOL-456
+ Lugar de inicio: Concepción
+ Lugar de llegada: Talcahuano
+ Tarifa General: 3200
+ Tarifa de tercera edad: 2000
+ Tarifa de estudiante: 1800
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 25
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 26
+ Código de viaje: 29401
+ Nombre del chofer: Carla Soto
+ Matrícula: LPOI-890
+ Lugar de inicio: Iquique
+ Lugar de llegada: Antofagasta
+ Tarifa General: 3400
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 26
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 27
+ Código de viaje: 29400
+ Nombre del chofer: Laura Pérez
+ Matrícula: POIU-567
+ Lugar de inicio: Santiago
+ Lugar de llegada: Melipilla
+ Tarifa General: 2600
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 27
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 28
+ Código de viaje: 29369
+ Nombre del chofer: Andrea Ramírez
+ Matrícula: POIU-567
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 28
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 29
+ Código de viaje: 29368
+ Nombre del chofer: Valentina Torres
+ Matrícula: QWER-234
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 29
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 30
+ Código de viaje: 29367
+ Nombre del chofer: Luis Rodríguez
+ Matrícula: ASDF-789
+ Lugar de inicio: Santiago
+ Lugar de llegada: Rancagua
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1700
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 30
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 31
+ Código de viaje: 29399
+ Nombre del chofer: Carlos González
+ Matrícula: QWER-234
+ Lugar de inicio: Copiapó
+ Lugar de llegada: Calama
+ Tarifa General: 3800
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 1900
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 31
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 32
+ Código de viaje: 29366
+ Nombre del chofer: Marta González
+ Matrícula: PLKM-456
+ Lugar de inicio: Concepción
+ Lugar de llegada: Talcahuano
+ Tarifa General: 2500
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 32
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 33
+ Código de viaje: 29398
+ Nombre del chofer: Daniela Pérez
+ Matrícula: ASDF-789
+ Lugar de inicio: La Serena
+ Lugar de llegada: Coquimbo
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 33
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 34
+ Código de viaje: 29365
+ Nombre del chofer: Juan Pérez
+ Matrícula: ZXCV-123
+ Lugar de inicio: Antofagasta
+ Lugar de llegada: Copiapo
+ Tarifa General: 3400
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 34
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 35
+ Código de viaje: 29397
+ Nombre del chofer: Fernando Torres
+ Matrícula: ZXCV-123
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1600
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 35
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 36
+ Código de viaje: 29364
+ Nombre del chofer: Camila Silva
+ Matrícula: KIOL-098
+ Lugar de inicio: Valparaíso
+ Lugar de llegada: Santiago
+ Tarifa General: 3200
+ Tarifa de tercera edad: 2000
+ Tarifa de estudiante: 1800
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 36
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 37
+ Código de viaje: 29396
+ Nombre del chofer: Gabriela Martínez
+ Matrícula: KIOL-456
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 37
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 38
+ Código de viaje: 29363
+ Nombre del chofer: Valeria González
+ Matrícula: PLKM-789
+ Lugar de inicio: Arica
+ Lugar de llegada: Iquique
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 38
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 39
+ Código de viaje: 29395
+ Nombre del chofer: Javier Ramírez
+ Matrícula: LPOI-890
+ Lugar de inicio: Talcahuano
+ Lugar de llegada: Concepción
+ Tarifa General: 2300
+ Tarifa de tercera edad: 1400
+ Tarifa de estudiante: 1200
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 39
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 40
+ Código de viaje: 29362
+ Nombre del chofer: Pablo Martínez
+ Matrícula: LKJH-098
+ Lugar de inicio: Santiago
+ Lugar de llegada: Concepción
+ Tarifa General: 4000
+ Tarifa de tercera edad: 2500
+ Tarifa de estudiante: 2300
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 40
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 41
+ Código de viaje: 29394
+ Nombre del chofer: Romina López
+ Matrícula: POIU-567
+ Lugar de inicio: Santiago
+ Lugar de llegada: Valparaíso
+ Tarifa General: 2500
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 41
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 42
+ Código de viaje: 29361
+ Nombre del chofer: Natalia Ramírez
+ Matrícula: ASDF-789
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 42
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 43
+ Código de viaje: 29393
+ Nombre del chofer: Carlos González
+ Matrícula: QWER-234
+ Lugar de inicio: Santiago
+ Lugar de llegada: Puerto Montt
+ Tarifa General: 4200
+ Tarifa de tercera edad: 2800
+ Tarifa de estudiante: 2500
+ Total de asientos en el bus: 50
+ Cantidad de pasajeros: 0
+ Asientos libres: 50
+
+ Gráfico de asientos disponibles del bus 43
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+41 42 || 43 44 
+45 46 || 47 48 
+49 50 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 44
+ Código de viaje: 29360
+ Nombre del chofer: Fernando López
+ Matrícula: QWER-345
+ Lugar de inicio: Santiago
+ Lugar de llegada: Rengo
+ Tarifa General: 2900
+ Tarifa de tercera edad: 1700
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 44
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 45
+ Código de viaje: 29392
+ Nombre del chofer: Patricia Soto
+ Matrícula: ASDF-789
+ Lugar de inicio: Concepción
+ Lugar de llegada: Los Ángeles
+ Tarifa General: 2700
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 45
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 46
+ Código de viaje: 29391
+ Nombre del chofer: Eduardo Pérez
+ Matrícula: ZXCV-123
+ Lugar de inicio: Iquique
+ Lugar de llegada: Antofagasta
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1600
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 46
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 47
+ Código de viaje: 29390
+ Nombre del chofer: Andrea Ramírez
+ Matrícula: KIOL-456
+ Lugar de inicio: Santiago
+ Lugar de llegada: Melipilla
+ Tarifa General: 2600
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 47
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 48
+ Código de viaje: 29359
+ Nombre del chofer: Rodrigo Silva
+ Matrícula: POIU-234
+ Lugar de inicio: Puerto Varas
+ Lugar de llegada: Osorno
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1700
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 48
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 49
+ Código de viaje: 29358
+ Nombre del chofer: Isabel Méndez
+ Matrícula: TYUI-890
+ Lugar de inicio: Talca
+ Lugar de llegada: Chillán
+ Tarifa General: 3200
+ Tarifa de tercera edad: 2000
+ Tarifa de estudiante: 1800
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 49
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 50
+ Código de viaje: 29357
+ Nombre del chofer: Daniel Torres
+ Matrícula: ZXCV-567
+ Lugar de inicio: Concepción
+ Lugar de llegada: Talcahuano
+ Tarifa General: 2500
+ Tarifa de tercera edad: 1500
+ Tarifa de estudiante: 1300
+ Total de asientos en el bus: 20
+ Cantidad de pasajeros: 0
+ Asientos libres: 20
+
+ Gráfico de asientos disponibles del bus 50
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 51
+ Código de viaje: 29389
+ Nombre del chofer: Valentina Torres
+ Matrícula: LPOI-890
+ Lugar de inicio: Copiapó
+ Lugar de llegada: Calama
+ Tarifa General: 3800
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 1900
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 51
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 52
+ Código de viaje: 29356
+ Nombre del chofer: Laura Pérez
+ Matrícula: ASDF-789
+ Lugar de inicio: Iquique
+ Lugar de llegada: Arica
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 52
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 53
+ Código de viaje: 29388
+ Nombre del chofer: Luis Rodríguez
+ Matrícula: POIU-567
+ Lugar de inicio: La Serena
+ Lugar de llegada: Coquimbo
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1600
+ Tarifa de estudiante: 1400
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 53
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 54
+ Código de viaje: 29355
+ Nombre del chofer: Andrés Ramírez
+ Matrícula: MNOP-654
+ Lugar de inicio: Valparaíso
+ Lugar de llegada: San Antonio
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1800
+ Tarifa de estudiante: 1600
+ Total de asientos en el bus: 25
+ Cantidad de pasajeros: 0
+ Asientos libres: 25
+
+ Gráfico de asientos disponibles del bus 54
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 55
+ Código de viaje: 29387
+ Nombre del chofer: Marta González
+ Matrícula: QWER-234
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 55
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 56
+ Código de viaje: 29354
+ Nombre del chofer: Carolina Fernández
+ Matrícula: LPOI-321
+ Lugar de inicio: Santiago
+ Lugar de llegada: Temuco
+ Tarifa General: 4500
+ Tarifa de tercera edad: 3000
+ Tarifa de estudiante: 2600
+ Total de asientos en el bus: 40
+ Cantidad de pasajeros: 0
+ Asientos libres: 40
+
+ Gráfico de asientos disponibles del bus 56
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 57
+ Código de viaje: 29386
+ Nombre del chofer: Juan Pérez
+ Matrícula: ASDF-789
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Osorno
+ Tarifa General: 3200
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 57
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 58
+ Código de viaje: 29353
+ Nombre del chofer: Martín González
+ Matrícula: QWER-987
+ Lugar de inicio: La Serena
+ Lugar de llegada: Antofagasta
+ Tarifa General: 5500
+ Tarifa de tercera edad: 3800
+ Tarifa de estudiante: 3200
+ Total de asientos en el bus: 60
+ Cantidad de pasajeros: 0
+ Asientos libres: 60
+
+ Gráfico de asientos disponibles del bus 58
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+41 42 || 43 44 
+45 46 || 47 48 
+49 50 || 51 52 
+53 54 || 55 56 
+57 58 || 59 60 
+
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 59
+ Código de viaje: 29385
+ Nombre del chofer: Camila Soto
+ Matrícula: ZXCV-123
+ Lugar de inicio: Santiago
+ Lugar de llegada: Rancagua
+ Tarifa General: 2800
+ Tarifa de tercera edad: 1700
+ Tarifa de estudiante: 1500
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 59
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 60
+ Código de viaje: 29352
+ Nombre del chofer: Pedro López
+ Matrícula: KIOL-456
+ Lugar de inicio: Valdivia
+ Lugar de llegada: Concepción
+ Tarifa General: 6000
+ Tarifa de tercera edad: 3500
+ Tarifa de estudiante: 3000
+ Total de asientos en el bus: 45
+ Cantidad de pasajeros: 0
+ Asientos libres: 45
+
+ Gráfico de asientos disponibles del bus 60
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 36 
+37 38 || 39 40 
+41 42 || 43 44 
+45 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 61
+ Código de viaje: 29384
+ Nombre del chofer: Javier Rodríguez
+ Matrícula: KIOL-456
+ Lugar de inicio: Concepción
+ Lugar de llegada: Talcahuano
+ Tarifa General: 3200
+ Tarifa de tercera edad: 2000
+ Tarifa de estudiante: 1800
+ Total de asientos en el bus: 35
+ Cantidad de pasajeros: 0
+ Asientos libres: 35
+
+ Gráfico de asientos disponibles del bus 61
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 || 31 32 
+33 34 || 35 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 62
+ Código de viaje: 29351
+ Nombre del chofer: Carla Rodríguez
+ Matrícula: PLKM-789
+ Lugar de inicio: Santiago
+ Lugar de llegada: Viña del Mar
+ Tarifa General: 3500
+ Tarifa de tercera edad: 2200
+ Tarifa de estudiante: 2000
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 62
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+                BUS NUMERO 63
+ Código de viaje: 29383
+ Nombre del chofer: Valeria Torres
+ Matrícula: LPOI-890
+ Lugar de inicio: Iquique
+ Lugar de llegada: Antofagasta
+ Tarifa General: 3400
+ Tarifa de tercera edad: 1900
+ Tarifa de estudiante: 1700
+ Total de asientos en el bus: 30
+ Cantidad de pasajeros: 0
+ Asientos libres: 30
+
+ Gráfico de asientos disponibles del bus 63
+1  2  || 3  4  
+5  6  || 7  8  
+9  10 || 11 12 
+13 14 || 15 16 
+17 18 || 19 20 
+21 22 || 23 24 
+25 26 || 27 28 
+29 30 
+└────────────────────────────────────────────┘
