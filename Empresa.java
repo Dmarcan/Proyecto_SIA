@@ -1,7 +1,13 @@
-import java.util.*;
-import java.io.*;
 
+
+/**
+ *
+ * @author cabel
+ */
+import java.io.*;
+import java.util.*;
 public class Empresa {
+    
     
     private Hashtable<String, ViajeBus> viajesCodigoMap;
     
@@ -25,11 +31,13 @@ public class Empresa {
     }
 
     // Métodos para agregar, eliminar y listar objetos ViajeBus en su colección respectiva del objeto Empresa.
+    
     public ArrayList<ViajeBus> obtenerTodosViajeBus(double rentabilidad) {
         ArrayList<ViajeBus> listaViajesBuses = new ArrayList<>();
         Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
         while (keys.hasMoreElements()) {
             ViajeBus viajeBus = keys.nextElement();
+            System.out.println("fasdgf");
             if(viajeBus.getRentabilidad() <= rentabilidad)
                 listaViajesBuses.add(viajeBus);
         }
@@ -42,16 +50,16 @@ public class Empresa {
         return (ViajeBus) viajesCodigoMap.remove(codigo);
     }
 
-    public boolean agregarPasajero(String codigo, Pasajero pasajero) {
+    public void agregarPasajero(String codigo, Pasajero pasajero) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException {
         if(viajesCodigoMap.containsKey(codigo) ) { // Si existe el viaje de bus
-            ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
-            if(viajeBus.agregarPasajero(pasajero)) 
-                return true;
-            return false;
-        } 
-        return false;
+            ViajeBus viajeBus = viajesCodigoMap.get(codigo);
+            if (pasajero.getNroAsiento()>viajeBus.getTotalAsientos())
+                throw new ViajeBusAsientoFueraRangoException();
+            viajeBus.agregarPasajero(pasajero);
+        }
+        else throw new ViajeBusNoExisteException();
     }
-
+    
     public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
         if(!viajesCodigoMap.containsKey(numeroViaje))
             return false;
@@ -73,7 +81,7 @@ public class Empresa {
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
-    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) {
+    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException, PasajeroNoExisteException {
         if(!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
@@ -82,27 +90,24 @@ public class Empresa {
             return false;
         
         Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(),rutPasajeroN,pasajeroAux.getTipo(),pasajeroAux.getNroAsiento(),numeroViaje);
-        
-        if(agregarPasajero(numeroViaje,pasajero))
-            return true;
-        return false;
-       
+        agregarPasajero(numeroViaje,pasajero);
+        return true;
     }
     
-    public boolean agregarViajeBus(ViajeBus viajeBus)
+    
+    public void agregarViajeBus(ViajeBus viajeBus) throws ViajeBusExisteException
     {
         String codigoViaje = viajeBus.getCodigo();
 
-        if (!viajesCodigoMap.containsKey(codigoViaje)) {
-            viajesCodigoMap.put(codigoViaje, viajeBus);
-            return true;
+        if (viajesCodigoMap.containsKey(codigoViaje)) {
+            throw new ViajeBusExisteException();
         }
-        return false;
+        viajesCodigoMap.put(codigoViaje, viajeBus);
     }
 
-    public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) {
-        if(!viajesCodigoMap.contains(codigoViajeBus))
-            return null;
+    public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
+        if(!viajesCodigoMap.containsKey(codigoViajeBus))
+            throw new ViajeBusNoExisteException();
         
         ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
         Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
@@ -111,7 +116,7 @@ public class Empresa {
             return pasajeroEliminado;
         return null;
     }
-
+    
     public void exportarReporte(String csv1)
     {
         try (FileWriter fileWriter1 = new FileWriter(csv1)) {
@@ -137,7 +142,10 @@ public class Empresa {
                 fileWriter1.write(" Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante()+"\n");
                 fileWriter1.write(" Total de asientos en el bus: " + viajeCurrent.getTotalAsientos()+"\n");
                 fileWriter1.write(" Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros()+"\n");
-                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n\n");
+                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n");
+                fileWriter1.write(" Ganancia: " + viajeCurrent.getGananciaTotal()+"\n");
+                fileWriter1.write(" Costor de viaje: " + viajeCurrent.getCostoTotal()+"\n");
+                fileWriter1.write(" Rentabilidad: " + viajeCurrent.getRentabilidad()+"\n\n");
                 fileWriter1.write(" Gráfico de asientos disponibles del bus " + (i + 1)+"\n");
                 //IMPRIMIR ASIENTOS
                 int cantAsiento = viajeCurrent.getTotalAsientos();
@@ -190,7 +198,7 @@ public class Empresa {
             e.printStackTrace();
         }
     }
-    
+        
     public ArrayList<ViajeBus> obtenerTodosViajeBus() {
         ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -202,7 +210,6 @@ public class Empresa {
         }
         return listaViajeBus;
     }
-    
     public ArrayList<ViajeBus> obtenerTodosViajeBus(String lugarDeInicio){
         ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -214,4 +221,5 @@ public class Empresa {
         }
         return listaViajeBus;
     }
+    
 }

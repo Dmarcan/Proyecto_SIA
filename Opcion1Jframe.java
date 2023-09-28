@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-//package entrega_final.entrega_final;
 
 
 
@@ -117,6 +116,11 @@ public class Opcion1Jframe extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jTextField4);
 
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField9KeyTyped(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTextField9);
 
         jScrollPane5.setViewportView(jTextField5);
@@ -127,12 +131,32 @@ public class Opcion1Jframe extends javax.swing.JFrame {
 
         jScrollPane7.setViewportView(jTextField7);
 
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField8KeyTyped(evt);
+            }
+        });
         jScrollPane8.setViewportView(jTextField8);
 
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10KeyTyped(evt);
+            }
+        });
         jScrollPane10.setViewportView(jTextField10);
 
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField11KeyTyped(evt);
+            }
+        });
         jScrollPane11.setViewportView(jTextField11);
 
+        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField12KeyTyped(evt);
+            }
+        });
         jScrollPane12.setViewportView(jTextField12);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -322,17 +346,46 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         ViajeBus bus = new ViajeBus(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, 
                             horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante,
                             costoViaje,totalAsientos);
-                            
-        if (empresa.agregarViajeBus(bus))
-        {
-            jLabel15.setText("Viaje bus agregado");
-        }
-        else
-        {
-            jLabel15.setText("Viaje bus ya existe");
+        
+        // Excepción no se encontro Viaje Bus              
+        try{
+            empresa.agregarViajeBus(bus);
+            jLabel15.setText("Viaje Bus agregado");
+        }catch(ViajeBusExisteException e){
+            jLabel15.setText("Codigo de Viaje Bus ya Existe");         
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField9KeyTyped
+
+    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField10KeyTyped
+
+    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField11KeyTyped
+
+    private void jTextField12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextField12KeyTyped
 
     /**
      * @param args the command line arguments

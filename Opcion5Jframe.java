@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-// package entrega_final.entrega_final;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -159,11 +157,17 @@ public class Opcion5Jframe extends javax.swing.JFrame {
         // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();
         String rutPersona = jTextField2.getText();
-        if (empresa.eliminarPasajero(codigoViajeBus,rutPersona) == null){
-            jLabel5.setText("El pasajero rut "+rutPersona+" NO fue eliminado");
-        }
-        else{
-            jLabel5.setText("El pasajero rut "+rutPersona+" fue eliminado");
+        try {
+            if (empresa.eliminarPasajero(codigoViajeBus,rutPersona) == null){
+                jLabel5.setText("El pasajero rut "+rutPersona+" NO fue eliminado");
+            }
+            else{
+                jLabel5.setText("El pasajero rut "+rutPersona+" fue eliminado");
+            }
+        } catch (ViajeBusNoExisteException ex) {
+            jLabel5.setText("Bus ingresado no existe");
+        } catch (PasajeroNoExisteException ex) {
+            jLabel5.setText("Pasajero ingresado no existe");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

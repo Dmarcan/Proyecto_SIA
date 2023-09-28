@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-//package entrega_final.entrega_final;
+
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -133,10 +132,18 @@ public class Opcion7ModificarRutJframe extends javax.swing.JFrame {
         String rutPasajero = jTextField3.getText();
         String nuevoRutPasajero = jTextField2.getText();
         
-        /*if(empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero))
-            jLabel5.setText("Rut modificado");
-        else
-            jLabel5.setText("Rut no modificado");*/
+        try {
+            if(empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero))
+                jLabel5.setText("Rut modificado");
+            else
+                jLabel5.setText("Rut no modificado");
+        } catch (ViajeBusAsientoFueraRangoException | ViajeBusAsientoOcupadoException | ViajeBusNoExisteException ex) {
+            Logger.getLogger(Opcion7ModificarRutJframe.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PasajeroExisteException ex) {
+            jLabel5.setText("Rut ingresado ya existe");
+        } catch (PasajeroNoExisteException ex) {
+            jLabel5.setText("Rut ingresado no existe");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

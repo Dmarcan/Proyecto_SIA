@@ -1,7 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author David
+ */
 import java.io.*;
 import java.util.*;
 
-public class ViajeComercial{
+public class ViajeComercial {
     private String nombreChofer;
     private String matricula;
     private String codigoViaje;
@@ -109,20 +118,23 @@ public class ViajeComercial{
     }
 
     // Funcionalidades
-    public boolean agregarPasajero(Pasajero pasajero){
+    public boolean agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
+    {
         if(pasajerosRutMap.containsKey(pasajero.getRut()))
-            return false;
+            throw new PasajeroExisteException();
+        if (!estaDisponible(pasajero.getNroAsiento()))
+            throw new ViajeBusAsientoOcupadoException();
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
-        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
+        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;  
         return true;
     }
 
-    public Pasajero eliminarPasajero(String rutPasajero) {
+    public Pasajero eliminarPasajero(String rutPasajero) throws PasajeroNoExisteException {
         if(!pasajerosRutMap.containsKey(rutPasajero))
-            return null;
+            throw new PasajeroNoExisteException();
         return pasajerosRutMap.remove(rutPasajero);
     }
-
+    
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         if(!pasajerosRutMap.containsKey(rutPasajero))
             return false;
@@ -149,7 +161,6 @@ public class ViajeComercial{
         }
         return listaPasajeros;
     }
-    
     public ArrayList<Pasajero> obtenerListaPasajeros(String tipoPasajero) {
         
         ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
@@ -162,4 +173,14 @@ public class ViajeComercial{
         
         return listaPasajeros;
     }
+    
+    
+    
+    
+    
+    //yooo
+
 }
+
+    
+

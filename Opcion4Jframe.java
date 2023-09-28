@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-//package entrega_final.entrega_final;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -78,6 +80,12 @@ public class Opcion4Jframe extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Numero de Asiento del Pasajero");
+
+        textField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField5KeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel6.setText("AGREGAR PASAJERO");
@@ -172,10 +180,17 @@ public class Opcion4Jframe extends javax.swing.JFrame {
         if (bus == null)jLabel8.setText("Ingrese Viaje Bus valido");
         else
         {
-            jLabel8.setText("Mostrando asientos...");
-            Opcion4JframeMostrarAsientos op4M = new Opcion4JframeMostrarAsientos(bus);
-            op4M.setVisible(true);      
+            int asientosLibres = bus.getTotalAsientos()- bus.getCantPasajeros();
+            if (asientosLibres == 0)jLabel8.setText("Bus no tiene asientos libres");
+            else{
+                jLabel8.setText("Mostrando asientos...");
+                Opcion4JframeMostrarAsientos op4M = new Opcion4JframeMostrarAsientos(bus);
+                op4M.setVisible(true);
+            }         
         }
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -187,12 +202,25 @@ public class Opcion4Jframe extends javax.swing.JFrame {
         int numeroAsiento = Integer.parseInt(textField5.getText());
         
         Pasajero pasajero = new Pasajero(nombrePasajero,rutPasajero,tipoPasajero,numeroAsiento,codigoViaje);
-        if(empresa.agregarPasajero(codigoViaje, pasajero)) {
+        try {
+            empresa.agregarPasajero(codigoViaje, pasajero);
             jLabel8.setText("Pasajero agregado.");
-        } else {
-            jLabel8.setText("Pasajero no agregado.");
+        } catch (ViajeBusAsientoOcupadoException ex) {
+            jLabel8.setText("El asiento escogido esta ocupado");
+        } catch (ViajeBusAsientoFueraRangoException ex) {
+            jLabel8.setText("Asiento ingresado fuera de rango");
+        } catch (ViajeBusNoExisteException ex) {
+            jLabel8.setText("Bus ingresado no existe");
+        } catch (PasajeroExisteException ex) {
+            jLabel8.setText("Rut ingresado ya existe");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void textField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField5KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_textField5KeyTyped
 
     /**
      * @param args the command line arguments

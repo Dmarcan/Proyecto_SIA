@@ -1,7 +1,3 @@
-/**
- *
- * @author cabel
- */
 
 public class ViajeBusNoExisteException extends Exception{
     
@@ -10,3 +6,5 @@ public class ViajeBusNoExisteException extends Exception{
     }
     
 }
+
+

@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -22,13 +18,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     Empresa empresa;
     
-    public VentanaPrincipal(Empresa empresa) {
+    public VentanaPrincipal(Empresa empresa) throws ViajeBusExisteException, ViajeBusAsientoOcupadoException, PasajeroExisteException{
         initComponents();
         this.empresa = empresa;
+        //cargaDatosInicialesTemporal(empresa);
         importar(empresa);
     }
     
-    public void importar(Empresa empresa){
+    public void importar(Empresa empresa) throws ViajeBusExisteException, ViajeBusAsientoOcupadoException{
         String line; // Variable para almacenar cada línea del archivo
 
         try (BufferedReader br = new BufferedReader(new FileReader("buses.csv"))) {//buses
@@ -67,6 +64,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (PasajeroExisteException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
@@ -106,6 +105,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    
+
     private VentanaPrincipal() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

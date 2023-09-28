@@ -1,4 +1,6 @@
+
 import java.io.*;
+import static java.lang.Math.abs;
 import java.util.*;
 
 public class ViajeBus extends ViajeComercial{
@@ -86,7 +88,6 @@ public class ViajeBus extends ViajeComercial{
         return rentabilidad;
     }
     
-    
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
@@ -104,19 +105,17 @@ public class ViajeBus extends ViajeComercial{
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
-    public boolean agregarPasajero(Pasajero pasajero){
+    public boolean agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
+    {
         boolean flag = super.agregarPasajero(pasajero);
-        if (flag == false){
+        if (flag == false)
             return false;
-        }
         actualizarGanancia(pasajero.getTipo(), "Agregar");
         return true;
     }
 
-    public Pasajero eliminarPasajero(String rutPasajero) {
-        Pasajero aux = (Pasajero) super.eliminarPasajero(rutPasajero);
-        if (aux == null)
-            return null;
+    public Pasajero eliminarPasajero(String rutPasajero) throws PasajeroNoExisteException {
+        Pasajero aux = super.eliminarPasajero(rutPasajero);
         actualizarGanancia(aux.getTipo(), "Eliminar");
         return aux;
     }
@@ -133,17 +132,18 @@ public class ViajeBus extends ViajeComercial{
             case "Estudiante":
                 if (accion.equals("Agregar")) gananciaTotal += tarifaEstudiante;
                 else gananciaTotal -= tarifaEstudiante;
+                //System.out.println("Estudiante");
                 break;
             case "Tercera Edad":
                  
                 if (accion.equals("Agregar")) gananciaTotal += tarifaTerceraEdad;
                 else gananciaTotal -= tarifaTerceraEdad;
-                     
+                //System.out.println("Tercera Edad");   
                 break;
             case "General":
                 if (accion.equals("Agregar")) gananciaTotal += tarifaGeneral;
                 else gananciaTotal -= tarifaGeneral;
-                
+                //System.out.println("General");
                 break;
             default:
                 return;
@@ -152,8 +152,10 @@ public class ViajeBus extends ViajeComercial{
         return;
     }
     
-    public void actualizarRentabilidad(){
+    public void actualizarRentabilidad()
+    {
         rentabilidad = ((gananciaTotal - costoTotal) / costoTotal) * 100;
         return;
     }
 }
+
