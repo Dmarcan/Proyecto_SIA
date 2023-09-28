@@ -25,104 +25,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal(Empresa empresa) {
         initComponents();
         this.empresa = empresa;
-        //cargaDatosInicialesTemporal(empresa);
         importar(empresa);
-    }
-    
-    public void cargaDatosInicialesTemporal(Empresa empresa){
-        System.out.println("Cargando datos iniciales de manera temporal...");
-        
-        //BUS 1
-        ViajeBus viajeBus = new ViajeBus("Patricio C.","29345","OPTD3472","Quillota","Valparaíso","13:40:00","15:45:00",3500,2000,1850,15000,20);
-        empresa.agregarViajeBus(viajeBus);
-        //AGREGAR PASAJEROS BUS 1
-        
-        Pasajero pasajero = new Pasajero("Ana", "12345678-9", "General", 5, "29345");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Pedro", "98765432-1", "Tercera Edad", 12, "29345");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("María", "45678901-2", "Estudiante", 20, "29345");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Juan", "56789012-3", "General", 8, "29345");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Luisa", "34567890-4", "General", 15, "29345");
-        viajeBus.agregarPasajero(pasajero);
-        
-        //BUS 2
-        viajeBus = new ViajeBus("Juan Perez","29346","LPBY-17","Santiago","Atacama","08:00:00","16:00:00",20000,15000,15000,800000,40);
-        empresa.agregarViajeBus(viajeBus);
-        
-        //AGREGAR PASAJEROS BUS 2
-        
-        pasajero = new Pasajero("Fernando", "78901234-5", "General", 3, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Isabel", "89012345-6", "Tercera Edad", 9, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Gabriel", "90123456-7", "Estudiante", 15, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Sofía", "01234567-8", "General", 18, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Diego", "12345678-9", "General", 7, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Marta", "23456789-0", "General", 14, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Javier", "34567890-1", "Estudiante", 6, "29346");
-        viajeBus.agregarPasajero(pasajero);
-        
-
-        //BUS 3
-        viajeBus = new ViajeBus("Luis M.", "29347", "ERXG-5621", "Santiago", "Rancagua", "08:30:00", "10:45:00", 3000, 1800, 1500, 12000, 25);
-        empresa.agregarViajeBus(viajeBus);
-
-        //AGREGAR PASAJEROS BUS 3
-
-        pasajero = new Pasajero("Fernando", "78901234-5", "General", 3, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Isabel", "89012345-6", "Tercera Edad", 9, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Gabriel", "90123456-7", "Estudiante", 15, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Sofía", "01234567-8", "General", 18, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Diego", "12345678-9", "General", 7, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Marta", "23456789-0", "General", 14, "29347");
-        viajeBus.agregarPasajero(pasajero);
-        
-        pasajero = new Pasajero("Javier", "34567890-1", "Estudiante", 6, "29347");
-        viajeBus.agregarPasajero(pasajero);
-
-        
-        //BUS 4
-        viajeBus = new ViajeBus("María R.", "29348", "TYSF-9876", "Cali", "Medellín", "09:15:00", "12:30:00", 2800, 1600, 1400, 11000, 30);
-        empresa.agregarViajeBus(viajeBus);
-        //AGREGAR PASAJEROS BUS 4
-        pasajero = new Pasajero("Juan", "98765432-1", "General", 7, "29348");
-        viajeBus.agregarPasajero(pasajero);
-        pasajero = new Pasajero("Ana", "45678901-2", "Tercera Edad", 12, "29348");
-        viajeBus.agregarPasajero(pasajero);
-        pasajero = new Pasajero("Carlos", "76543210-9", "General", 25, "29348");
-        viajeBus.agregarPasajero(pasajero);
-        pasajero = new Pasajero("María", "11223344-5", "Especial", 2, "29348");
-        
-        //BUS 5
-        viajeBus = new ViajeBus("Diego Torres", "29349", "XYZ-789", "Punta Arenas", "Torres del Paine", "06:00", "15:00", 30000, 25000, 25000, 1050000,35);
-        empresa.agregarViajeBus(viajeBus);
     }
     
     public void importar(Empresa empresa){
@@ -203,8 +106,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
-    
-
     private VentanaPrincipal() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
