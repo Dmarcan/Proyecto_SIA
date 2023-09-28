@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author David
@@ -118,20 +113,19 @@ public class ViajeComercial {
     }
 
     // Funcionalidades
-    public boolean agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
+    public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
     {
         if(pasajerosRutMap.containsKey(pasajero.getRut()))
-            throw new PasajeroExisteException();
+             throw new PasajeroExisteException();
         if (!estaDisponible(pasajero.getNroAsiento()))
             throw new ViajeBusAsientoOcupadoException();
         pasajerosRutMap.put(pasajero.getRut(), pasajero);
-        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;  
-        return true;
+        asientosDisponibles[pasajero.getNroAsiento() - 1] = 1;
     }
 
-    public Pasajero eliminarPasajero(String rutPasajero) throws PasajeroNoExisteException {
+    public Pasajero eliminarPasajero(String rutPasajero) {
         if(!pasajerosRutMap.containsKey(rutPasajero))
-            throw new PasajeroNoExisteException();
+            return null;
         return pasajerosRutMap.remove(rutPasajero);
     }
     
@@ -150,6 +144,36 @@ public class ViajeComercial {
         pasajero.setTipoPasajero(tipoPasajero);
         return pasajero.getTipo();
     }
+    
+
+
+
+    /*
+    public void listarAsientosDisponibles()
+    {
+        byte cont = 2;
+        for (byte i = 0; i < asientosDisponibles.length; i++)
+        {
+            if(cont % 4 == 0)
+                System.out.print("|| ");
+            cont++;
+              
+            if (asientosDisponibles[i] == 0) 
+            {
+                if(i < 9)
+                    System.out.print((i+1) + "  ");
+                else
+                    System.out.print((i+1) + " ");
+            }
+            else 
+                System.out.print("X  ");
+                
+            if((i+1) % 4 == 0 && i != 0) 
+                System.out.println();
+                         
+        }
+        System.out.println();
+    }*/
     
     public ArrayList<Pasajero> obtenerListaPasajeros() {
         
@@ -174,11 +198,6 @@ public class ViajeComercial {
         return listaPasajeros;
     }
     
-    
-    
-    
-    
-    //yooo
 
 }
 

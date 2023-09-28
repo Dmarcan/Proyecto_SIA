@@ -1,3 +1,7 @@
+/**
+ *
+ * @author cabel
+ */
 public class Pasajero{
     private String nombrePasajero;
     private String rutPasajero;
@@ -57,4 +61,6 @@ public class Pasajero{
     public String getCodigoViajePasajero(){
         return codigoViaje;
     }
+
+    
 }

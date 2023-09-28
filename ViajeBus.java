@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author cabel
+ */
 import java.io.*;
 import static java.lang.Math.abs;
 import java.util.*;
@@ -105,17 +108,15 @@ public class ViajeBus extends ViajeComercial{
     }
 
     // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
-    public boolean agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
-    {
-        boolean flag = super.agregarPasajero(pasajero);
-        if (flag == false)
-            return false;
+    public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException {
+            super.agregarPasajero(pasajero);  
         actualizarGanancia(pasajero.getTipo(), "Agregar");
-        return true;
     }
 
-    public Pasajero eliminarPasajero(String rutPasajero) throws PasajeroNoExisteException {
-        Pasajero aux = super.eliminarPasajero(rutPasajero);
+    public Pasajero eliminarPasajero(String rutPasajero) {
+        Pasajero aux = (Pasajero) super.eliminarPasajero(rutPasajero);
+        if (aux == null)
+            return null;
         actualizarGanancia(aux.getTipo(), "Eliminar");
         return aux;
     }

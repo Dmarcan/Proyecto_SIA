@@ -1,5 +1,3 @@
-
-
 /**
  *
  * @author cabel
@@ -44,20 +42,23 @@ public class Empresa {
         return listaViajesBuses;
     }
 
-    public ViajeBus eliminarViajeBus(String codigo){
+    public void eliminarViajeBus(String codigo) throws ViajeBusNoExisteException{
         if(!viajesCodigoMap.containsKey(codigo))
-            return null;
-        return (ViajeBus) viajesCodigoMap.remove(codigo);
+            throw new ViajeBusNoExisteException();
+        viajesCodigoMap.remove(codigo);
+               
     }
 
     public void agregarPasajero(String codigo, Pasajero pasajero) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException {
-        if(viajesCodigoMap.containsKey(codigo) ) { // Si existe el viaje de bus
-            ViajeBus viajeBus = viajesCodigoMap.get(codigo);
-            if (pasajero.getNroAsiento()>viajeBus.getTotalAsientos())
-                throw new ViajeBusAsientoFueraRangoException();
-            viajeBus.agregarPasajero(pasajero);
-        }
-        else throw new ViajeBusNoExisteException();
+        if(!viajesCodigoMap.containsKey(codigo)) // Si no existe el viaje de bus
+            throw new ViajeBusNoExisteException();
+        
+        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
+        if (pasajero.getNroAsiento() > viajeBus.getTotalAsientos())
+            throw new ViajeBusAsientoFueraRangoException();
+
+        viajeBus.agregarPasajero(pasajero);
+            
     }
     
     public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
@@ -81,7 +82,7 @@ public class Empresa {
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
-    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException, PasajeroNoExisteException {
+    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) throws ViajeBusNoExisteException, PasajeroExisteException, PasajeroNoExisteException, ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException{
         if(!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
@@ -90,8 +91,11 @@ public class Empresa {
             return false;
         
         Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(),rutPasajeroN,pasajeroAux.getTipo(),pasajeroAux.getNroAsiento(),numeroViaje);
+        
         agregarPasajero(numeroViaje,pasajero);
-        return true;
+            return true;
+        //return false;
+       
     }
     
     
@@ -112,9 +116,9 @@ public class Empresa {
         ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
         Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
         
-        if(pasajeroEliminado != null)
-            return pasajeroEliminado;
-        return null;
+        if(pasajeroEliminado == null)
+            throw new PasajeroNoExisteException();
+        return pasajeroEliminado;
     }
     
     public void exportarReporte(String csv1)
@@ -142,10 +146,7 @@ public class Empresa {
                 fileWriter1.write(" Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante()+"\n");
                 fileWriter1.write(" Total de asientos en el bus: " + viajeCurrent.getTotalAsientos()+"\n");
                 fileWriter1.write(" Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros()+"\n");
-                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n");
-                fileWriter1.write(" Ganancia: " + viajeCurrent.getGananciaTotal()+"\n");
-                fileWriter1.write(" Costor de viaje: " + viajeCurrent.getCostoTotal()+"\n");
-                fileWriter1.write(" Rentabilidad: " + viajeCurrent.getRentabilidad()+"\n\n");
+                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n\n");
                 fileWriter1.write(" Gráfico de asientos disponibles del bus " + (i + 1)+"\n");
                 //IMPRIMIR ASIENTOS
                 int cantAsiento = viajeCurrent.getTotalAsientos();
