@@ -2,8 +2,9 @@
  *
  * @author David
  */
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 public class ViajeComercial {
     private String nombreChofer;
@@ -33,7 +34,10 @@ public class ViajeComercial {
         asientosDisponibles = new byte[totalAsientos];
     }
 
+
+    
     // Getters
+    
     public String getNombreChofer() {
         return nombreChofer;
     }
@@ -78,6 +82,7 @@ public class ViajeComercial {
     }
     
 
+    
     // Setters
         
     public void setNombreChofer(String nombreChofer) {
@@ -112,7 +117,9 @@ public class ViajeComercial {
         this.totalAsientos = totalAsientos;
     }
 
-    // Funcionalidades
+
+    
+    // Funcionalidades para agregar y eliminar Pasajero en coleccion Hashtable de Pasajeros
     public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
     {
         if(pasajerosRutMap.containsKey(pasajero.getRut()))
@@ -128,7 +135,10 @@ public class ViajeComercial {
             return null;
         return pasajerosRutMap.remove(rutPasajero);
     }
+
+
     
+    // Métodos para modificar objeto Pasajero en colección respectiva del objeto ViajeBus.
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         if(!pasajerosRutMap.containsKey(rutPasajero))
             return false;
@@ -145,36 +155,9 @@ public class ViajeComercial {
         return pasajero.getTipo();
     }
     
-
-
-
-    /*
-    public void listarAsientosDisponibles()
-    {
-        byte cont = 2;
-        for (byte i = 0; i < asientosDisponibles.length; i++)
-        {
-            if(cont % 4 == 0)
-                System.out.print("|| ");
-            cont++;
-              
-            if (asientosDisponibles[i] == 0) 
-            {
-                if(i < 9)
-                    System.out.print((i+1) + "  ");
-                else
-                    System.out.print((i+1) + " ");
-            }
-            else 
-                System.out.print("X  ");
-                
-            if((i+1) % 4 == 0 && i != 0) 
-                System.out.println();
-                         
-        }
-        System.out.println();
-    }*/
     
+    // Métodos para obtener coleccion para opcion de listar todos los Pasajeros de viaje bus y según filtrado.
+
     public ArrayList<Pasajero> obtenerListaPasajeros() {
         
         ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
@@ -185,6 +168,7 @@ public class ViajeComercial {
         }
         return listaPasajeros;
     }
+    
     public ArrayList<Pasajero> obtenerListaPasajeros(String tipoPasajero) {
         
         ArrayList<Pasajero> listaPasajeros = new ArrayList<>();
@@ -197,7 +181,6 @@ public class ViajeComercial {
         
         return listaPasajeros;
     }
-    
 
 }
 

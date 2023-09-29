@@ -1,10 +1,10 @@
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
 
 /**
  *
@@ -21,7 +21,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal(Empresa empresa) throws ViajeBusExisteException, ViajeBusAsientoOcupadoException, PasajeroExisteException{
         initComponents();
         this.empresa = empresa;
-        //cargaDatosInicialesTemporal(empresa);
         importar(empresa);
     }
     
@@ -148,42 +147,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel1.setText("COMPRA Y VENTA DE PASAJES EN TERMINAL DE BUSES");
 
-        jButton1.setText("Agregar viaje de bus en el sistema.");
+        jButton1.setText("Agregar viaje de bus en el sistema");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Eliminar viaje de bus del sistema.");
+        jButton2.setText("Eliminar viaje de bus del sistema");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Listar viajes de bus del sistema.");
+        jButton3.setText("Listar viajes de bus del sistema");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Agregar pasajero a viaje de bus.");
+        jButton4.setText("Agregar pasajero a viaje de bus");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Eliminar pasajero de viaje de bus.");
+        jButton5.setText("Eliminar pasajero de viaje de bus");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Listar pasajeros de viaje de bus.");
+        jButton6.setText("Listar pasajeros de viaje de bus");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -204,7 +203,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Exportar reporte del proyecto");
+        jButton8.setText("Generar reporte de colecciones");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);

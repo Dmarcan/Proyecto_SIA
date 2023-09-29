@@ -154,6 +154,13 @@ public class Opcion7ModificarNombreJframe extends javax.swing.JFrame {
         String codigoViaje = jTextField1.getText();
         String rutPasajero = jTextField3.getText();
         String nuevoNombre = jTextField2.getText();
+
+
+        if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoNombre.isEmpty()){
+            jLabel5.setText("Rellene los campos faltantes.");
+            return;
+        }
+
         
         if(empresa.modificarNombrePasajero(codigoViaje, nuevoNombre, rutPasajero))
             jLabel5.setText("Nombre modificado");

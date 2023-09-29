@@ -1,11 +1,5 @@
-
-
 import java.util.ArrayList;
 
-/**
- *
- * @author David
- */
 public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
 
     /**
@@ -121,7 +115,15 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here
-        double rentabilidad = Double.parseDouble(this.jTextField1.getText());
+        String rentabilidadStr = this.jTextField1.getText();
+        
+        if (rentabilidadStr.isEmpty()){
+            jLabel4.setText("Rellene los campos faltantes.");
+            return;
+        }
+        
+        double rentabilidad = Double.parseDouble(rentabilidadStr);
+        
         ArrayList<ViajeBus> listaEnviar = empresa.obtenerTodosViajeBus(rentabilidad);
         if (listaEnviar.isEmpty()) jLabel4.setText("No existen viajes bus con rentabilidad menor a "+rentabilidad);
         else{

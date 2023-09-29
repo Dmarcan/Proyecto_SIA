@@ -1,13 +1,5 @@
-
-/**
- *
- * @author David
- */
 public class Opcion1Jframe extends javax.swing.JFrame {
 
-    /**
-     * Creates new form opcion1_pane
-     */
     private Empresa empresa;
     public Opcion1Jframe(Empresa empresa) {
         initComponents();
@@ -161,7 +153,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         jLabel14.setText("Estado:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jLabel15.setText("RELLENE LOS CAMPOS");
+        jLabel15.setText("Rellene los campos.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -332,11 +324,27 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         String lugarLlegada = this.jTextField5.getText();
         String horaInicio = this.jTextField6.getText();
         String horaLlegada = this.jTextField7.getText();
-        int tarifaGeneral = Integer.parseInt(this.jTextField8.getText());
-        int tarifaTerceraEdad = Integer.parseInt(this.jTextField9.getText());
-        int tarifaEstudiante = Integer.parseInt(this.jTextField10.getText());
-        int totalAsientos = Integer.parseInt(this.jTextField11.getText());
-        int costoViaje = Integer.parseInt(this.jTextField12.getText());
+        String tarifaGeneralStr = this.jTextField8.getText();
+        String tarifaTerceraEdadStr = this.jTextField9.getText();
+        String tarifaEstudianteStr = this.jTextField10.getText();
+        String totalAsientosStr = this.jTextField11.getText();
+        String costoViajeStr = this.jTextField12.getText();
+        
+        // Verifica si algún campo está vacío
+        if (nombreChofer.isEmpty() || codigoViaje.isEmpty() || matricula.isEmpty()
+            || lugarInicio.isEmpty() || lugarLlegada.isEmpty() || horaInicio.isEmpty()
+            || horaLlegada.isEmpty() || tarifaGeneralStr.isEmpty() || tarifaTerceraEdadStr.isEmpty()
+            || tarifaEstudianteStr.isEmpty() || totalAsientosStr.isEmpty() || costoViajeStr.isEmpty()) {
+               jLabel15.setText("Rellene los campos faltantes.");
+               return;
+        }
+        
+        int tarifaGeneral = Integer.parseInt(tarifaGeneralStr);
+        int tarifaTerceraEdad = Integer.parseInt(tarifaTerceraEdadStr);
+        int tarifaEstudiante = Integer.parseInt(tarifaEstudianteStr);
+        int totalAsientos = Integer.parseInt(totalAsientosStr);
+        int costoViaje = Integer.parseInt(costoViajeStr);
+        
         ViajeBus bus = new ViajeBus(nombreChofer, codigoViaje, matricula, lugarInicio, lugarLlegada, 
                             horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante,
                             costoViaje,totalAsientos);
@@ -351,7 +359,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    //verificacion para que el usuario no ingrese letras en campos que solo son numeros
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();

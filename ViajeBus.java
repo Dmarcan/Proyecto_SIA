@@ -1,11 +1,3 @@
-/**
- *
- * @author cabel
- */
-import java.io.*;
-import static java.lang.Math.abs;
-import java.util.*;
-
 public class ViajeBus extends ViajeComercial{
     private int tarifaGeneral;
     private int tarifaTerceraEdad;
@@ -90,7 +82,8 @@ public class ViajeBus extends ViajeComercial{
     {
         return rentabilidad;
     }
-    
+
+    // Métodos para modificar objeto Pasajero en colección respectiva del objeto ViajeBus.
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
@@ -107,7 +100,7 @@ public class ViajeBus extends ViajeComercial{
         return null;
     }
 
-    // Métodos para Agregar, Eliminar y Listar objetos Pasajero en su colección respectiva del objeto ViajeBus.
+    // Métodos para Agregar y Eliminar objetos Pasajero en su colección respectiva del objeto ViajeBus.
     public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException {
             super.agregarPasajero(pasajero);  
         actualizarGanancia(pasajero.getTipo(), "Agregar");
@@ -121,7 +114,7 @@ public class ViajeBus extends ViajeComercial{
         return aux;
     }
     
-    // Funcionalidades Propias
+    // Funcionalidades Propias asociadas al negocio del bus.
     /*
     PALABRAS CLAVES    
     accion:"agregar","eliminar"

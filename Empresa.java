@@ -2,8 +2,12 @@
  *
  * @author cabel
  */
-import java.io.*;
-import java.util.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
 public class Empresa {
     
     
@@ -28,18 +32,17 @@ public class Empresa {
         return viajesCodigoMap.get(codigoViaje);
     }
 
-    // Métodos para agregar, eliminar y listar objetos ViajeBus en su colección respectiva del objeto Empresa.
     
-    public ArrayList<ViajeBus> obtenerTodosViajeBus(double rentabilidad) {
-        ArrayList<ViajeBus> listaViajesBuses = new ArrayList<>();
-        Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
-        while (keys.hasMoreElements()) {
-            ViajeBus viajeBus = keys.nextElement();
-            System.out.println("fasdgf");
-            if(viajeBus.getRentabilidad() <= rentabilidad)
-                listaViajesBuses.add(viajeBus);
+    // Métodos para agregar y eliminar objetos ViajeBus en su colección respectiva del objeto Empresa.
+
+    public void agregarViajeBus(ViajeBus viajeBus) throws ViajeBusExisteException
+    {
+        String codigoViaje = viajeBus.getCodigo();
+
+        if (viajesCodigoMap.containsKey(codigoViaje)) {
+            throw new ViajeBusExisteException();
         }
-        return listaViajesBuses;
+        viajesCodigoMap.put(codigoViaje, viajeBus);
     }
 
     public void eliminarViajeBus(String codigo) throws ViajeBusNoExisteException{
@@ -48,6 +51,8 @@ public class Empresa {
         viajesCodigoMap.remove(codigo);
                
     }
+
+    // Métodos para agregar y eliminar objetos Pasajero en su colección respectiva del objeto ViajeBus.
 
     public void agregarPasajero(String codigo, Pasajero pasajero) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException {
         if(!viajesCodigoMap.containsKey(codigo)) // Si no existe el viaje de bus
@@ -60,6 +65,21 @@ public class Empresa {
         viajeBus.agregarPasajero(pasajero);
             
     }
+
+    public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
+        if(!viajesCodigoMap.containsKey(codigoViajeBus))
+            throw new ViajeBusNoExisteException();
+        
+        ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
+        Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
+        
+        if(pasajeroEliminado == null)
+            throw new PasajeroNoExisteException();
+        return pasajeroEliminado;
+    }
+
+
+    // Métodos para funcionalidades "Modificar Pasajero" en objetos Pasajero en su colección respectiva del objeto ViajeBus.
     
     public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
         if(!viajesCodigoMap.containsKey(numeroViaje))
@@ -98,29 +118,7 @@ public class Empresa {
        
     }
     
-    
-    public void agregarViajeBus(ViajeBus viajeBus) throws ViajeBusExisteException
-    {
-        String codigoViaje = viajeBus.getCodigo();
-
-        if (viajesCodigoMap.containsKey(codigoViaje)) {
-            throw new ViajeBusExisteException();
-        }
-        viajesCodigoMap.put(codigoViaje, viajeBus);
-    }
-
-    public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
-        if(!viajesCodigoMap.containsKey(codigoViajeBus))
-            throw new ViajeBusNoExisteException();
-        
-        ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
-        Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
-        
-        if(pasajeroEliminado == null)
-            throw new PasajeroNoExisteException();
-        return pasajeroEliminado;
-    }
-    
+    // Método para funcionalidad "Exportar Reporte" en objetos Pasajero en su colección respectiva del objeto ViajeBus.
     public void exportarReporte(String csv1)
     {
         try (FileWriter fileWriter1 = new FileWriter(csv1)) {
@@ -188,8 +186,6 @@ public class Empresa {
                         fileWriter1.write("\n");
                     }
                 }
-
-                
                 fileWriter1.write("└────────────────────────────────────────────┘\n");
                 i++;
             }
@@ -199,7 +195,20 @@ public class Empresa {
             e.printStackTrace();
         }
     }
-        
+
+    // Métodos para obtener colecciones para opciones de listar todo o según filtrado (No es getter de atributo)
+    public ArrayList<ViajeBus> obtenerTodosViajeBus(double rentabilidad) {
+        ArrayList<ViajeBus> listaViajesBuses = new ArrayList<>();
+        Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
+        while (keys.hasMoreElements()) {
+            ViajeBus viajeBus = keys.nextElement();
+            System.out.println("fasdgf");
+            if(viajeBus.getRentabilidad() <= rentabilidad)
+                listaViajesBuses.add(viajeBus);
+        }
+        return listaViajesBuses;
+    }
+
     public ArrayList<ViajeBus> obtenerTodosViajeBus() {
         ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -211,6 +220,7 @@ public class Empresa {
         }
         return listaViajeBus;
     }
+    
     public ArrayList<ViajeBus> obtenerTodosViajeBus(String lugarDeInicio){
         ArrayList<ViajeBus> listaViajeBus = new ArrayList<>();
         Enumeration<String> keys = viajesCodigoMap.keys();
@@ -222,5 +232,5 @@ public class Empresa {
         }
         return listaViajeBus;
     }
-    
+        
 }

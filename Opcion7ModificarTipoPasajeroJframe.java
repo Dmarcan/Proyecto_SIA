@@ -148,6 +148,12 @@ public class Opcion7ModificarTipoPasajeroJframe extends javax.swing.JFrame {
         String codigoViaje = jTextField1.getText();
         String rutPasajero = jTextField3.getText();
         String nuevoTipo = jComboBox1.getSelectedItem().toString();
+
+        if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoTipo.isEmpty()){
+            jLabel5.setText("Rellene los campos faltantes.");
+            return;
+        }
+
         
         if(empresa.modificarTipoPasajero(codigoViaje, nuevoTipo, rutPasajero))
             jLabel5.setText("Tipo modificado");

@@ -53,7 +53,7 @@ public class Opcion8Jframe extends javax.swing.JFrame {
         jLabel14.setText("Estado:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jLabel15.setText("RELLENE LOS CAMPOS");
+        jLabel15.setText("Rellene los campos.");
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel16.setText("EXPORTAR REPORTE");
@@ -118,6 +118,12 @@ public class Opcion8Jframe extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String csv = this.jTextField1.getText();
+
+        if (csv.isEmpty()){
+            jLabel15.setText("Rellene el campo del nombre del archivo.");
+            return;
+        }
+        
         csv += jComboBox1.getSelectedItem().toString();
         empresa.exportarReporte(csv);
         jLabel15.setText("Reporte exportado con nombre "+csv);

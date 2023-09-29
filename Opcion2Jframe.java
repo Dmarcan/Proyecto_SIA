@@ -1,7 +1,3 @@
-/**
- *
- * @author cabel
- */
 public class Opcion2Jframe extends javax.swing.JFrame {
 
     /**
@@ -121,12 +117,11 @@ public class Opcion2Jframe extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();
-        /*
-        if(empresa.eliminarViajeBus(codigoViajeBus) != null) {
-            jLabel5.setText("Bus eliminado.");
-        } else {
-            jLabel5.setText("Bus no eliminado.");
-        } */
+        
+        if (codigoViajeBus.isEmpty()){
+            jLabel5.setText("Rellene los campos faltantes.");
+            return;
+        }
         
         try {
             empresa.eliminarViajeBus(codigoViajeBus);

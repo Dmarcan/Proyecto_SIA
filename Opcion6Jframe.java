@@ -187,6 +187,13 @@ public class Opcion6Jframe extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String codigo = jTextField1.getText();
+
+        if (codigo.isEmpty()){
+            jLabel7.setText("Rellene el campo del código de viaje.");
+            return;
+        }
+
+        
         ViajeBus bus = empresa.getViajeBus(codigo);
         if (bus == null){
             jLabel7.setText("Codigo ingresado no existe");
