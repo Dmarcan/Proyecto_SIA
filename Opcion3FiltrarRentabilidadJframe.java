@@ -118,7 +118,7 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
         String rentabilidadStr = this.jTextField1.getText();
         
         if (rentabilidadStr.isEmpty()){
-            jLabel4.setText("Rellene los campos faltantes.");
+            jLabel4.setText("Rellene los campos faltantes");
             return;
         }
         

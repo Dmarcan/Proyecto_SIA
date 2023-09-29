@@ -112,7 +112,7 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
         String origen = this.jTextField1.getText();
 
         if (origen.isEmpty()) {
-            jLabel4.setText("Rellene los campos faltantes.");
+            jLabel4.setText("Rellene los campos faltantes");
             return;
         }
 

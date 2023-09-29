@@ -153,7 +153,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         jLabel14.setText("Estado:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jLabel15.setText("Rellene los campos.");
+        jLabel15.setText("Rellene los campos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -335,7 +335,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
             || lugarInicio.isEmpty() || lugarLlegada.isEmpty() || horaInicio.isEmpty()
             || horaLlegada.isEmpty() || tarifaGeneralStr.isEmpty() || tarifaTerceraEdadStr.isEmpty()
             || tarifaEstudianteStr.isEmpty() || totalAsientosStr.isEmpty() || costoViajeStr.isEmpty()) {
-               jLabel15.setText("Rellene los campos faltantes.");
+               jLabel15.setText("Rellene los campos faltantes");
                return;
         }
         

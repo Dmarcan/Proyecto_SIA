@@ -157,7 +157,7 @@ public class Opcion7ModificarNombreJframe extends javax.swing.JFrame {
 
 
         if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoNombre.isEmpty()){
-            jLabel5.setText("Rellene los campos faltantes.");
+            jLabel5.setText("Rellene los campos faltantes");
             return;
         }
 

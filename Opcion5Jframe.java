@@ -169,7 +169,7 @@ public class Opcion5Jframe extends javax.swing.JFrame {
         String rutPersona = jTextField2.getText();
 
         if (codigoViajeBus.isEmpty() || rutPersona.isEmpty()) {
-            jLabel5.setText("Rellene los campos faltantes.");
+            jLabel5.setText("Rellene los campos faltantes");
             return;
         }
 

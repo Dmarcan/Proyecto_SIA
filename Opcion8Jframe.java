@@ -53,7 +53,7 @@ public class Opcion8Jframe extends javax.swing.JFrame {
         jLabel14.setText("Estado:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        jLabel15.setText("Rellene los campos.");
+        jLabel15.setText("Rellene los campos");
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel16.setText("EXPORTAR REPORTE");
@@ -120,7 +120,7 @@ public class Opcion8Jframe extends javax.swing.JFrame {
         String csv = this.jTextField1.getText();
 
         if (csv.isEmpty()){
-            jLabel15.setText("Rellene el campo del nombre del archivo.");
+            jLabel15.setText("Rellene el campo del nombre del archivo");
             return;
         }
         

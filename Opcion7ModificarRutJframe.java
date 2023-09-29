@@ -128,7 +128,7 @@ public class Opcion7ModificarRutJframe extends javax.swing.JFrame {
         String nuevoRutPasajero = jTextField2.getText();
         
         if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoRutPasajero.isEmpty()){
-            jLabel5.setText("Rellene los campos faltantes.");
+            jLabel5.setText("Rellene los campos faltantes");
             return;
         }
         

@@ -150,7 +150,7 @@ public class Opcion7ModificarTipoPasajeroJframe extends javax.swing.JFrame {
         String nuevoTipo = jComboBox1.getSelectedItem().toString();
 
         if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoTipo.isEmpty()){
-            jLabel5.setText("Rellene los campos faltantes.");
+            jLabel5.setText("Rellene los campos faltantes");
             return;
         }
 

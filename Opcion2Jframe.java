@@ -23,7 +23,6 @@ public class Opcion2Jframe extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -76,7 +75,7 @@ public class Opcion2Jframe extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1)))
-                        .addContainerGap(139, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
@@ -85,7 +84,7 @@ public class Opcion2Jframe extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)
                         .addContainerGap())))
@@ -112,14 +111,14 @@ public class Opcion2Jframe extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>                                 
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();
         
         if (codigoViajeBus.isEmpty()){
-            jLabel5.setText("Rellene los campos faltantes.");
+            jLabel5.setText("Rellene los campos faltantes");
             return;
         }
         

@@ -189,7 +189,7 @@ public class Opcion6Jframe extends javax.swing.JFrame {
         String codigo = jTextField1.getText();
 
         if (codigo.isEmpty()){
-            jLabel7.setText("Rellene el campo del código de viaje.");
+            jLabel7.setText("Rellene el campo del código de viaje");
             return;
         }
 
