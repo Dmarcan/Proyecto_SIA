@@ -108,14 +108,14 @@ public class Opcion2Jframe extends javax.swing.JFrame {
     Si no lo está, se intenta eliminar el objeto de la colección de objetos ViajeBus asociada al objeto Empresa respectivo mediante 
     el uso de una excepción.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();
         
         if (codigoViajeBus.isEmpty()){
             jLabel5.setText("Rellene los campos faltantes");
             return;
         }
-        
+
+        // Excepción no se encontró ViajeBus
         try {
             empresa.eliminarViajeBus(codigoViajeBus);
             jLabel5.setText("Viaje Bus eliminado.");
@@ -123,9 +123,8 @@ public class Opcion2Jframe extends javax.swing.JFrame {
             jLabel5.setText("Viaje Bus NO existe");
         }
     }                                        
-
+    //Listar buses
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
         Opcion3Jframe op3LV = new Opcion3Jframe(empresa);
         op3LV.setVisible(true);
     }                                        

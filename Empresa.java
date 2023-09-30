@@ -7,8 +7,6 @@ import java.util.Hashtable;
 // La clase Empresa representa la plantilla para el objeto que contendrá la colección de primer nivel que almacena 
 // los objetos tipo ViajeBus.
 public class Empresa {
-    
-    
     private Hashtable<String, ViajeBus> viajesCodigoMap;
     // Constructor de la clase Empresa, instancia la colección asociada al objeto Empresa.
     public Empresa()
@@ -98,7 +96,7 @@ public class Empresa {
         return viajeBus.modificarRutPasajero(rutPasajeroA, rutPasajeroN);
     }
     
-    // Método para funcionalidad "Exportar Reporte" en objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.
+    // Método para funcionalidad "Exportar Reporte" con todos los detalles de los objetos ViajeBus de la colección de primer nivel y también de los objetos Pasajero anidados en los objetos ViajeBus respectivos.
     public void exportarReporte(String csv1)
     {
         try (FileWriter fileWriter1 = new FileWriter(csv1)) {
@@ -124,7 +122,11 @@ public class Empresa {
                 fileWriter1.write(" Tarifa de estudiante: " + viajeCurrent.getTarifaEstudiante()+"\n");
                 fileWriter1.write(" Total de asientos en el bus: " + viajeCurrent.getTotalAsientos()+"\n");
                 fileWriter1.write(" Cantidad de pasajeros: " + viajeCurrent.getCantPasajeros()+"\n");
-                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n\n");
+                fileWriter1.write(" Asientos libres: " + (viajeCurrent.getTotalAsientos() - viajeCurrent.getCantPasajeros())+"\n");
+                fileWriter1.write(" Ganancia: " + viajeCurrent.getGananciaTotal() +"\n");
+                fileWriter1.write(" Costo de viaje: " + viajeCurrent.getCostoTotal() +"\n");
+                String rentabilidad = String.format("%.2f", viajeCurrent.getRentabilidad());
+                fileWriter1.write(" Rentabilidad: " + rentabilidad + " %" +"\n\n");
                 fileWriter1.write(" Gráfico de asientos disponibles del bus " + (i + 1)+"\n");
                 //IMPRIMIR ASIENTOS
                 int cantAsiento = viajeCurrent.getTotalAsientos();

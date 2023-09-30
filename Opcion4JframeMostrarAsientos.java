@@ -11,6 +11,10 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
     }
 
     /*Comentario pendiente*/
+    /*Esta función se encarga de inicializar una tabla gráfica que representa los asientos del bus.
+    Los asientos ocupados se marcan con "X" y los disponibles con sus números correspondientes.
+    La disposición de los asientos en la tabla está controlada por las variables 'cont' y 'asiento'*/
+    
     public void initTable(ViajeBus bus) {
         
         modelo.addColumn("");

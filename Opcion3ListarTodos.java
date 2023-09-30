@@ -41,12 +41,10 @@ public class Opcion3ListarTodos extends javax.swing.JFrame {
             a[9] = busCurrent.getTarifaTerceraEdad();
             a[10] = busCurrent.getTotalAsientos();
             a[11] = busCurrent.getCantPasajeros();
-            int asieLibres = busCurrent.getTotalAsientos()- busCurrent.getCantPasajeros();
+            int asieLibres = busCurrent.getTotalAsientos() - busCurrent.getCantPasajeros();
             a[12] = asieLibres;
-            String rentabilidad;
-            if (busCurrent.getCantPasajeros() == 0) rentabilidad = "-100.00";
-            else rentabilidad = String.format("%.2f", busCurrent.getRentabilidad());
-            a[13] = rentabilidad;
+            String rentabilidad = String.format("%.2f", busCurrent.getRentabilidad());;
+            a[13] = (rentabilidad +" %");
             modelo.addRow(a);
         }
     }

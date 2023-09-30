@@ -1,4 +1,24 @@
 nombrePasajero,rutPasajero,tipoPasajero,numeroAsiento,codigoViaje
+Juan,90123256-7,Estudiante,16,31975
+Sara,98765432-1,Tercera Edad,11,31975
+Claudio Cabello,20323198-2,Estudiante,2,31975
+Sofía,01234567-8,General,6,31975
+Ricardo,12345676-9,General,18,31975
+María,23456289-0,General,19,31975
+Gabriel,90123456-7,Estudiante,5,31975
+Javier,34567890-1,Estudiante,4,31975
+Diego,12345678-9,General,7,31975
+Lorena,01134567-8,General,17,31975
+Fernando,78901234-5,General,8,31975
+Isabel,89012345-6,Tercera Edad,10,31975
+Carmen,89013345-6,Tercera Edad,15,31975
+Ana,45678901-2,Tercera Edad,3,31975
+Carlos,76543210-9,General,1,31975
+Elena,67890123-4,General,13,31975
+Luis,56789012-3,Estudiante,12,31975
+Marta,23456789-0,General,9,31975
+Alejandro,34567891-1,Estudiante,20,31975
+Pedro,78901233-5,General,14,31975
 Carlos,76543210-9,General,25,29348
 Juan,98765432-1,General,7,29348
 Ana,45678901-2,Tercera Edad,12,29348
@@ -16,7 +36,7 @@ Javier,34567890-1,Estudiante,6,29346
 Fernando,78901234-5,General,3,29346
 Diego,12345678-9,General,7,29346
 Isabel,89012345-6,Tercera Edad,9,29346
-Pedro,98765432-1,Tercera Edad,12,29345
+David,77489231-5,Estudiante,12,29345
 Ana,12345678-9,General,5,29345
 Luisa,34567890-4,General,15,29345
 María,45678901-2,Estudiante,20,29345

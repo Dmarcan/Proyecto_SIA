@@ -129,7 +129,6 @@ public class Opcion7ModificarTipoPasajeroJframe extends javax.swing.JFrame {
     ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
     se pregunta si resulta modificar el rut del pasajero desde la clase Empresa*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         String codigoViaje = jTextField1.getText();
         String rutPasajero = jTextField3.getText();
         String nuevoTipo = jComboBox1.getSelectedItem().toString();

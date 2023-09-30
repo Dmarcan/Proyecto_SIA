@@ -161,7 +161,6 @@ public class Opcion6Jframe extends javax.swing.JFrame {
     que da a elegir entre las opciones de listar viajes de buses con o sin filtro, con la finalidad de mostrarle al usuario los
     códigos de viaje.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         Opcion3Jframe mostrarBuses = new Opcion3Jframe(empresa);
         mostrarBuses.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -228,6 +227,7 @@ public class Opcion6Jframe extends javax.swing.JFrame {
             }
             
         }
+        
             
         
     }

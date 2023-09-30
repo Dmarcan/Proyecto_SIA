@@ -61,7 +61,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }
     
-    public void Exportar(Empresa empresa)
+    public void exportar(Empresa empresa)
     {
         String csv1 ="buses.csv";
         String csv2 ="personas.csv";
@@ -290,7 +290,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {
-        Exportar(empresa);
+        exportar(empresa);
         System.exit(0);
         
     }

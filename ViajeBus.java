@@ -9,6 +9,7 @@ public class ViajeBus extends ViajeComercial{
     private double rentabilidad;
 
     // Constructor de la clase ViajeBus, inicializa algunos de los atributos de la clase con parámetros formales y otros los inicializa en 0.
+    // Al ingresar la ganancia, debe actualizarse la rentabilidad.
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                     String lugarLlegada, String horaInicio, String horaLlegada,
                     int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
@@ -20,7 +21,7 @@ public class ViajeBus extends ViajeComercial{
         
         this.costoTotal = costoTotal;
         gananciaTotal = 0;
-        rentabilidad = 0.0;
+        actualizarRentabilidad();
     }
 
     // Setters
@@ -105,7 +106,7 @@ public class ViajeBus extends ViajeComercial{
     }
 
     public Pasajero eliminarPasajero(String rutPasajero) {
-        Pasajero aux = (Pasajero) super.eliminarPasajero(rutPasajero);
+        Pasajero aux = super.eliminarPasajero(rutPasajero);
         if (aux == null)
             return null;
         actualizarGanancia(aux.getTipo(), "Eliminar");

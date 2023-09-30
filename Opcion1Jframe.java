@@ -7,7 +7,6 @@ public class Opcion1Jframe extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane13 = new javax.swing.JScrollPane();
@@ -348,7 +347,7 @@ public class Opcion1Jframe extends javax.swing.JFrame {
                             horaInicio, horaLlegada, tarifaGeneral, tarifaTerceraEdad, tarifaEstudiante,
                             costoViaje,totalAsientos);
         
-        // Excepción no se encontro Viaje Bus              
+        // Excepción ya existe Viaje Bus              
         try{
             empresa.agregarViajeBus(bus);
             jLabel15.setText("Viaje Bus agregado");
@@ -359,32 +358,28 @@ public class Opcion1Jframe extends javax.swing.JFrame {
         
     }
     
+    //verificar que el usuario solo puedo ingresar numeros en los campos correspondientes
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }//GEN-LAST:event_jTextField8KeyTyped
 
     private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }//GEN-LAST:event_jTextField9KeyTyped
 
     private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }//GEN-LAST:event_jTextField10KeyTyped
 
     private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }//GEN-LAST:event_jTextField11KeyTyped
 
     private void jTextField12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }

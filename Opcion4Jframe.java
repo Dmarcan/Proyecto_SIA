@@ -152,7 +152,9 @@ public class Opcion4Jframe extends javax.swing.JFrame {
     }// </editor-fold>                      
 
 
-    
+    /* Lo que hace el siguiente metodo es mostrar los asientos disponibles del bus que se desea agregar el pasajero
+    primero se verifica que el usuario ingrese texto en el campo de codigo viaje bus y posteriormente se verifica que el bus exista.
+    en caso que ambas condiciones se cumplan se llama a una ventana que muestra los asientos del bus*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         String codigoViaje = textField1.getText();
         
@@ -210,7 +212,7 @@ public class Opcion4Jframe extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_jButton2ActionPerformed
     
-    //verificacion para que el usuario no ingrese letras en campos que solo son numeros
+    //verificacion para que el usuario no ingrese letras en el campo de numero de asiento
     private void textField5KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_textField5KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();

@@ -111,7 +111,6 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
     Empresa respectivo, que coincidan con tener una rentabilidad menor a la señalada por el usuario, mediante el uso 
     de una excepción.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here
         String rentabilidadStr = this.jTextField1.getText();
         
         if (rentabilidadStr.isEmpty()){
@@ -122,6 +121,7 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
         double rentabilidad = Double.parseDouble(rentabilidadStr);
         
         ArrayList<ViajeBus> listaEnviar = empresa.obtenerTodosViajeBus(rentabilidad);
+        // Excepción no se encontraron objetos ViajeBus coincidentes.
         if (listaEnviar.isEmpty()) jLabel4.setText("No existen viajes bus con rentabilidad menor a "+rentabilidad);
         else{
             Opcion3ListarTodos listar = new  Opcion3ListarTodos(listaEnviar);
@@ -130,7 +130,7 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
         }
 
     }
-
+    //verificar que el usuario solo puedo ingresar numeros
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();

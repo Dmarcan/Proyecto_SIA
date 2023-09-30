@@ -103,7 +103,6 @@ public class Opcion8Jframe extends javax.swing.JFrame {
     ingresado en el campo de entrada de nombre de archivo en una variable local y verifica si el campo está vacío.
     Si no lo está, se genera y se exporta el reporte en archivo .txt.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
         String csv = this.jTextField1.getText();
 
         if (csv.isEmpty()){
@@ -120,11 +119,6 @@ public class Opcion8Jframe extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

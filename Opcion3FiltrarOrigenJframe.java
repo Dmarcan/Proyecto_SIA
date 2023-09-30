@@ -109,6 +109,7 @@ public class Opcion3FiltrarOrigenJframe extends javax.swing.JFrame {
         }
 
         ArrayList<ViajeBus> listaEnviar = empresa.obtenerTodosViajeBus(origen);
+        // Excepción no se encontraron objetos ViajeBus coincidentes.
         if (listaEnviar.isEmpty())
             jLabel4.setText("No existen viajes bus con origen " + origen);
         else {
