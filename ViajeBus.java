@@ -87,11 +87,6 @@ public class ViajeBus extends ViajeComercial{
     }
 
     // Métodos para modificar objeto Pasajero en colección asociada al objeto ViajeBus respectivo.
-    public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
-        return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
-    }
-    
-    
     public String modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
         String tipo = super.modificarTipoPasajero(tipoPasajero,rutPasajero);
         if (tipo != null)

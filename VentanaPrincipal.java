@@ -6,16 +6,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author cabel
- */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MenuPrincipal
-     */
-    
     Empresa empresa;
     
     public VentanaPrincipal(Empresa empresa) throws ViajeBusExisteException, ViajeBusAsientoOcupadoException, PasajeroExisteException{

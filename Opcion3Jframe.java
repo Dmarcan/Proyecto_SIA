@@ -11,7 +11,6 @@ public class Opcion3Jframe extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     private void initComponents() {
-
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -108,38 +107,26 @@ public class Opcion3Jframe extends javax.swing.JFrame {
 
     /*Lo que hace el siguiente método consiste en que, al presionar el botón de "Listar Todos los Viajes de Bus", emerge la 
     ventana que realiza la opción de listar todos los viajes de bus, sin filtro alguno.*/
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         Opcion3ListarTodos ventanaMostrar = new Opcion3ListarTodos(empresa.obtenerTodosViajeBus());
         ventanaMostrar.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
     
     /*Lo que hace el siguiente método consiste en que, al presionar el botón de "Listar Viajes de Bus según Lugar de Origen", 
     emerge la ventana que realiza la opción de filtrar los viajes de bus según lugar de orígen.*/
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         Opcion3FiltrarOrigenJframe ventanaEleccion = new Opcion3FiltrarOrigenJframe(empresa);
         ventanaEleccion.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
      /*Lo que hace el siguiente método consiste en que, al presionar el botón de "Listar Viajes de Bus según Rentabilidad", 
     emerge la ventana que realiza la opción de filtrar los viajes de bus según rentabilidad.*/
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         Opcion3FiltrarRentabilidadJframe op3Rentabilidad = new Opcion3FiltrarRentabilidadJframe(empresa);
         op3Rentabilidad.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

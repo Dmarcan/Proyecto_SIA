@@ -151,6 +151,14 @@ public class ViajeComercial {
         return pasajero.getTipo();
     }
     
+    public boolean modificarRutPasajero(String rutPasajero, String nuevoRutPasajero){
+        if (!pasajerosRutMap.containsKey(rutPasajero))
+            return false;
+        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        pasajero.setRutPasajero(nuevoRutPasajero);
+        return true;
+    }
+    
     
     // Métodos para obtener coleccion para opcion de listar todos los Pasajeros de viaje bus y listar según filtro.
     public ArrayList<Pasajero> obtenerListaPasajeros() {

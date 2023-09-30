@@ -1,20 +1,16 @@
-/**
- *
- * @author cabel
- */
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-// La clase Empresa epresenta la plantilla para el objeto que contendrá la colección de primer nivel que almacena 
+// La clase Empresa representa la plantilla para el objeto que contendrá la colección de primer nivel que almacena 
 // los objetos tipo ViajeBus.
 public class Empresa {
     
     
     private Hashtable<String, ViajeBus> viajesCodigoMap;
-    
+    // Constructor de la clase Empresa, instancia la colección asociada al objeto Empresa.
     public Empresa()
     {
         viajesCodigoMap = new Hashtable<>();
@@ -61,7 +57,6 @@ public class Empresa {
             throw new ViajeBusAsientoFueraRangoException();
 
         viajeBus.agregarPasajero(pasajero);
-            
     }
 
     public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
@@ -99,18 +94,14 @@ public class Empresa {
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
-    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) throws ViajeBusNoExisteException, PasajeroExisteException, PasajeroNoExisteException, ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException{
+    public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA){
         if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
-        Pasajero pasajeroAux = eliminarPasajero(numeroViaje, rutPasajeroA);
-        if (pasajeroAux == null)
-            return false;
-        
-        Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(), rutPasajeroN, pasajeroAux.getTipo(), pasajeroAux.getNroAsiento(), numeroViaje);
-        
-        agregarPasajero(numeroViaje, pasajero);
-        return true;
+        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        if (viajeBus.modificarRutPasajero(rutPasajeroA, rutPasajeroN))
+            return true;
+        return false;
     }
     
     // Método para funcionalidad "Exportar Reporte" en objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.

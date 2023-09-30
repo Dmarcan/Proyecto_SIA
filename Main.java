@@ -6,6 +6,5 @@ public class Main{
         
         VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(empresa);
         ventanaPrincipal.setVisible(true);
-        
     }
 }
