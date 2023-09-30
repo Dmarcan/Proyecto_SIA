@@ -162,4 +162,3 @@ public class ViajeBus extends ViajeComercial{
         return;
     }
 }
-

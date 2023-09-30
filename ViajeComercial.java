@@ -113,8 +113,6 @@ public class ViajeComercial {
         this.totalAsientos = totalAsientos;
     }
 
-
-    
     // Funcionalidades para agregar y eliminar Pasajero en coleccion Hashtable de Pasajeros
     public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException 
     {
@@ -133,7 +131,6 @@ public class ViajeComercial {
     }
 
 
-    
     // Métodos para modificar objeto Pasajero en colección asociada al objeto respectivo.
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         if(!pasajerosRutMap.containsKey(rutPasajero))

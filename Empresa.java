@@ -32,25 +32,31 @@ public class Empresa {
     {
         String codigoViaje = viajeBus.getCodigo();
 
+        // Si el codigo de viaje ya existe se lanza la excepcion, no deben haber viajes de bus con codigo repetido
         if (viajesCodigoMap.containsKey(codigoViaje)) {
             throw new ViajeBusExisteException();
         }
+        // No existe, por lo que se agregue sin repetir
         viajesCodigoMap.put(codigoViaje, viajeBus);
     }
 
     public void eliminarViajeBus(String codigo) throws ViajeBusNoExisteException{
+        // Si el codigo de viaje no existe lanza la excepcion, no se puede eliminar viaje bus que no existe
         if(!viajesCodigoMap.containsKey(codigo))
             throw new ViajeBusNoExisteException();
+        // Existe, por lo que se elimina
         viajesCodigoMap.remove(codigo);
                
     }
 
     // Métodos para Agregar y Eliminar objetos Pasajero de la colección asociada al objeto ViajeBus respectivo.
     public void agregarPasajero(String codigo, Pasajero pasajero) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException {
+        // Si viaje de bus no existe se lanza la excepcion, no se puede agregar pasajero a viaje bus que no existe
         if (!viajesCodigoMap.containsKey(codigo))
             throw new ViajeBusNoExisteException();
         
-        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
+        ViajeBus viajeBus = viajesCodigoMap.get(codigo);
+        // Si el numero de asiento del pasajero es mayor que el total de asientos se lanza excepcion
         if (pasajero.getNroAsiento() > viajeBus.getTotalAsientos())
             throw new ViajeBusAsientoFueraRangoException();
 
@@ -58,6 +64,7 @@ public class Empresa {
     }
 
     public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
+        // Si viaje de bus no existe se lanza la excepcion, no se puede eliminar pasajero de viaje bus que no existe
         if (!viajesCodigoMap.containsKey(codigoViajeBus))
             throw new ViajeBusNoExisteException();
         
@@ -72,27 +79,30 @@ public class Empresa {
 
     // Método para Modificar objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.
     public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
+        // Si no existe el numero de viaje retorna false, no se puede modificar nombre de pasajero de un viaje de bus que no existe
         if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
-        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        ViajeBus viajeBus = viajesCodigoMap.get(numeroViaje);
         return viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
     
     public boolean modificarTipoPasajero(String numeroViaje, String tipoPasajero, String rutPasajero) {
+        // Si no existe el numero de viaje retorna false, no se puede modificar tipo de pasajero de un viaje de bus que no existe
         if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
-        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        ViajeBus viajeBus = viajesCodigoMap.get(numeroViaje);
         return viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null;
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
     public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA){
+        // Si no existe el numero de viaje retorna false, no se puede modificar RUT de pasajero de un viaje de bus que no existe
         if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
-        ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
+        ViajeBus viajeBus = viajesCodigoMap.get(numeroViaje);
         return viajeBus.modificarRutPasajero(rutPasajeroA, rutPasajeroN);
     }
     
