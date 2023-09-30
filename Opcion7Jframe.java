@@ -97,15 +97,14 @@ public class Opcion7Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /*Lo que hace el siguiente método es dar a elegir entre opciones para modificar la información de un pasajero. Las opciones son
+    modificar nombre, rut o tipo de pasajero.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         Opcion7ModificarRutJframe op7MR = new Opcion7ModificarRutJframe(empresa);
         op7MR.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
-    // op7MN -> M: Modificar ; N: Nombre
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         Opcion7ModificarNombreJframe op7MN = new Opcion7ModificarNombreJframe(empresa);
         op7MN.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed

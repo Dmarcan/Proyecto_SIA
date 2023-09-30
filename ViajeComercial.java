@@ -1,11 +1,8 @@
-/**
- *
- * @author David
- */
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+// La clase ViajeComercial corresponde a la clase padre de la clase ViajeBus, tal que la clase ViajeBus hereda todos los métodos públicos de la clase ViajeComercial.
 public class ViajeComercial {
     private String nombreChofer;
     private String matricula;
@@ -17,7 +14,8 @@ public class ViajeComercial {
     private int totalAsientos;
     private Hashtable<String, Pasajero> pasajerosRutMap;
     private byte[] asientosDisponibles;
-    
+
+    // Constructor de la clase ViajeComercial, inicializa algunos de los atributos de la clase con parámetros formales e instancia las colecciones
     public ViajeComercial(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                           String lugarLlegada, String horaInicio, String horaLlegada, int totalAsientos) {
         this.totalAsientos = totalAsientos;
@@ -37,7 +35,6 @@ public class ViajeComercial {
 
     
     // Getters
-    
     public String getNombreChofer() {
         return nombreChofer;
     }
@@ -84,7 +81,6 @@ public class ViajeComercial {
 
     
     // Setters
-        
     public void setNombreChofer(String nombreChofer) {
         this.nombreChofer = nombreChofer;
     }
@@ -138,7 +134,7 @@ public class ViajeComercial {
 
 
     
-    // Métodos para modificar objeto Pasajero en colección respectiva del objeto ViajeBus.
+    // Métodos para modificar objeto Pasajero en colección asociada al objeto respectivo.
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         if(!pasajerosRutMap.containsKey(rutPasajero))
             return false;
@@ -156,8 +152,7 @@ public class ViajeComercial {
     }
     
     
-    // Métodos para obtener coleccion para opcion de listar todos los Pasajeros de viaje bus y según filtrado.
-
+    // Métodos para obtener coleccion para opcion de listar todos los Pasajeros de viaje bus y listar según filtro.
     public ArrayList<Pasajero> obtenerListaPasajeros() {
         
         ArrayList<Pasajero> listaPasajeros = new ArrayList<>();

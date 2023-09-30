@@ -121,6 +121,11 @@ public class Opcion7ModificarRutJframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+
+
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Modificar Rut", se almacenan los textos 
+    ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
+    se pregunta si resulta modificar el rut del pasajero desde la clase Empresa.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String codigoViaje = jTextField1.getText();
@@ -131,16 +136,11 @@ public class Opcion7ModificarRutJframe extends javax.swing.JFrame {
             jLabel5.setText("Rellene los campos faltantes");
             return;
         }
-        
-        /*
-        try {
-            empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero);
-            jLabel5.setText("Rut modificado");
-        } catch(PasajeroNoExisteException e) {
-            jLabel5.setText("Rut no modificado");
-        } */
-            
-            
+
+        if(empresa.modificarRutPasajero(codigoViaje, nuevoRutPasajero, rutPasajero))
+            jLabel5.setText("Tipo modificado");
+        else
+            jLabel5.setText("Tipo no modificado");
     }                                        
 
     /**

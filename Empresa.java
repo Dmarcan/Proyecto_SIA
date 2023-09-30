@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+// La clase Empresa epresenta la plantilla para el objeto que contendrá la colección de primer nivel que almacena 
+// los objetos tipo ViajeBus.
 public class Empresa {
     
     
@@ -19,7 +21,6 @@ public class Empresa {
     }
 
     // Getters
-    
     public int getCantBuses()
     {
         return viajesCodigoMap.size();
@@ -32,9 +33,7 @@ public class Empresa {
         return viajesCodigoMap.get(codigoViaje);
     }
 
-    
-    // Métodos para agregar y eliminar objetos ViajeBus en su colección respectiva del objeto Empresa.
-
+    // Métodos para Agregar y Eliminar objetos ViajeBus de la colección asociada al objeto Empresa respectivo.
     public void agregarViajeBus(ViajeBus viajeBus) throws ViajeBusExisteException
     {
         String codigoViaje = viajeBus.getCodigo();
@@ -52,10 +51,9 @@ public class Empresa {
                
     }
 
-    // Métodos para agregar y eliminar objetos Pasajero en su colección respectiva del objeto ViajeBus.
-
+    // Métodos para Agregar y Eliminar objetos Pasajero de la colección asociada al objeto ViajeBus respectivo.
     public void agregarPasajero(String codigo, Pasajero pasajero) throws ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException, ViajeBusNoExisteException, PasajeroExisteException {
-        if(!viajesCodigoMap.containsKey(codigo)) // Si no existe el viaje de bus
+        if (!viajesCodigoMap.containsKey(codigo))
             throw new ViajeBusNoExisteException();
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(codigo);
@@ -67,58 +65,55 @@ public class Empresa {
     }
 
     public Pasajero eliminarPasajero(String codigoViajeBus, String rutPersona) throws ViajeBusNoExisteException, PasajeroNoExisteException {
-        if(!viajesCodigoMap.containsKey(codigoViajeBus))
+        if (!viajesCodigoMap.containsKey(codigoViajeBus))
             throw new ViajeBusNoExisteException();
         
         ViajeBus viajeBus = viajesCodigoMap.get(codigoViajeBus);
         Pasajero pasajeroEliminado = viajeBus.eliminarPasajero(rutPersona);
         
-        if(pasajeroEliminado == null)
+        if (pasajeroEliminado == null)
             throw new PasajeroNoExisteException();
         return pasajeroEliminado;
     }
 
 
-    // Métodos para funcionalidades "Modificar Pasajero" en objetos Pasajero en su colección respectiva del objeto ViajeBus.
-    
+    // Método para Modificar objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.
     public boolean modificarNombrePasajero(String numeroViaje, String nombrePasajero, String rutPasajero) {
-        if(!viajesCodigoMap.containsKey(numeroViaje))
+        if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if(viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero))
+        if (viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero))
             return true;
         return false;
     }
     
     public boolean modificarTipoPasajero(String numeroViaje, String tipoPasajero, String rutPasajero) {
-        if(!viajesCodigoMap.containsKey(numeroViaje))
+        if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if(viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null)
+        if (viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null)
             return true;
         return false;
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
     public boolean modificarRutPasajero(String numeroViaje, String rutPasajeroN, String rutPasajeroA) throws ViajeBusNoExisteException, PasajeroExisteException, PasajeroNoExisteException, ViajeBusAsientoOcupadoException, ViajeBusAsientoFueraRangoException{
-        if(!viajesCodigoMap.containsKey(numeroViaje))
+        if (!viajesCodigoMap.containsKey(numeroViaje))
             return false;
         
-        Pasajero pasajeroAux = eliminarPasajero(numeroViaje,rutPasajeroA);
-        if(pasajeroAux == null)
+        Pasajero pasajeroAux = eliminarPasajero(numeroViaje, rutPasajeroA);
+        if (pasajeroAux == null)
             return false;
         
-        Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(),rutPasajeroN,pasajeroAux.getTipo(),pasajeroAux.getNroAsiento(),numeroViaje);
+        Pasajero pasajero = new Pasajero(pasajeroAux.getNombrePasajero(), rutPasajeroN, pasajeroAux.getTipo(), pasajeroAux.getNroAsiento(), numeroViaje);
         
-        agregarPasajero(numeroViaje,pasajero);
-            return true;
-        //return false;
-       
+        agregarPasajero(numeroViaje, pasajero);
+        return true;
     }
     
-    // Método para funcionalidad "Exportar Reporte" en objetos Pasajero en su colección respectiva del objeto ViajeBus.
+    // Método para funcionalidad "Exportar Reporte" en objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.
     public void exportarReporte(String csv1)
     {
         try (FileWriter fileWriter1 = new FileWriter(csv1)) {

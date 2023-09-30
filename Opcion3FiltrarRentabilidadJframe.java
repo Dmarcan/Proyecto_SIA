@@ -113,6 +113,12 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+     /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Filtrar Viajes de Bus", se almacena el texto
+    ingresado en el campo de entrada de rentabilidad del bus en una variable local, y verifica si el campo está vacío. 
+    Si no lo está, se intentan listar todos los objetos ViaeBus de la  colección de objetos ViajeBus asociada al objeto 
+    Empresa respectivo, que coincidan con tener una rentabilidad menor a la señalada por el usuario, mediante el uso 
+    de una excepción.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here
         String rentabilidadStr = this.jTextField1.getText();

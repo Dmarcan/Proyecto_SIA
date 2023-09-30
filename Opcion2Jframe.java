@@ -113,6 +113,10 @@ public class Opcion2Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                                 
 
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Eliminar ViajeBus", se almacena el texto
+    ingresado en el campo de entrada de código de viaje de bus en una variable local, y verifica si el campo está vacío. 
+    Si no lo está, se intenta eliminar el objeto de la colección de objetos ViajeBus asociada al objeto Empresa respectivo mediante 
+    el uso de una excepción.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();

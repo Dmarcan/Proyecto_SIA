@@ -1,3 +1,4 @@
+// La clase ViajeBus corresponde a la plantilla para los objetos almacenados en la colección de primer nivel de este programa.
 public class ViajeBus extends ViajeComercial{
     private int tarifaGeneral;
     private int tarifaTerceraEdad;
@@ -7,6 +8,7 @@ public class ViajeBus extends ViajeComercial{
     private double gananciaTotal;
     private double rentabilidad;
 
+    // Constructor de la clase ViajeBus, inicializa algunos de los atributos de la clase con parámetros formales y otros los inicializa en 0.
     public ViajeBus(String nombreChofer, String codigoViaje, String matricula, String lugarInicio,
                     String lugarLlegada, String horaInicio, String horaLlegada,
                     int tarifaGeneral, int tarifaTerceraEdad, int tarifaEstudiante,
@@ -41,7 +43,8 @@ public class ViajeBus extends ViajeComercial{
     {
         this.costoTotal = costoTotal;
     }
-    
+
+    // Al actualizarse la ganancia, debe actualizarse la rentabilidad.
     public void setGananciaTotal(int gananciaTotal) {
         this.gananciaTotal = gananciaTotal;
         actualizarRentabilidad();
@@ -83,7 +86,7 @@ public class ViajeBus extends ViajeComercial{
         return rentabilidad;
     }
 
-    // Métodos para modificar objeto Pasajero en colección respectiva del objeto ViajeBus.
+    // Métodos para modificar objeto Pasajero en colección asociada al objeto ViajeBus respectivo.
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         return super.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
@@ -100,7 +103,7 @@ public class ViajeBus extends ViajeComercial{
         return null;
     }
 
-    // Métodos para Agregar y Eliminar objetos Pasajero en su colección respectiva del objeto ViajeBus.
+    // Métodos para Agregar y Eliminar objetos Pasajero de la colección del objeto ViajeBus respectivo.
     public void agregarPasajero(Pasajero pasajero) throws ViajeBusAsientoOcupadoException, PasajeroExisteException {
             super.agregarPasajero(pasajero);  
         actualizarGanancia(pasajero.getTipo(), "Agregar");
@@ -115,10 +118,13 @@ public class ViajeBus extends ViajeComercial{
     }
     
     // Funcionalidades Propias asociadas al negocio del bus.
-    /*
-    PALABRAS CLAVES    
-    accion:"agregar","eliminar"
-    */
+    
+    //    PALABRAS CLAVE
+    //Acción: "agregar","eliminar".
+
+    /*El método actualizarGanancia es propio del contexto del tema elegido para el proyecto, consiste en el aumento
+    o la disminución de las ganancias del viaje de bus respecto de la compra o anulación de un pasaje, y por ende, 
+    el agrega o eliminar un pasajero.*/
     public void actualizarGanancia(String tipoPersona, String accion)
     {
          switch (tipoPersona) 
@@ -146,6 +152,17 @@ public class ViajeBus extends ViajeComercial{
         return;
     }
     
+    /*El método actualizarRentabilidad es propio del contexto del tema elegido para el proyecto, consiste en el cálculo
+    por definición de rentabilidad, usando la ganancia total (que puede variar) y el costo total (valor fijo), para luego
+    dejar la rentabilidad expresada como porcentaje.
+    Algunos conceptos relacionados:
+    Rentabilidad negativa: Significa que el viaje de bus ha provocado una pérdida en lugar de una ganancia monetaria
+    para la empresa.
+    Rentabilidad entre 0 a 50%: Puede considerarse que la rentabilidad ha sido nula, baja o moderada, dependiendo 
+    del valor exacto.
+    Rentabilidad entre 50 a 100%: Esto representa un nivel de rentabilidad moderado a razonablemente bueno.
+    Rentabilidad mayor a 100%: Esto indica un nivel de rentabilidad bastante bueno, donde las ganancias 
+    superan significativamente los costos o la inversión inicial.*/
     public void actualizarRentabilidad()
     {
         rentabilidad = ((gananciaTotal - costoTotal) / costoTotal) * 100;

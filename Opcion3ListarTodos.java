@@ -6,10 +6,7 @@
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author cabel
- */
+/* Lo que hace el siguiente método es mostrar por pantalla una tabla con los datos de todos los viajes de bus, es decir, todos los atributos asociados a estos objetos, de forma ordenada y estructurada.*/
 public class Opcion3ListarTodos extends javax.swing.JFrame {
 
     /**

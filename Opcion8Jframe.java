@@ -115,6 +115,10 @@ public class Opcion8Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Exportar", se almacena el texto
+    ingresado en el campo de entrada de nombre de archivo en una variable locale y verifica si el campo está vacío.
+    Si no lo está, se genera y se exporta el reporte en archivo .txt.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String csv = this.jTextField1.getText();

@@ -143,6 +143,10 @@ public class Opcion7ModificarTipoPasajeroJframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Modificar Rut", se almacenan los textos 
+    ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
+    se pregunta si resulta modificar el rut del pasajero desde la clase Empresa*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String codigoViaje = jTextField1.getText();

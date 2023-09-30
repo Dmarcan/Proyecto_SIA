@@ -168,6 +168,8 @@ public class Opcion4Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                      
 
+
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String codigoViaje = textField1.getText();
@@ -189,6 +191,11 @@ public class Opcion4Jframe extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
+     /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Agregar Pasajero", se almacenan los textos 
+    ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
+    convierte las variables de texto que simbolizan datos cuantitativos en variables de tipo int. Luego, se intenta agregar a 
+    la colección de objetos Pasajero asociada al objeto ViajeBus respectivo mediante el uso de una excepción.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String codigoViaje = textField1.getText();

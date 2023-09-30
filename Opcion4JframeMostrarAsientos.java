@@ -1,14 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author David
- */
 public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
 
     /**
@@ -23,6 +14,7 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
         
     }
 
+    /*Comentario pendiente*/
     public void initTable(ViajeBus bus) {
         
         modelo.addColumn("");
@@ -67,7 +59,6 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
             
             if (cont == 4)
             {
-                
                 if (!bus.estaDisponible(asiento)) a[4] = "X";
                 else a[4] = asiento;
                 modelo.addRow(a);

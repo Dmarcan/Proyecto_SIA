@@ -157,12 +157,17 @@ public class Opcion5Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Opcion3Jframe mostrarBuses = new Opcion3Jframe(empresa);
         mostrarBuses.setVisible(true);
     }
 
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Eliminar Pasajero", se almacenan los textos 
+    ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
+    se intenta eliminar el pasajero de la colección de objetos Pasajero asociada al objeto ViajeBus respectivo mediante el 
+    uso de una excepción.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         String codigoViajeBus = jTextField1.getText();

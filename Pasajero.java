@@ -1,14 +1,12 @@
-/**
- *
- * @author cabel
- */
+// La clase Pasajero corresponde a la plantilla para los objetos almacenados en la colección de segundo nivel de este programa.
 public class Pasajero{
     private String nombrePasajero;
     private String rutPasajero;
     private String tipoPasajero;
     private int numeroAsiento;
     private String codigoViaje;
-    
+
+    // Constructor de la clase Pasajero, inicializa los atributos de la clase con parámetros formales.
     public Pasajero(String nombrePasajero, String rutPasajero, String tipoPasajero,int numeroAsiento, String codigoViaje) {
         this.nombrePasajero = nombrePasajero;
         this.rutPasajero = rutPasajero;
@@ -18,7 +16,6 @@ public class Pasajero{
     }
 
     // Setters
-
     public void setNombrePasajero(String nombrePasajero){
         this.nombrePasajero = nombrePasajero;
     }
@@ -41,7 +38,6 @@ public class Pasajero{
 
 
     // Getters
-    
     public String getNombrePasajero(){
         return nombrePasajero;
     }
@@ -61,6 +57,4 @@ public class Pasajero{
     public String getCodigoViajePasajero(){
         return codigoViaje;
     }
-
-    
 }

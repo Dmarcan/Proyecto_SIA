@@ -4,15 +4,7 @@
  */
 // package entrega_final.entrega_final;
 
-/**
- *
- * @author cabel
- */
 public class Opcion7ModificarNombreJframe extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Opcion7ModificarNombreJframe
-     */
     Empresa empresa;
     
     public Opcion7ModificarNombreJframe(Empresa empresa) {
@@ -149,20 +141,22 @@ public class Opcion7ModificarNombreJframe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Modificar Nombre", se almacenan los textos 
+    ingresados en los campos de entrada de texto en variables locales, y verifica si hay algún campo vacío. Si no lo hay,
+    se pregunta si resulta modificar el nombre del pasajero desde la clase Empresa.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String codigoViaje = jTextField1.getText();
         String rutPasajero = jTextField3.getText();
         String nuevoNombre = jTextField2.getText();
 
-
         if (codigoViaje.isEmpty() || rutPasajero.isEmpty() || nuevoNombre.isEmpty()){
             jLabel5.setText("Rellene los campos faltantes");
             return;
         }
-
         
-        if(empresa.modificarNombrePasajero(codigoViaje, nuevoNombre, rutPasajero))
+        if (empresa.modificarNombrePasajero(codigoViaje, nuevoNombre, rutPasajero))
             jLabel5.setText("Nombre modificado");
         else
             jLabel5.setText("Nombre no modificado");

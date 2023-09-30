@@ -178,12 +178,20 @@ public class Opcion6Jframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Mostrar Viajes Buses", emerge la ventana 
+    que da a elegir entre las opciones de listar viajes de buses con o sin filtro, con la finalidad de mostrarle al usuario los
+    códigos de viaje.*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Opcion3Jframe mostrarBuses = new Opcion3Jframe(empresa);
         mostrarBuses.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
+    /* Lo que hace el siguiente método consiste en que, al presionar el botón de "Mostrar", se almacena el texto
+    ingresado en el campo de entrada de código de viaje de bus en una variable local, y verifica si el campo está vacío. 
+    Si no lo está, se intentan listar todos los pasajeros de la colección de objetos Pasajero asociada al objeto ViajeBus
+    respectivo, encontrado por código de viaje, mediante el uso de una excepción.*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String codigo = jTextField1.getText();
@@ -192,7 +200,6 @@ public class Opcion6Jframe extends javax.swing.JFrame {
             jLabel7.setText("Rellene el campo del código de viaje");
             return;
         }
-
         
         ViajeBus bus = empresa.getViajeBus(codigo);
         if (bus == null){
