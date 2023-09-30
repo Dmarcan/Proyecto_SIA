@@ -127,18 +127,15 @@ public class ViajeBus extends ViajeComercial{
             case "Estudiante":
                 if (accion.equals("Agregar")) gananciaTotal += tarifaEstudiante;
                 else gananciaTotal -= tarifaEstudiante;
-                //System.out.println("Estudiante");
                 break;
             case "Tercera Edad":
                  
                 if (accion.equals("Agregar")) gananciaTotal += tarifaTerceraEdad;
                 else gananciaTotal -= tarifaTerceraEdad;
-                //System.out.println("Tercera Edad");   
                 break;
             case "General":
                 if (accion.equals("Agregar")) gananciaTotal += tarifaGeneral;
                 else gananciaTotal -= tarifaGeneral;
-                //System.out.println("General");
                 break;
             default:
                 return;

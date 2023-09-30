@@ -138,7 +138,7 @@ public class ViajeComercial {
     public boolean modificarNombrePasajero(String nombrePasajero, String rutPasajero){
         if(!pasajerosRutMap.containsKey(rutPasajero))
             return false;
-        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        Pasajero pasajero = pasajerosRutMap.get(rutPasajero);
         pasajero.setNombrePasajero(nombrePasajero);
         return true;
     }
@@ -146,16 +146,25 @@ public class ViajeComercial {
     public String modificarTipoPasajero(String tipoPasajero, String rutPasajero) {
         if(!pasajerosRutMap.containsKey(rutPasajero))
             return null;
-        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        
+        Pasajero pasajero = pasajerosRutMap.get(rutPasajero);
+        String antiguoTipo = pasajero.getTipo();
         pasajero.setTipoPasajero(tipoPasajero);
-        return pasajero.getTipo();
+        return antiguoTipo;
     }
     
-    public boolean modificarRutPasajero(String rutPasajero, String nuevoRutPasajero){
+    public boolean modificarRutPasajero(String rutPasajero, String nuevoRutPasajero){   
         if (!pasajerosRutMap.containsKey(rutPasajero))
             return false;
-        Pasajero pasajero = (Pasajero) pasajerosRutMap.get(rutPasajero);
+        
+        if (pasajerosRutMap.containsKey(nuevoRutPasajero))
+            return false;
+        
+        
+        Pasajero pasajero = pasajerosRutMap.remove(rutPasajero);
         pasajero.setRutPasajero(nuevoRutPasajero);
+        pasajerosRutMap.put(nuevoRutPasajero,pasajero);
+        
         return true;
     }
     
@@ -186,6 +195,3 @@ public class ViajeComercial {
     }
 
 }
-
-    
-

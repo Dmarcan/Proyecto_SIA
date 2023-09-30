@@ -78,9 +78,7 @@ public class Empresa {
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if (viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero))
-            return true;
-        return false;
+        return viajeBus.modificarNombrePasajero(nombrePasajero,rutPasajero);
     }
     
     public boolean modificarTipoPasajero(String numeroViaje, String tipoPasajero, String rutPasajero) {
@@ -88,9 +86,7 @@ public class Empresa {
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if (viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null)
-            return true;
-        return false;
+        return viajeBus.modificarTipoPasajero(tipoPasajero,rutPasajero) != null;
     }
     
     // rutPasajero -> A: antiguo : N: nuevo
@@ -99,9 +95,7 @@ public class Empresa {
             return false;
         
         ViajeBus viajeBus = (ViajeBus) viajesCodigoMap.get(numeroViaje);
-        if (viajeBus.modificarRutPasajero(rutPasajeroA, rutPasajeroN))
-            return true;
-        return false;
+        return viajeBus.modificarRutPasajero(rutPasajeroA, rutPasajeroN);
     }
     
     // Método para funcionalidad "Exportar Reporte" en objeto Pasajero de la colección asociada al objeto ViajeBus respectivo.
@@ -188,7 +182,6 @@ public class Empresa {
         Enumeration<ViajeBus> keys = viajesCodigoMap.elements();
         while (keys.hasMoreElements()) {
             ViajeBus viajeBus = keys.nextElement();
-            System.out.println("fasdgf");
             if(viajeBus.getRentabilidad() <= rentabilidad)
                 listaViajesBuses.add(viajeBus);
         }
