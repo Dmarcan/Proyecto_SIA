@@ -1,65 +1,65 @@
 nombreChofer,codigoViaje,matricula,lugarInicio,lugarLlegada,horaInicio,horaLlegada,tarifaGeneral,tarifaTerceraEdad,tarifaEstudiante,totalAsientos,costoViaje
-Ana S√°nchez,29350,JJKL-123,Puerto Montt,Santiago,07:30,20:00,40000,32000,28000,50,2000000.0
-Luis Mart√≠nez,29382,POIU-567,Santiago,Melipilla,08:00,10:15,2600,1500,1300,30,78000.0
-Pedro Ram√≠rez,29381,QWER-234,Copiap√≥,Calama,07:45,12:15,3800,2200,1900,40,152000.0
+Ana S·nchez,29350,JJKL-123,Puerto Montt,Santiago,07:30,20:00,40000,32000,28000,50,2000000.0
+Luis MartÌnez,29382,POIU-567,Santiago,Melipilla,08:00,10:15,2600,1500,1300,30,78000.0
+Pedro RamÌrez,29381,QWER-234,CopiapÛ,Calama,07:45,12:15,3800,2200,1900,40,152000.0
 Natalia Soto,29380,ASDF-789,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
-David Mart√≠nez,31975,KFNM-202,Rancagua,Valpara√≠so,20:00,22:30,10000,9000,9200,20,100000.0
+David MartÌnez,31975,KFNM-202,Rancagua,ValparaÌso,20:00,22:30,10000,9000,9200,20,100000.0
 Diego Torres,29349,XYZ-789,Punta Arenas,Torres del Paine,06:00,15:00,30000,25000,25000,35,1050000.0
-Mar√≠a R.,29348,TYSF-9876,Cali,Medell√≠n,09:15,12:30,2800,1600,1400,30,11000.0
+MarÌa R.,29348,TYSF-9876,Cali,MedellÌn,09:15,12:30,2800,1600,1400,30,11000.0
 Luis M.,29347,ERXG-5621,Santiago,Rancagua,08:30,10:45,3000,1800,1500,25,12000.0
-Laura P√©rez,29379,ZXCV-123,Valdivia,Osorno,08:30,11:00,3200,1800,1600,35,112000.0
+Laura PÈrez,29379,ZXCV-123,Valdivia,Osorno,08:30,11:00,3200,1800,1600,35,112000.0
 Juan Perez,29346,LPBY-17,Santiago,Atacama,08:00,16:00,20000,15000,15000,40,800000.0
-Carlos Gonz√°lez,29378,KIOL-456,Santiago,Vi√±a del Mar,09:00,11:15,3500,2200,2000,40,140000.0
-Patricio C.,29345,OPTD3472,Quillota,Valpara√≠so,13:40,15:45,3500,2000,1850,20,15000.0
-Daniela P√©rez,29377,LPOI-890,Talcahuano,Concepci√≥n,10:30,11:15,2300,1400,1200,25,57500.0
-Fernando Torres,29376,POIU-567,Santiago,Valpara√≠so,08:15,09:45,2500,1500,1300,30,75000.0
-Gabriela Mart√≠nez,29375,QWER-234,Santiago,Puerto Montt,07:00,20:30,4200,2800,2500,50,210000.0
-Javier Ram√≠rez,29374,ASDF-789,Concepci√≥n,Los √Ångeles,08:45,11:00,2700,1600,1400,25,67500.0
-Romina L√≥pez,29373,ZXCV-123,Iquique,Antofagasta,10:00,12:45,3200,1800,1600,35,112000.0
-Carlos Gonz√°lez,29372,KIOL-456,Santiago,Melipilla,08:30,10:00,2600,1500,1300,30,78000.0
-Patricia Soto,29371,PLKM-789,Copiap√≥,Calama,07:30,12:00,3800,2200,1900,40,152000.0
-Eduardo P√©rez,29370,LPOI-890,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
-Marta L√≥pez,29407,KIOL-456,Copiap√≥,Calama,07:30,12:00,3800,2200,1900,40,152000.0
+Carlos Gonz·lez,29378,KIOL-456,Santiago,ViÒa del Mar,09:00,11:15,3500,2200,2000,40,140000.0
+Patricio C.,29345,OPTD3472,Quillota,ValparaÌso,13:40,15:45,3500,2000,1850,20,15000.0
+Daniela PÈrez,29377,LPOI-890,Talcahuano,ConcepciÛn,10:30,11:15,2300,1400,1200,25,57500.0
+Fernando Torres,29376,POIU-567,Santiago,ValparaÌso,08:15,09:45,2500,1500,1300,30,75000.0
+Gabriela MartÌnez,29375,QWER-234,Santiago,Puerto Montt,07:00,20:30,4200,2800,2500,50,210000.0
+Javier RamÌrez,29374,ASDF-789,ConcepciÛn,Los ¡ngeles,08:45,11:00,2700,1600,1400,25,67500.0
+Romina LÛpez,29373,ZXCV-123,Iquique,Antofagasta,10:00,12:45,3200,1800,1600,35,112000.0
+Carlos Gonz·lez,29372,KIOL-456,Santiago,Melipilla,08:30,10:00,2600,1500,1300,30,78000.0
+Patricia Soto,29371,PLKM-789,CopiapÛ,Calama,07:30,12:00,3800,2200,1900,40,152000.0
+Eduardo PÈrez,29370,LPOI-890,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
+Marta LÛpez,29407,KIOL-456,CopiapÛ,Calama,07:30,12:00,3800,2200,1900,40,152000.0
 Laura Torres,29406,POIU-567,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
-Javier Mart√≠nez,29405,QWER-234,Santiago,Vi√±a del Mar,08:00,10:15,3500,2200,2000,40,140000.0
+Javier MartÌnez,29405,QWER-234,Santiago,ViÒa del Mar,08:00,10:15,3500,2200,2000,40,140000.0
 Valeria Soto,29404,ASDF-789,Valdivia,Osorno,11:30,14:00,3200,1900,1700,35,112000.0
-Camila Gonz√°lez,29403,ZXCV-123,Santiago,Rancagua,07:45,09:30,2800,1700,1500,30,84000.0
-Juan Rodr√≠guez,29402,KIOL-456,Concepci√≥n,Talcahuano,12:00,14:30,3200,2000,1800,35,112000.0
+Camila Gonz·lez,29403,ZXCV-123,Santiago,Rancagua,07:45,09:30,2800,1700,1500,30,84000.0
+Juan RodrÌguez,29402,KIOL-456,ConcepciÛn,Talcahuano,12:00,14:30,3200,2000,1800,35,112000.0
 Carla Soto,29401,LPOI-890,Iquique,Antofagasta,09:30,11:45,3400,1900,1700,30,102000.0
-Laura P√©rez,29400,POIU-567,Santiago,Melipilla,08:00,10:15,2600,1500,1300,30,78000.0
-Andrea Ram√≠rez,29369,POIU-567,Santiago,Vi√±a del Mar,08:00,10:15,3500,2200,2000,40,140000.0
+Laura PÈrez,29400,POIU-567,Santiago,Melipilla,08:00,10:15,2600,1500,1300,30,78000.0
+Andrea RamÌrez,29369,POIU-567,Santiago,ViÒa del Mar,08:00,10:15,3500,2200,2000,40,140000.0
 Valentina Torres,29368,QWER-234,Valdivia,Osorno,11:30,14:00,3200,1900,1700,35,112000.0
-Luis Rodr√≠guez,29367,ASDF-789,Santiago,Rancagua,07:45,09:30,2800,1700,1500,30,84000.0
-Carlos Gonz√°lez,29399,QWER-234,Copiap√≥,Calama,07:45,12:15,3800,2200,1900,40,152000.0
-Marta Gonz√°lez,29366,PLKM-456,Concepci√≥n,Talcahuano,08:15,10:30,2500,1500,1300,25,62500.0
-Daniela P√©rez,29398,ASDF-789,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
+Luis RodrÌguez,29367,ASDF-789,Santiago,Rancagua,07:45,09:30,2800,1700,1500,30,84000.0
+Carlos Gonz·lez,29399,QWER-234,CopiapÛ,Calama,07:45,12:15,3800,2200,1900,40,152000.0
+Marta Gonz·lez,29366,PLKM-456,ConcepciÛn,Talcahuano,08:15,10:30,2500,1500,1300,25,62500.0
+Daniela PÈrez,29398,ASDF-789,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
 Fernando Torres,29397,ZXCV-123,Valdivia,Osorno,08:30,11:00,3200,1800,1600,35,112000.0
-Juan P√©rez,29365,ZXCV-123,Antofagasta,Copiapo,12:00,14:30,3400,1900,1700,30,102000.0
-Gabriela Mart√≠nez,29396,KIOL-456,Santiago,Vi√±a del Mar,09:00,11:15,3500,2200,2000,40,140000.0
-Camila Silva,29364,KIOL-098,Valpara√≠so,Santiago,09:30,11:45,3200,2000,1800,35,112000.0
-Javier Ram√≠rez,29395,LPOI-890,Talcahuano,Concepci√≥n,10:30,11:15,2300,1400,1200,25,57500.0
-Valeria Gonz√°lez,29363,PLKM-789,Arica,Iquique,13:00,15:00,2800,1600,1400,25,70000.0
-Romina L√≥pez,29394,POIU-567,Santiago,Valpara√≠so,08:15,09:45,2500,1500,1300,30,75000.0
-Pablo Mart√≠nez,29362,LKJH-098,Santiago,Concepci√≥n,08:15,14:00,4000,2500,2300,40,160000.0
-Carlos Gonz√°lez,29393,QWER-234,Santiago,Puerto Montt,07:00,20:30,4200,2800,2500,50,210000.0
-Natalia Ram√≠rez,29361,ASDF-789,Valdivia,Osorno,11:30,14:15,3200,1900,1700,35,112000.0
-Patricia Soto,29392,ASDF-789,Concepci√≥n,Los √Ångeles,08:45,11:00,2700,1600,1400,25,67500.0
-Fernando L√≥pez,29360,QWER-345,Santiago,Rengo,08:45,10:30,2900,1700,1500,30,87000.0
-Eduardo P√©rez,29391,ZXCV-123,Iquique,Antofagasta,10:00,12:45,3200,1800,1600,35,112000.0
-Andrea Ram√≠rez,29390,KIOL-456,Santiago,Melipilla,08:30,10:00,2600,1500,1300,30,78000.0
+Juan PÈrez,29365,ZXCV-123,Antofagasta,Copiapo,12:00,14:30,3400,1900,1700,30,102000.0
+Gabriela MartÌnez,29396,KIOL-456,Santiago,ViÒa del Mar,09:00,11:15,3500,2200,2000,40,140000.0
+Camila Silva,29364,KIOL-098,ValparaÌso,Santiago,09:30,11:45,3200,2000,1800,35,112000.0
+Javier RamÌrez,29395,LPOI-890,Talcahuano,ConcepciÛn,10:30,11:15,2300,1400,1200,25,57500.0
+Valeria Gonz·lez,29363,PLKM-789,Arica,Iquique,13:00,15:00,2800,1600,1400,25,70000.0
+Romina LÛpez,29394,POIU-567,Santiago,ValparaÌso,08:15,09:45,2500,1500,1300,30,75000.0
+Pablo MartÌnez,29362,LKJH-098,Santiago,ConcepciÛn,08:15,14:00,4000,2500,2300,40,160000.0
+Carlos Gonz·lez,29393,QWER-234,Santiago,Puerto Montt,07:00,20:30,4200,2800,2500,50,210000.0
+Natalia RamÌrez,29361,ASDF-789,Valdivia,Osorno,11:30,14:15,3200,1900,1700,35,112000.0
+Patricia Soto,29392,ASDF-789,ConcepciÛn,Los ¡ngeles,08:45,11:00,2700,1600,1400,25,67500.0
+Fernando LÛpez,29360,QWER-345,Santiago,Rengo,08:45,10:30,2900,1700,1500,30,87000.0
+Eduardo PÈrez,29391,ZXCV-123,Iquique,Antofagasta,10:00,12:45,3200,1800,1600,35,112000.0
+Andrea RamÌrez,29390,KIOL-456,Santiago,Melipilla,08:30,10:00,2600,1500,1300,30,78000.0
 Rodrigo Silva,29359,POIU-234,Puerto Varas,Osorno,14:00,16:30,2800,1700,1500,25,70000.0
-Isabel M√©ndez,29358,TYUI-890,Talca,Chill√°n,12:15,15:00,3200,2000,1800,30,96000.0
-Valentina Torres,29389,LPOI-890,Copiap√≥,Calama,07:30,12:00,3800,2200,1900,40,152000.0
-Daniel Torres,29357,ZXCV-567,Concepci√≥n,Talcahuano,08:00,09:15,2500,1500,1300,20,50000.0
-Luis Rodr√≠guez,29388,POIU-567,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
-Laura P√©rez,29356,ASDF-789,Iquique,Arica,09:45,11:30,2800,1600,1400,35,98000.0
-Marta Gonz√°lez,29387,QWER-234,Santiago,Vi√±a del Mar,08:00,10:15,3500,2200,2000,40,140000.0
-Andr√©s Ram√≠rez,29355,MNOP-654,Valpara√≠so,San Antonio,11:45,13:30,3200,1800,1600,25,80000.0
-Juan P√©rez,29386,ASDF-789,Valdivia,Osorno,11:30,14:00,3200,1900,1700,35,112000.0
-Carolina Fern√°ndez,29354,LPOI-321,Santiago,Temuco,10:30,16:45,4500,3000,2600,40,1800000.0
+Isabel MÈndez,29358,TYUI-890,Talca,Chill·n,12:15,15:00,3200,2000,1800,30,96000.0
+Valentina Torres,29389,LPOI-890,CopiapÛ,Calama,07:30,12:00,3800,2200,1900,40,152000.0
+Daniel Torres,29357,ZXCV-567,ConcepciÛn,Talcahuano,08:00,09:15,2500,1500,1300,20,50000.0
+Luis RodrÌguez,29388,POIU-567,La Serena,Coquimbo,09:15,10:30,2800,1600,1400,25,70000.0
+Laura PÈrez,29356,ASDF-789,Iquique,Arica,09:45,11:30,2800,1600,1400,35,98000.0
+Marta Gonz·lez,29387,QWER-234,Santiago,ViÒa del Mar,08:00,10:15,3500,2200,2000,40,140000.0
+AndrÈs RamÌrez,29355,MNOP-654,ValparaÌso,San Antonio,11:45,13:30,3200,1800,1600,25,80000.0
+Juan PÈrez,29386,ASDF-789,Valdivia,Osorno,11:30,14:00,3200,1900,1700,35,112000.0
+Carolina Fern·ndez,29354,LPOI-321,Santiago,Temuco,10:30,16:45,4500,3000,2600,40,1800000.0
 Camila Soto,29385,ZXCV-123,Santiago,Rancagua,07:45,09:30,2800,1700,1500,30,84000.0
-Mart√≠n Gonz√°lez,29353,QWER-987,La Serena,Antofagasta,07:00,18:00,5500,3800,3200,60,3300000.0
-Javier Rodr√≠guez,29384,KIOL-456,Concepci√≥n,Talcahuano,12:00,14:30,3200,2000,1800,35,112000.0
-Pedro L√≥pez,29352,KIOL-456,Valdivia,Concepci√≥n,09:00,14:30,6000,3500,3000,45,2700000.0
+MartÌn Gonz·lez,29353,QWER-987,La Serena,Antofagasta,07:00,18:00,5500,3800,3200,60,3300000.0
+Javier RodrÌguez,29384,KIOL-456,ConcepciÛn,Talcahuano,12:00,14:30,3200,2000,1800,35,112000.0
+Pedro LÛpez,29352,KIOL-456,Valdivia,ConcepciÛn,09:00,14:30,6000,3500,3000,45,2700000.0
 Valeria Torres,29383,LPOI-890,Iquique,Antofagasta,09:30,11:45,3400,1900,1700,30,102000.0
-Carla Rodr√≠guez,29351,PLKM-789,Santiago,Vi√±a del Mar,08:15,10:30,3500,2200,2000,30,105000.0
+Carla RodrÌguez,29351,PLKM-789,Santiago,ViÒa del Mar,08:15,10:30,3500,2200,2000,30,105000.0

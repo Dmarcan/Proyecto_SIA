@@ -137,7 +137,10 @@ public class Opcion3FiltrarRentabilidadJframe extends javax.swing.JFrame {
     //verificar que el usuario solo puedo ingresar numeros
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
-        if(c<'0'|| c>'9') evt.consume();
+        // Permitir números del 0 al 9 y el signo negativo "-"
+        if ((c < '0' || c > '9') && c != '-') {
+            evt.consume();
+        }
     }
     
     public static void main(String args[]) {
