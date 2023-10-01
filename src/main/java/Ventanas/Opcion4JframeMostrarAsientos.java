@@ -17,7 +17,6 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
     /*Esta función se encarga de inicializar una tabla gráfica que representa los asientos del bus.
     Los asientos ocupados se marcan con "X" y los disponibles con sus números correspondientes.
     La disposición de los asientos en la tabla está controlada por las variables 'cont' y 'asiento'*/
-    
     public void initTable(ViajeBus bus) {
         
         modelo.addColumn("");
@@ -40,24 +39,48 @@ public class Opcion4JframeMostrarAsientos extends javax.swing.JFrame {
             {
                 if (!bus.estaDisponible(asiento)) a[0] = "X";
                 else a[0] = asiento;
+                
+                if (asiento == bus.getTotalAsientos()){
+                    a[1] = "";
+                    a[2] = "";
+                    a[3] = "";
+                    a[4] = "";
+                    modelo.addRow(a);
+                }
             }
             
             if (cont == 1)
             {
                if (!bus.estaDisponible(asiento)) a[1] = "X";
                else a[1] = asiento;
+               if (asiento == bus.getTotalAsientos()){
+                    a[2] = "";
+                    a[3] = "";
+                    a[4] = "";
+                    modelo.addRow(a);
+                }
             }
             
             if (cont == 2)
             {
                 asiento--;
                 cantidadAsientos++;
+                if (asiento == bus.getTotalAsientos()){
+                    a[3] = "";
+                    a[4] = "";
+                    modelo.addRow(a);
+                }
             }
             
             if (cont == 3)
             {
                 if (!bus.estaDisponible(asiento)) a[3] = "X";
                 else a[3] = asiento;
+                if (asiento == bus.getTotalAsientos()){
+                    a[3] = "";
+                    a[4] = "";
+                    modelo.addRow(a);
+                }
             }
             
             if (cont == 4)

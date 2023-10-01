@@ -1,7 +1,7 @@
 nombrePasajero,rutPasajero,tipoPasajero,numeroAsiento,codigoViaje
 Juan,90123256-7,Estudiante,16,31975
 Sara,98765432-1,Tercera Edad,11,31975
-Claudio Cabello,20323198-2,Estudiante,2,31975
+Claudio,20323198-2,Estudiante,2,31975
 Sofía,01234567-8,General,6,31975
 Ricardo,12345676-9,General,18,31975
 María,23456289-0,General,19,31975
